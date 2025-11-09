@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodMusic - your best music app</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎵 TodMusic</h1>
+            <p class="subtitle">Пошук музики</p>
+        </header>
+
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="Введіть назву треку або виконавця..."
+                autocomplete="off"
+            >
+            <button id="searchBtn" class="search-btn">Шукати</button>
+        </div>
+
+        <div id="loadingSpinner" class="loading hidden">
+            <p>Завантаження треків...</p>
+        </div>
+
+        <div id="error" class="error hidden"></div>
+
+        <div class="tracks-section">
+            <div id="tracksList" class="tracks-list">
+                <p class="placeholder">Введіть запит для пошуку треків</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
+
