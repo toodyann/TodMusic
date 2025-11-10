@@ -14,26 +14,51 @@
             <p class="subtitle">Пошук музики</p>
         </header>
 
-        <div class="search-section">
-            <input 
-                type="text" 
-                id="searchInput" 
-                class="search-input" 
-                placeholder="Введіть назву треку або виконавця..."
-                autocomplete="off"
-            >
-            <button id="searchBtn" class="search-btn">Пошук</button>
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="search">Пошук</button>
+            <button class="tab-btn" data-tab="playlists">Плейлисти</button>
         </div>
 
-        <div id="loadingSpinner" class="loading hidden">
-            <p>Завантаження треків...</p>
-        </div>
+        <div id="search-tab" class="tab-content active">
+            <div class="search-section">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Введіть назву треку або виконавця..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn" class="search-btn">Пошук</button>
+            </div>
+
+            <div id="loadingSpinner" class="loading hidden">
+                <p>Завантаження треків...</p>
+            </div>
 
         <div id="error" class="error hidden"></div>
+        <div id="message" class="message hidden"></div>
 
         <div class="tracks-section">
-            <div id="tracksList" class="tracks-list">
-                <p class="placeholder">Введіть запит для пошуку треків</p>
+                <div id="tracksList" class="tracks-list">
+                    <p class="placeholder">Введіть запит для пошуку треків</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="playlists-tab" class="tab-content">
+            <div class="playlist-header">
+                <input 
+                    type="text" 
+                    id="newPlaylistName" 
+                    class="search-input" 
+                    placeholder="Назва нового плейліста..."
+                    autocomplete="off"
+                >
+                <button id="createPlaylistBtn" class="search-btn">+ Створити</button>
+            </div>
+
+            <div id="playlistsList" class="playlists-container">
+                <p class="placeholder">Немає плейлистів. Створіть перший!</p>
             </div>
         </div>
     </div>

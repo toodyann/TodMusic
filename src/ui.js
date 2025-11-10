@@ -3,6 +3,7 @@ import { formatDuration } from './utils.js';
 const tracksList = document.getElementById('tracksList');
 const loadingSpinner = document.getElementById('loadingSpinner');
 const errorDiv = document.getElementById('error');
+const messageDiv = document.getElementById('message');
 
 export const renderTracks = tracks => {
     if (!tracks || tracks.length === 0) {
@@ -19,6 +20,10 @@ export const renderTracks = tracks => {
             ? `<button class="play-btn" data-track-id="${track.id}" title="Грати">▶</button>`
             : `<span class="play-btn disabled" title="Нема попереднього перегляду">-</span>`;
         
+        const addToPlaylistBtn = track.previewUrl
+            ? `<button class="add-to-playlist-btn" data-track-id="${track.id}" title="Додати в плейліст">➕</button>`
+            : '';
+        
         return `
             <div class="track-item" data-track-id="${track.id}" data-track-url="${track.url || ''}" data-preview-url="${track.previewUrl || ''}" data-track-title="${track.title}" data-track-artist="${track.artist}" data-track-album="${track.album}" data-track-duration="${track.duration}" title="${track.title} - ${track.artist}">
                 <div class="track-header">
@@ -33,6 +38,7 @@ export const renderTracks = tracks => {
                     </div>
                     <span class="track-duration">${formatDuration(track.duration)}</span>
                     ${playButton}
+                    ${addToPlaylistBtn}
                 </div>
             </div>
         `;
@@ -58,4 +64,13 @@ export const showError = (message) => {
 
 export const hideError = () => {
     errorDiv.classList.add('hidden');
+}
+
+export const showMessage = (message) => {
+    messageDiv.textContent = message;
+    messageDiv.classList.remove('hidden');
+}
+
+export const hideMessage = () => {
+    messageDiv.classList.add('hidden');
 }
