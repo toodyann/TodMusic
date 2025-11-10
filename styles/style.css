@@ -6,7 +6,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(120deg, #c6c6c6 0%, #a5602b 50%);
+    background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
     min-height: 100vh;
     padding: 20px;
 }
@@ -45,7 +45,8 @@ body {
     font-size: 1rem;
     border: none;
     border-radius: 10px;
-    background: #fff;
+    background: #0000004d;
+    color: #fff;
     outline: none;
 }
 
@@ -59,13 +60,15 @@ body {
     font-weight: 600;
     border: none;
     border-radius: 10px;
-    background: #fff;
+    background: #efe2e2d4;
     color: #000000;
-    cursor: pointer;
+    transition: 0.15s ease;
+
 }
 
 .search-btn:hover {
     cursor: pointer;
+    background: #ffffff;
 }
 
 .loading {
@@ -95,7 +98,7 @@ body {
 }
 
 .error {
-    background: #ff6b6b;
+    background: #f50707;
     color: #fff;
     padding: 15px 20px;
     border-radius: 10px;
@@ -201,13 +204,13 @@ body {
 
 .track-duration {
     font-size: 0.85rem;
-    color: #999;
+    color: #464545;
     flex-shrink: 0;
 }
 
 .placeholder {
     text-align: center;
-    color: #ffffff96;
+    color: #ffffff61;
     padding: 40px 20px;
     font-size: 1.1rem;
 }
@@ -219,19 +222,17 @@ body {
 
 .track-audio {
     width: 100%;
-    height: 32px;
-    border-radius: 5px;
+    height: 30px;
     outline: none;
-    accent-color: #000000;
     cursor: pointer;
 }
 
 .track-audio::-webkit-media-controls-panel {
-    background-color: #f0f3ff;
+    background-color: hsla(0, 0%, 100%, 0);
 }
 
 .track-audio::-webkit-media-controls-timeline {
-    background-color: #e0e6ff;
+    background-color: #ffffff00;
 }
 
 .no-preview {
@@ -244,22 +245,6 @@ body {
     margin: 0;
 }
 
-.aliens{
-    display: flex;
-}
-.tenor-gif-embed{
-    mix-blend-mode: multiply;
-    background-color: transparent;
-    max-width: 100px;
-    max-height: 100px;
-    margin: 0;
-    padding: 0;
-    background: none;
-    position: fixed;
-    right: 10px;
-    bottom: 5100px;
-    z-index: 9999;
-}
 
 @media (max-width: 600px) {
     .header h1 {
