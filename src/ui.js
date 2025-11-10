@@ -15,15 +15,12 @@ export const renderTracks = tracks => {
             ? `<img src="${track.thumbnail}" alt="${track.title}" class="track-thumbnail" onerror="this.src='https://via.placeholder.com/60?text=Track'" />`
             : `<div class="track-thumbnail" style="background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🎵</div>`;
         
-        const audioPlayer = track.previewUrl 
-            ? `<audio controls class="track-audio">
-                <source src="${track.previewUrl}" type="audio/mpeg">
-                Твій браузер не підтримує елемент audio.
-              </audio>`
-            : '<p class="no-preview">🎵 Прев' + 'ю не доступно</p>';
+        const playButton = track.previewUrl 
+            ? `<button class="play-btn" data-track-id="${track.id}" title="Грати">▶</button>`
+            : `<span class="play-btn disabled" title="Нема попереднього перегляду">-</span>`;
         
         return `
-            <div class="track-item" data-track-id="${track.id}" data-track-url="${track.url || ''}" data-preview-url="${track.previewUrl || ''}" title="${track.title} - ${track.artist}">
+            <div class="track-item" data-track-id="${track.id}" data-track-url="${track.url || ''}" data-preview-url="${track.previewUrl || ''}" data-track-title="${track.title}" data-track-artist="${track.artist}" data-track-album="${track.album}" data-track-duration="${track.duration}" title="${track.title} - ${track.artist}">
                 <div class="track-header">
                     <span class="track-number">${index + 1}</span>
                     ${thumbnail}
@@ -35,26 +32,11 @@ export const renderTracks = tracks => {
                         </div>
                     </div>
                     <span class="track-duration">${formatDuration(track.duration)}</span>
-                </div>
-                <div class="track-player">
-                    ${audioPlayer}
+                    ${playButton}
                 </div>
             </div>
         `;
     }).join('');
-
-    document.querySelectorAll('.track-item').forEach(item => {
-        const audio = item.querySelector('.track-audio');
-        if (audio) {
-            audio.addEventListener('play', () => {
-                document.querySelectorAll('.track-audio').forEach(otherAudio => {
-                    if (otherAudio !== audio) {
-                        otherAudio.pause();
-                    }
-                });
-            });
-        }
-    });
 }
 
 export const clearTracks = () => {

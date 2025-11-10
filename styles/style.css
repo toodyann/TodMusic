@@ -116,6 +116,7 @@ body {
     border-radius: 15px;
     padding: 15px;
     min-height: 300px;
+    margin-bottom: 55px;
 }
 
 .tracks-list {
@@ -144,6 +145,34 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.play-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.play-btn:hover {
+    background: #764ba2;
+    transform: scale(1.1);
+}
+
+.play-btn.disabled {
+    background: #ccc;
+    cursor: not-allowed;
 }
 
 .track-thumbnail {
@@ -247,6 +276,100 @@ body {
 }
 
 
+/* Sticky Player */
+.sticky-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #c57a42 0%, #8d5021 100%);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    padding: 15px 20px;
+    transition: transform 0.3s ease;
+}
+
+.sticky-player.hidden {
+    transform: translateY(120%);
+    pointer-events: none;
+}
+
+.player-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+
+.player-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.player-track-title {
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+}
+
+.player-track-artist {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    max-width: 400px;
+}
+
+.player-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.player-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.player-progress {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+    accent-color: white;
+    cursor: pointer;
+}
+
+.player-time {
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0.9;
+    min-width: 80px;
+    text-align: right;
+}
+
 @media (max-width: 600px) {
     .header h1 {
         font-size: 2rem;
@@ -262,6 +385,7 @@ body {
 
     .tracks-section {
         padding: 20px;
+        padding-bottom: 80px;
     }
 
     .track-header {
@@ -284,7 +408,16 @@ body {
         font-size: 0.8rem;
     }
 
-    .track-audio {
-        height: 28px;
+    .player-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .player-controls {
+        max-width: 100%;
+    }
+
+    .player-time {
+        min-width: auto;
     }
 }

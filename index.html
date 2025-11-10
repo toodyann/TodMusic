@@ -38,6 +38,23 @@
         </div>
     </div>
 
+    <!-- Sticky Player -->
+    <div id="player" class="sticky-player hidden">
+        <div class="player-content">
+            <div class="player-info">
+                <div class="player-track-title" id="playerTitle">Не вибрано трек</div>
+                <div class="player-track-artist" id="playerArtist"></div>
+            </div>
+            <audio id="playerAudio"></audio>
+            <div class="player-controls">
+                <button id="playerPlayBtn" class="player-btn">▶</button>
+                <button id="playerPauseBtn" class="player-btn">⏸</button>
+                <input type="range" id="playerProgress" class="player-progress" min="0" max="100" value="0">
+                <span id="playerTime" class="player-time">0:00 / 0:00</span>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
 </body>
 </html>
