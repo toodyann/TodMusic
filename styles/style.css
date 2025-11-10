@@ -60,7 +60,7 @@ body {
     border: none;
     border-radius: 10px;
     background: #fff;
-    color: #667eea;
+    color: #000000;
     cursor: pointer;
 }
 
@@ -122,17 +122,18 @@ body {
 
 .track-item {
     padding: 15px 20px;
-    background: #f8f9ff;
-    border-left: 4px solid #667eea;
+    background: #ffffff73;
+    border-left: 4px solid #626262;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    transition: 0.15s ease;
 }
 
 .track-item:hover {
-    background: #f0f3ff;
+    background: #f0f3ffd2;
 }
 
 .track-header {
@@ -153,7 +154,7 @@ body {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background: #667eea;
+    background: #000;
     color: white;
     border-radius: 50%;
     text-align: center;
@@ -221,7 +222,7 @@ body {
     height: 32px;
     border-radius: 5px;
     outline: none;
-    accent-color: #667eea;
+    accent-color: #000000;
     cursor: pointer;
 }
 
