@@ -9,7 +9,11 @@ body {
     background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
     min-height: 100vh;
     padding: 20px;
-    background-color: #000000f0;
+}
+
+html{
+    background-color: #151515;
+
 }
 
 .container {
