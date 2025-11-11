@@ -23,6 +23,14 @@ html {
   }
 }
 
+a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
 .logo p{
     font-family: "Momo Signature", cursive;
   font-style: normal;
