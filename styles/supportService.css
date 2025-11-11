@@ -1,130 +1,137 @@
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
-    color: #fff;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+html {
+  background-color: #151515;
+}
+
+@keyframes fadeInUp {
+  0% {
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeInUp 1s ease-out forwards; 
   }
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .logo {
-    text-align: center;
-    font-size: 48px;
-    color: #ff7b00;
-    margin-top: 200px;
-    letter-spacing: 2px;
-    font-weight: 700;
-  }
-  .logo {
-    font-family: "Momo Signature", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #fff;
-    text-decoration: none;
-  }
-  header {
-    background: linear-gradient(120deg, #151515 0%, #361d0a 50%);
-    color: #fff;
-    padding: 0px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  header .logo {
-    font-size: 22px;
-    font-weight: bold;
-  }
-  
-  header nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 15px;
-  }
-  
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 90vh;
-    padding: 20px;
-  }
-  
-  .support-box {
-    background-color: #00000073;
-    padding: 40px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 1000px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  }
-  
-  .support-box h1 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 25px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 15px;
-  }
-  
-  input, textarea {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    font-size: 15px;
-    background-color: #ff900e12;
-    color: #fff;
-  }
-  
-  input:focus, textarea:focus {
-    outline: 2px solid #ea7413;
-  }
-  
-  button {
-    width: 100%;
-    padding: 12px;
-    background-color: #ffffffb4;;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #ffffff;
-  }
-  
-  .footer {
-    text-align: center;
-    background-color: #000;
-    color: #b3b3b3;
-    padding: 15px;
-    font-size: 14px;
-    margin-top: 0;
-  }
-  a {
-    color: #f77d21;
-    text-decoration: none;
-  }
+.logo {
+  text-align: center;
+  font-size: 48px;
+  color: #ff7b00;
+  margin-top: 200px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+.logo {
+  font-family: "Momo Signature", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+}
+header {
+  background: linear-gradient(120deg, #151515 0%, #361d0a 50%);
+  color: #fff;
+  padding: 0px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: 20px;
+}
+
+.support-box {
+  background-color: #00000073;
+  padding: 40px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.support-box h1 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  background-color: #ff900e12;
+  color: #fff;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #ea7413;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffffffb4;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ffffff;
+}
+
+.footer {
+  text-align: center;
+  background-color: #000;
+  color: #b3b3b3;
+  padding: 15px;
+  font-size: 14px;
+  margin-top: 0;
+}
+a {
+  color: #f77d21;
+  text-decoration: none;
+}

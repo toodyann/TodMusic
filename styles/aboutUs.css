@@ -1,24 +1,27 @@
 body {
   margin: 0;
-  font-family: Arial, Helvetica,"Momo Signature",cursive, sans-serif;
+  font-family: Arial, Helvetica, "Momo Signature", cursive, sans-serif;
   background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
   color: #fff;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+html {
+  background-color: #151515;
+}
 
 .logo p {
-    font-family: "Momo Signature", cursive;
-    font-style: normal;
-    font-size: 1.4rem;
-    color: #fff;
-    text-decoration: none;
+  font-family: "Momo Signature", cursive;
+  font-style: normal;
+  font-size: 1.4rem;
+  color: #fff;
+  text-decoration: none;
 }
 body.loaded {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  opacity: 1;
+  transform: translateY(0);
+}
 header {
   background: linear-gradient(120deg, #151515 0%, #361d0a 50%);
   color: #fff;

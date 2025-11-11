@@ -38,16 +38,16 @@ html {
 
 .header a,
 h1 {
-    font-family: "Momo Signature", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 3rem;
-    font-weight: 800;
-    color: #fff;
-    text-decoration: none;
+  font-family: "Momo Signature", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
 
-    padding-top: 30px;
-    margin-bottom: 10px;
+  padding-top: 30px;
+  margin-bottom: 10px;
   transition: color 0.3s ease;
 }
 .header h1:hover {
@@ -645,8 +645,6 @@ h1 {
   min-width: 80px;
   text-align: right;
 }
-
-
 
 @media (max-width: 600px) {
   .header h1 {
