@@ -10,7 +10,7 @@
 
     font-size: 1.6rem;
     font-weight: bold;
-    color: #fff;
+    color: #ffffff;
     margin-bottom: 20px;
     text-decoration: none;
 
@@ -59,6 +59,7 @@
     display: flex;
     gap: 15px;
     margin-top: 20px;
+    color: #000;
   }
 
   .footer-social div {
@@ -91,7 +92,7 @@
   }
 
   .telegram-icon{
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
    
 }
