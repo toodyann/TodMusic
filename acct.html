@@ -150,6 +150,14 @@
       </footer>
 
     <script>
+    
+      window.addEventListener("load", () => {
+        const loader = document.getElementById("loader");
+        document.body.classList.add("loaded");
+        loader.style.opacity = "0";
+        setTimeout(() => (loader.style.display = "none"), 500);
+      });
+    
         document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
     const username = document.getElementById("username").value.trim();

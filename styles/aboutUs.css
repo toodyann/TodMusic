@@ -10,6 +10,10 @@ body {
 html {
   background-color: #151515;
 }
+body.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .logo p {
   font-family: "Momo Signature", cursive;
@@ -17,10 +21,6 @@ html {
   font-size: 1.4rem;
   color: #fff;
   text-decoration: none;
-}
-body.loaded {
-  opacity: 1;
-  transform: translateY(0);
 }
 header {
   background: linear-gradient(120deg, #151515 0%, #361d0a 50%);

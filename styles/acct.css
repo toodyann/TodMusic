@@ -1,168 +1,159 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
-    font-family: "Inter", Arial, sans-serif;
-    background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease-out forwards;
+  font-family: "Inter", Arial, sans-serif;
+  background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  min-height: auto;
+  display: block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
+body.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
 html {
-    background-color: #151515;
-  }
-
-  html, body {
-    width: 100%;
-    overflow-x: hidden;
+  background-color: #151515;
 }
 
-@keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+html,
+body {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+}
 
 .login-container {
-    text-align: center;
-    margin: auto;
-    width: 100%;
-    max-width: 400px;
-    padding: 40px 20px;
+  text-align: center;
+  margin: 40px auto;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 20px;
 }
 
-.logo a{
-    font-family: "Momo Signature", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 3.4rem;
-    font-weight: 800;
-    color: #fff;
-    text-decoration: none;
+.logo a {
+  font-family: "Momo Signature", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3.4rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
 }
 
 h1 {
-    margin-top: 20px;
-    font-size: 1.3rem;
-    font-weight: bold;
-    line-height: 1.3;
-    margin-bottom: 25px;
+  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 25px;
 }
 
 input {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #00000030;
-    color: white;
-    font-size: 15px;
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00000030;
+  color: white;
+  font-size: 15px;
 }
 
 input:focus {
-    outline: 2px solid #ff8800;
-    background-color: #27272775;
+  outline: 2px solid #ff8800;
+  background-color: #27272775;
 }
 
 .main-btn {
-    width: 100%;
-    background-color: #ff8800;
-    border: none;
-    padding: 14px;
-    border-radius: 25px;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 15px;
-    transition: 0.2s ease;
+  width: 100%;
+  background-color: #ff8800;
+  border: none;
+  padding: 14px;
+  border-radius: 25px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s ease;
 }
 
 .main-btn:hover {
-    background-color: #be4609;
+  background-color: #be4609;
 }
 
 .divider {
-    margin: 20px 0;
-    color: #fffdfd;
-    font-size: 14px;
+  margin: 20px 0;
+  color: #fffdfd;
+  font-size: 14px;
 }
 
 .social-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
 }
 
 .social-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 12px;
-    border-radius: 25px;
-    border: 1px solid #ffffff15;
-    background-color: #fcfcfc22;
-    color: rgba(0, 0, 0, 0.647);
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid #ffffff15;
+  background-color: #fcfcfc22;
+  color: rgba(0, 0, 0, 0.647);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .social-btn:hover {
-    background-color: #2a2a2a;
+  background-color: #2a2a2a;
 }
 
-.google-icon{
-    position: absolute;
-    left: 15px;
+.google-icon {
+  position: absolute;
+  left: 15px;
 }
 
-.meta-icon{
-    position: absolute;
-    left: 15px;
+.meta-icon {
+  position: absolute;
+  left: 15px;
 }
-.apple-icon{
-    position: absolute;
-    left: 15px;
+.apple-icon {
+  position: absolute;
+  left: 15px;
 }
 
 .register-text {
-    font-size: 14px;
-    color: #000000;
+  font-size: 14px;
+  color: #000000;
 }
 
 .register-text a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .register-text a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 footer {
-    text-align: center;
-    font-size: 12px;
-    color: #252525;
-    padding: 20px 0;
+  text-align: center;
+  font-size: 12px;
+  color: #252525;
+  padding: 20px 0;
 }

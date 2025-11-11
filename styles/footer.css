@@ -105,3 +105,13 @@
     margin-top: 185px;
   }
 }
+
+@media (max-width: 380px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-column {
+    margin: 10px 0;
+  }
+}
