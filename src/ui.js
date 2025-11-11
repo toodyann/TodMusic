@@ -12,6 +12,11 @@ export const renderTracks = tracks => {
     }
 
     tracksList.innerHTML = tracks.map((track, index) => {
+        const truncateText = (text, maxLength = 20) => {
+            if (!text) return '';
+            return text.length > maxLength ? text.substring(0, maxLength) + '…' : text;
+        };
+
         const thumbnail = track.thumbnail 
             ? `<img src="${track.thumbnail}" alt="${track.title}" class="track-thumbnail" onerror="this.src='https://via.placeholder.com/60?text=Track'" />`
             : `<div class="track-thumbnail" style="background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🎵</div>`;
@@ -31,9 +36,9 @@ export const renderTracks = tracks => {
                     ${thumbnail}
                     <div class="track-info">
                         <div class="track-details">
-                            <div class="track-title">${track.title}</div>
-                            <div class="track-artist">${track.artist}</div>
-                            <div class="track-album" style="font-size: 0.85rem; color: #999; margin-top: 3px;">${track.album}</div>
+                            <div id="song-title" class="track-title">${truncateText(track.title)}</div>
+                            <div class="track-artist">${truncateText(track.artist, 18)}</div>
+                            <div class="track-album" style="font-size: 0.85rem; color: #999; margin-top: 3px;">${truncateText(track.album, 18)}</div>
                         </div>
                     </div>
                     <span class="track-duration">${formatDuration(track.duration)}</span>
@@ -43,7 +48,8 @@ export const renderTracks = tracks => {
             </div>
         `;
     }).join('');
-}
+};
+
 
 export const clearTracks = () => {
     tracksList.innerHTML = '';
