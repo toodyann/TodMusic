@@ -183,8 +183,8 @@ html{
 
 .track-item {
     padding: 15px 20px;
-    background: #ffffff1f;
-    border-left: 4px solid #626262;
+    background: hsla(0, 0%, 100%, 0.031);
+    border-left: 5px solid #353434;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
@@ -206,7 +206,7 @@ html{
 }
 
 .play-btn {
-    background: #222;
+    background: #ff8300;
     color: white;
     border: none;
     border-radius: 50%;
@@ -233,7 +233,7 @@ html{
 }
 
 .add-to-playlist-btn {
-    background: #28a745;
+    background: #0000000a;
     color: white;
     border: none;
     border-radius: 50%;
@@ -249,7 +249,7 @@ html{
 }
 
 .add-to-playlist-btn:hover {
-    background: #218838;
+    background: #ffffff;
     transform: scale(1.1);
 }
 
@@ -267,8 +267,8 @@ html{
 }
 
 .playlist-card {
-    background: #76757164;
-    border: 2px solid #dddddd18;
+    background: #f0f0f033;
+    border: 1px solid #ffffff33;
     border-radius: 10px;
     padding: 15px;
 }
@@ -279,7 +279,7 @@ html{
     align-items: center;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #e0e6ff;
+    border-bottom: 1px solid #00000021;
 }
 
 .playlist-info {
@@ -325,8 +325,8 @@ html{
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 10px;
-    background: rgba(115, 112, 107, 0.276);
+    padding: 30px 10px;
+    background: hsla(0, 0%, 100%, 0.031);
     border-radius: 6px;
     border-left: 3px solid #ffffff05;
 }
@@ -335,7 +335,7 @@ html{
     display: inline-block;
     width: 30px;
     height: 30px;
-    background: #00000086;
+    background: #000000;
     color: white;
     border-radius: 50%;
     text-align: center;
@@ -351,7 +351,7 @@ html{
 
 .playlist-track-title {
     font-weight: 500;
-    color: #ffffff;
+    color: #000000;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -359,7 +359,7 @@ html{
 
 .playlist-track-artist {
     font-size: 0.85rem;
-    color: #979797;
+    color: #c3b4aa;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -471,7 +471,7 @@ html{
 
 .track-artist {
     font-size: 0.9rem;
-    color: #666;
+    color: #c3b4aa;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
