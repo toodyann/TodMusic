@@ -163,3 +163,10 @@ a:hover {
 .footer-bottom span {
   margin: 5px 10px 0 0;
 }
+
+
+@media (max-width: 768px) {
+  .content {
+    display: block;
+  }
+}
