@@ -223,10 +223,11 @@ html{
     color: white;
     border: none;
     border-radius: 50%;
+    cursor: pointer;
+
     width: 40px;
     height: 40px;
     font-size: 1rem;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -411,6 +412,7 @@ html{
 .play-track-btn:hover {
     background: #fff;
     color: #000;
+    transform: scale(1.1);
 }
 
 .remove-track-btn {
@@ -431,6 +433,8 @@ html{
 
 .remove-track-btn:hover {
     background: #ff0019;
+    transform: scale(1.1);
+
 }
 
 .placeholder-small {
