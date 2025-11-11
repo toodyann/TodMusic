@@ -28,6 +28,9 @@ html{
 }
 
 .header h1 {
+    font-family: "Momo Signature", cursive;
+    font-weight: 400;
+    font-style: normal;
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 10px;
@@ -180,7 +183,7 @@ html{
 
 .track-item {
     padding: 15px 20px;
-    background: #ffffff73;
+    background: #ffffff1f;
     border-left: 4px solid #626262;
     border-radius: 8px;
     cursor: pointer;
@@ -191,7 +194,7 @@ html{
 }
 
 .track-item:hover {
-    background: #f0f3ffd2;
+    background: #b8b8b845;
 }
 
 .track-header {
@@ -203,7 +206,7 @@ html{
 }
 
 .play-btn {
-    background: #667eea;
+    background: #222;
     color: white;
     border: none;
     border-radius: 50%;
@@ -219,7 +222,8 @@ html{
 }
 
 .play-btn:hover {
-    background: #764ba2;
+    background: #ffffff;
+    color: #000;
     transform: scale(1.1);
 }
 
@@ -263,8 +267,8 @@ html{
 }
 
 .playlist-card {
-    background: #ab7500;
-    border: 2px solid #372b00;
+    background: #76757164;
+    border: 2px solid #dddddd18;
     border-radius: 10px;
     padding: 15px;
 }
@@ -285,7 +289,7 @@ html{
 .playlist-name {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #222;
+    color: #ffffff;
     margin-bottom: 4px;
 }
 
@@ -322,20 +326,20 @@ html{
     align-items: center;
     gap: 10px;
     padding: 8px 10px;
-    background: rgb(149, 102, 0);
+    background: rgba(115, 112, 107, 0.276);
     border-radius: 6px;
-    border-left: 3px solid #001264;
+    border-left: 3px solid #ffffff05;
 }
 
 .playlist-track-num {
     display: inline-block;
-    width: 25px;
-    height: 25px;
-    background: #ff82829e;
+    width: 30px;
+    height: 30px;
+    background: #00000086;
     color: white;
     border-radius: 50%;
     text-align: center;
-    line-height: 25px;
+    line-height: 30px;
     font-size: 0.8rem;
     flex-shrink: 0;
 }
@@ -347,7 +351,7 @@ html{
 
 .playlist-track-title {
     font-weight: 500;
-    color: #222;
+    color: #ffffff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -355,7 +359,7 @@ html{
 
 .playlist-track-artist {
     font-size: 0.85rem;
-    color: #999;
+    color: #979797;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -369,8 +373,8 @@ html{
 }
 
 .play-track-btn {
-    background: #667eea;
-    color: white;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 50%;
     width: 30px;
@@ -385,7 +389,8 @@ html{
 }
 
 .play-track-btn:hover {
-    background: #764ba2;
+    background: #000000;
+    color: #fff;
 }
 
 .remove-track-btn {
