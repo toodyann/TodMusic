@@ -49,9 +49,25 @@ h1 {
   padding-top: 30px;
   margin-bottom: 10px;
   transition: color 0.3s ease;
+
+  background: linear-gradient(90deg, #ed6701, #ffffff, #e06d01);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorShift 4s linear infinite;
 }
 .header h1:hover {
   color: #00000049;
+}
+
+@keyframes colorShift {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+  }
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 .subtitle {
