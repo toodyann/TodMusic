@@ -23,13 +23,12 @@ html {
   }
 }
 
-.logo {
-  text-align: center;
-  font-size: 48px;
-  color: #ff7b00;
-  margin-top: 200px;
-  letter-spacing: 2px;
-  font-weight: 700;
+.logo p{
+    font-family: "Momo Signature", cursive;
+  font-style: normal;
+  font-size: 1.4rem;
+  color: #fff;
+  text-decoration: none;
 }
 .logo {
   font-family: "Momo Signature", cursive;
@@ -132,6 +131,9 @@ button:hover {
   margin-top: 0;
 }
 a {
-  color: #f77d21;
-  text-decoration: none;
-}
+    color: #c16713;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
