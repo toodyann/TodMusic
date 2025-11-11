@@ -180,8 +180,8 @@ html{
 }
 
 .tracks-section {
-    background: #f0f0f033;
-    border: 1px solid #ffffff33;
+    background: #f0f0f00d;
+    border: 1px solid #ffffff0f;
     border-radius: 15px;
     padding: 15px;
     min-height: 300px;
@@ -281,7 +281,7 @@ html{
 }
 
 .playlist-card {
-    background: #f0f0f033;
+    background: #f0f0f01c;
     border: 1px solid #ffffff33;
     border-radius: 10px;
     padding: 15px;
