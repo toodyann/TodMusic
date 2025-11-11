@@ -40,14 +40,21 @@ html{
     margin-bottom: 40px;
 }
 
-.header h1 {
+.header a, h1 {
     font-family: "Momo Signature", cursive;
     font-weight: 400;
     font-style: normal;
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 10px;
+    color: #fff;
+    transition: color 0.3s ease;
+    text-decoration: none;
 }
+.header h1:hover {
+    color: #00000049;
+}
+
 
 .subtitle {
     font-size: 1.1rem;
