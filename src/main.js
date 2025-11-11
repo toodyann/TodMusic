@@ -154,3 +154,9 @@ newPlaylistName.addEventListener('keypress', (e) => {
         createPlaylistBtn.click();
     }
 });
+
+
+//animation
+window.addEventListener('load', () => {
+document.getElementById('page').classList.add('loaded');
+});

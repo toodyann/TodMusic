@@ -9,7 +9,20 @@ body {
     background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
     min-height: 100vh;
     padding: 20px;
+
+   
 }
+
+#page {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+  }
+  #page.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 
 html{
     background-color: #151515;
@@ -258,6 +271,7 @@ html{
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .playlists-container {
@@ -299,19 +313,20 @@ html{
 }
 
 .delete-playlist-btn {
+    font-family: inherit;
     background: #dc3545;
     color: white;
     border: none;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
 }
 
 .delete-playlist-btn:hover {
-    background: #c82333;
+    background: #ff0019;
     transform: scale(1.1);
 }
 
@@ -328,7 +343,12 @@ html{
     padding: 30px 10px;
     background: hsla(0, 0%, 100%, 0.031);
     border-radius: 6px;
-    border-left: 3px solid #ffffff05;
+    border-left: 5px solid #353434;
+    transition: 0.15s ease;
+}
+
+.playlist-track-item:hover{
+    background: #b8b8b845;
 }
 
 .playlist-track-num {
@@ -367,18 +387,18 @@ html{
 
 .playlist-track-duration {
     font-size: 0.85rem;
-    color: #999;
+    color: #eae2e2;
     min-width: 45px;
     text-align: right;
 }
 
 .play-track-btn {
-    background: #ffffff;
-    color: rgb(0, 0, 0);
+    background: #ff8300;
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     font-size: 0.8rem;
     cursor: pointer;
     display: flex;
@@ -389,8 +409,8 @@ html{
 }
 
 .play-track-btn:hover {
-    background: #000000;
-    color: #fff;
+    background: #fff;
+    color: #000;
 }
 
 .remove-track-btn {
@@ -398,8 +418,8 @@ html{
     color: white;
     border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     font-size: 0.8rem;
     cursor: pointer;
     display: flex;
@@ -410,7 +430,7 @@ html{
 }
 
 .remove-track-btn:hover {
-    background: #c82333;
+    background: #ff0019;
 }
 
 .placeholder-small {
@@ -467,6 +487,7 @@ html{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-wrap: auto;
 }
 
 .track-artist {
@@ -479,7 +500,7 @@ html{
 
 .track-duration {
     font-size: 0.85rem;
-    color: #464545;
+    color: #eae2e2;
     flex-shrink: 0;
 }
 
