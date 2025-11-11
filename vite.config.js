@@ -1,14 +1,15 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
   base: '/TodMusic/',
-  server: {
-    port: 3003,
-    open: true
-  },
   build: {
-    outDir: 'dist',
-    sourcemap: false,
-    minify: 'terser'
-  }
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        about: resolve(__dirname, 'aboutUs.html'),
+        support: resolve(__dirname, 'supportService.html'),
+      },
+    },
+  },
 });
