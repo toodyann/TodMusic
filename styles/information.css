@@ -3,15 +3,16 @@ body {
     color: #f1f1f1;
     margin: 0;
     padding: 0;
+    background: linear-gradient(120deg, #151515, #a5602b 50%);
+    
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    background: linear-gradient(135deg, #141414, #1f1f1f);
     animation: fadeIn 1s ease-in-out;
 }
 
-html{
+html, body {
     background-color: #151515;
 }
 
@@ -96,4 +97,25 @@ footer {
     color: #000000;
     font-size: 0.9em;
     margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .faq-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .question {
+        font-size: 1em;
+    }
+
+    .answer {
+        font-size: 0.9em;
+    }
+    .faq-container {
+        margin: 20px 5px;
+    }
 }
