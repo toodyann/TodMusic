@@ -12,6 +12,7 @@ export default defineConfig({
         acct: resolve(__dirname, 'acct.html'),
         adveresting: resolve(__dirname, 'advertising.html'),
         subscription: resolve(__dirname, 'subscription.html'),
+        references: resolve(__dirname, 'information.html'),
       },
     },
   },

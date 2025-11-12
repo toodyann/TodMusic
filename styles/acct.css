@@ -158,3 +158,8 @@ footer {
   padding: 20px 0;
 }
 
+.register-link {
+  margin: 1px;
+  color: #ffffff;
+  font-weight: 800;
+}
