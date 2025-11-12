@@ -25,6 +25,12 @@ export const renderTracks = tracks => {
             ? `<button class="play-btn" data-track-id="${track.id}" title="Грати">▶</button>`
             : `<span class="play-btn disabled" title="Нема попереднього перегляду">-</span>`;
         
+            const preferencesButton = track.previewUrl 
+            ? `<button class="add-to-preferences-btn" data-track-id="${track.id}" title="Уподобати"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+          </svg></button>`
+            : '';
+        
         const addToPlaylistBtn = track.previewUrl
             ? `<button class="add-to-playlist-btn" data-track-id="${track.id}" title="Додати в плейліст"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
@@ -45,6 +51,7 @@ export const renderTracks = tracks => {
                     </div>
                     <span class="track-duration">${formatDuration(track.duration)}</span>
                     ${playButton}
+                    ${preferencesButton}
                     ${addToPlaylistBtn}
                 </div>
             </div>

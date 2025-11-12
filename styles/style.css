@@ -648,6 +648,20 @@ h1 {
   background: rgba(255, 255, 255, 0.3);
 }
 
+.add-to-preferences-btn{
+  display: flex;
+  color: #fff;
+  background: none;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.add-to-preferences-btn:hover{
+  cursor: pointer;
+  color: #ff5d05;
+  transform: scale(1.1);
+}
+
 .player-progress {
   flex: 1;
   height: 4px;
