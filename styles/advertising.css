@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Inter", Arial, sans-serif;
+    background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  html {
+    background-color: #151515;
+  }
+
+
+.logo {
+  font-family: "Momo Signature", cursive;
+  font-style: normal;
+  font-size: 1.4rem;
+  color: #fff;
+  text-decoration: none;
+  
+}
+header {
+  background: linear-gradient(120deg, #151515 0%, #361d0a 50%);
+  color: #fff;
+  padding: 23px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1.6;
+}
+header nav a  {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
+  .ad-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    animation: fadeIn 0.8s ease forwards;
+  }
+
+  .ad-section h1 {
+    font-size: 2.3rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  .ad-section p {
+    max-width: 700px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 35px;
+  }
+
+  .ad-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+
+  .ad-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(240, 240, 240, 0.05);
+    border: 1px solid #fff8f00b;
+    border-radius: 20px;
+    padding: 25px 20px;
+    max-width: 280px;
+    transition: all 0.3s ease;
+  }
+
+  .ad-card:hover {
+    border-color: #ff8800;
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255,136,0,0.2);
+  }
+
+  .ad-card h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+  }
+
+  .ad-card p {
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.5;
+  }
+
+  .cta-btn {
+    padding: 14px 100px;
+    background: #fff8f1;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .cta-btn:hover {
+    background: #be4609;
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  .alert-overlay{
+    display: none; 
+    justify-content: center; 
+    align-items: center"
+  }
+
+  .alert-box{
+    background: rgba(255, 255, 255, 0.216);
+    border: 1px solid #fff2e428;
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 136, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+  }
+ 
+  #closeAlertBtn{
+    padding: 12px 35px;
+    background: #ff8800;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .ad-card-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  

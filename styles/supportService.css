@@ -69,12 +69,12 @@ main {
 }
 
 .support-box {
-  background-color: #00000073;
+  background-color: #f0f0f00d;
   padding: 40px;
   border-radius: 10px;
   width: 100%;
   max-width: 1000px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid #ffffff0f;
 }
 
 .support-box h1 {
@@ -97,7 +97,7 @@ textarea {
   border-radius: 6px;
   margin-bottom: 20px;
   font-size: 15px;
-  background-color: #ff900e12;
+  background-color: #ffffff09;
   color: #fff;
 }
 
@@ -109,9 +109,9 @@ textarea:focus {
 button {
   width: 100%;
   padding: 12px;
-  background-color: #ffffffb4;
+  background-color: #ffffff;
   border: none;
-  border-radius: 6px;
+  border-radius: 20px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -119,7 +119,7 @@ button {
 }
 
 button:hover {
-  background-color: #ffffff;
+  background-color: #fb9f00f6;
 }
 
 .footer {
