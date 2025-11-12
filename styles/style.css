@@ -720,4 +720,8 @@ h1 {
     padding-top: 10px;
     font-size: 1rem;
   }
+  .error{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
