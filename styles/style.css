@@ -306,7 +306,7 @@ h1 {
 
 .playlist-card {
   background: #f0f0f01c;
-  border: 1px solid #ffffff33;
+  border-color: rgba(255, 255, 255, 0.885);
   border-radius: 10px;
   padding: 15px;
   margin-left: 5px;
@@ -367,7 +367,7 @@ h1 {
   align-items: center;
   gap: 10px;
   padding: 30px 10px;
-  background: hsla(0, 0%, 100%, 0.031);
+  background: hsl(0deg 0% 22.6% / 3.1%);
   border-radius: 6px;
   border-left: 5px solid #c4733179;
   transition: 0.15s ease;
@@ -726,5 +726,9 @@ h1 {
   .error{
     margin-left: 10px;
     margin-right: 10px;
+  }
+  .tabs{
+    align-items: center;
+    justify-content: center;
   }
 }
