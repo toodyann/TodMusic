@@ -81,7 +81,7 @@ header nav a  {
     background: rgba(240, 240, 240, 0.05);
     border: 1px solid #fff8f00b;
     border-radius: 20px;
-    padding: 25px 20px;
+    padding: 40px 20px;
     max-width: 280px;
     transition: all 0.3s ease;
   }

@@ -3,88 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TodMusic - your best music app</title>
-    <link rel="stylesheet" href="/styles/style.css">
-    <link rel="stylesheet" href="/styles/footer.css">
-    <link rel="icon" href="/faviconTM.png" type="image/x-icon">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/subscription.css">
+    <link rel="icon" href="/faviconTM.png" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <div id="page" class="container">
-        <header class="header">
-            <a href="index.html"><h1>TodMusic</h1></a>
-            <p class="subtitle">Голос пісень</p>
-        </header>
-
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="search">Пошук</button>
-            <button class="tab-btn" data-tab="playlists">Плейлисти</button>
-        </div>
-
-        <div id="search-tab" class="tab-content active">
-            <div class="search-section">
-                <input 
-                    type="text" 
-                    id="searchInput" 
-                    class="search-input" 
-                    placeholder="Введіть назву треку або виконавця..."
-                    autocomplete="off"
-                >
-                <button id="searchBtn" class="search-btn">Пошук</button>
+    <header>
+        <a class="logo" href="index.html">
+            <p>TodMusic</p>
+        </a>
+        <nav>
+            <a href="supportService.html">Підтримка</a>
+            <a href="acct.html">Увійти</a>
+        </nav>
+    </header>
+    <section class="subscription-section">
+        <h1>Види підписок</h1>
+        <div class="subscription-cards">
+            <div class="card">
+                <h2>Безкоштовна</h2>
+                <p>Отримайте доступ до базової бібліотеки треків TodMusic.<br>
+                Слухайте музику онлайн безкоштовно, без реклам та обмеженими функціями.</p>
             </div>
-
-            <div id="loadingSpinner" class="loading hidden">
-                <p>Завантаження треків...</p>
+    
+            <div class="card">
+                <div class="coming-soon">Скоро</div>
+                <h2>Преміум</h2>
+                <p>Без реклами, необмежене прослуховування, високоякісний звук та персоналізовані плейлисти.<br>
+                Доступ буде незабаром!</p>
             </div>
-
-        <div id="error" class="error hidden"></div>
-        <div id="message" class="message hidden"></div>
-
-        <div class="tracks-section">
-                <div id="tracksList" class="tracks-list">
-                    <p class="placeholder">Введіть запит для пошуку треків</p>
-                </div>
+    
+            <div class="card">
+                <div class="coming-soon">Скоро</div>
+                <h2>Сімейна</h2>
+                <p>Керуйте кількома обліковими записами з однієї підписки.<br>
+                Ідеально для сім’ї або друзів.</p>
             </div>
         </div>
+        <button class="next-btn">
+        Почати слухати
+      </button>
 
-        <div id="playlists-tab" class="tab-content">
-            <div class="playlist-header">
-                <input 
-                    type="text" 
-                    id="newPlaylistName" 
-                    class="search-input" 
-                    placeholder="Назва нового плейліста..."
-                    autocomplete="off"
-                >
-                <button id="createPlaylistBtn" class="search-btn">+ Створити</button>
-            </div>
-
-            <div id="playlistsList" class="playlists-container">
-                <p class="placeholder">Немає плейлистів. Створіть перший!</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sticky Player -->
-    <div id="player" class="sticky-player hidden">
-        <div class="player-content">
-            <div class="player-info">
-                <div class="player-track-title" id="playerTitle">Не вибрано трек</div>
-                <div class="player-track-artist" id="playerArtist"></div>
-            </div>
-            <audio id="playerAudio"></audio>
-            <div class="player-controls">
-                <button id="playerPlayBtn" class="player-btn">▶</button>
-                <button id="playerPauseBtn" class="player-btn">⏸</button>
-                <input type="range" id="playerProgress" class="player-progress" min="0" max="100" value="0">
-                <span id="playerTime" class="player-time">0:00 / 0:00</span>
-            </div>
-        </div>
-    </div>
-
+    </section>
     <footer class="footer">
         <div class="footer-container">
           <div class="footer-column">
@@ -161,7 +123,22 @@
         </div>
       </footer>
 
-    <script type="module" src="/src/main.js"></script>
+    <script>
+        const comingSoonLabels = document.querySelectorAll('.coming-soon');
+        comingSoonLabels.forEach(label => {
+            label.parentElement.addEventListener('click', () => {
+                alert('Ця підписка поки що недоступна. Залишайтеся з нами!');
+            });
+        });
+
+        const nextBtn = document.querySelector('.next-btn');
+        nextBtn.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
+        window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+    });
+    </script>
 </body>
 </html>
-

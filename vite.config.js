@@ -11,6 +11,7 @@ export default defineConfig({
         support: resolve(__dirname, 'supportService.html'),
         acct: resolve(__dirname, 'acct.html'),
         adveresting: resolve(__dirname, 'advertising.html'),
+        subscribtion: resolve(__dirname, 'subscribtion.html'),
       },
     },
   },
