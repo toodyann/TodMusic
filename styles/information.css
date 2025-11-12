@@ -11,8 +11,8 @@ body {
     animation: fadeIn 1s ease-in-out;
 }
 
-html,body{
-    background: linear-gradient(120deg, #151515, #a5602b 50%);
+html{
+    background-color: #151515;
 }
 
 @keyframes fadeIn {
