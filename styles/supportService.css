@@ -82,7 +82,7 @@ label {
 }
 
 input, textarea {
-  background-color: var(--input-background-color);
+  background-color: #ffffff0b;
   color: var(--white-color);
   font-size: 15px;
 
@@ -91,6 +91,7 @@ input, textarea {
   
   width: 100%;
   padding: 12px;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
