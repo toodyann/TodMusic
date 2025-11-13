@@ -1,0 +1,268 @@
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background: var(--body-background-gradient);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+html {
+  background-color: var(--html-background-color);
+}
+
+header {
+  background: var(--header-background-gradient);
+  color: var(--white-color);
+
+  padding: 0px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a {
+  color: var(--white-color);
+  text-decoration: none;
+
+  margin-left: 20px;
+  font-size: 15px;
+}
+.logo {
+  font-family: var(--logo-font-family);
+  color: var(--white-color);
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+header nav a {
+  color: var(--white-color);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+header nav a:hover {
+  color: var(--main-orange-color);
+}
+
+.intro {
+  text-align: center;
+  padding: 60px 20px 20px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.intro h1 {
+  font-size: 40px;
+  color: var(--main-orange-color);
+}
+
+.jobs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px 60px;
+}
+
+.job-card {
+  background: var(--card-background-color);
+  border: var(--card-border);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  background: var(--items-hover-background-color);
+}
+
+.job-card h2 {
+  color: var(--main-orange-color);
+  margin-bottom: 10px;
+}
+
+.apply-btn {
+  background: var(--main-orange-color);
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  color: var(--black-color);
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 12px 40px;
+  transition: 0.3s;
+}
+
+.apply-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Динамічна форма */
+
+.apply-section {
+  background: #171717fa;
+  border: var(--card-border);
+  border-radius: 20px;
+  max-width: 730px;
+  padding: 40px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9); 
+  opacity: 0;
+  z-index: 1000;
+
+  transition: all 0.4s ease-out;
+}
+
+.apply-section.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1); 
+}
+
+
+.apply-section h2 {
+  text-align: center;
+  color: var(--main-orange-color);
+  margin-bottom: 20px;
+}
+
+.apply-section label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.apply-section input, .apply-section textarea {
+  background: var(--item-background-color);
+  border: none;
+  border-radius: 8px;
+  color: var(--main-orange-color);
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+}
+
+.apply-section input::placeholder, .apply-section textarea::placeholder {
+  color: var(--grey-color);
+}
+
+.apply-section input:focus, .apply-section textarea:focus {
+  outline: none;
+  border: 2px solid #ff7b00;
+  box-shadow: 0 0 10px rgba(255,123,0,0.4);
+}
+
+.apply-section button {
+  background: var(--main-orange-color);
+  border: none;
+  border-radius: 25px;
+  color: var(--white-color);
+  font-weight: 700;
+  margin-top: 25px;
+  padding: 12px 25px;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.apply-section button:hover {
+  background: var(--btn-orange-hover);
+  color: var(--black-color);
+}
+
+.close-form {
+  text-align: center;
+  color: var(--grey-color);
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.close-form:hover {
+  color: var(--btn-orange-hover);
+}
+
+/* Модальне вікно */
+.custom-modal {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition: opacity 0.3s ease;
+  z-index: 10000;
+}
+
+.custom-modal.active {
+  opacity:1;
+  pointer-events: all;
+}
+
+.custom-modal-content {
+  background: var(--card-background-color);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  color: var(--white-color);
+}
+
+.custom-modal-content h2 {
+  margin-bottom: 15px;
+  color: var(--main-orange-color);
+}
+
+.custom-modal-content button {
+  background: var(--main-orange-color);
+  border: none;
+  border-radius: 25px;
+  color: var(--black-color);
+  font-weight: 700;
+  padding: 10px 25px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.custom-modal-content button:hover {
+  background: var(--btn-orange-hover);
+  color: var(--black-color);
+}
+
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(20px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 768px) {
+  .jobs {
+    padding: 20px 30px;
+  }
+
+  .apply-section {
+    background: #171717fa;
+    padding: 30px;
+    width: 90%;
+  }
+  .apply-section input, .apply-section textarea {
+    width: 90%;
+    padding: 20px;
+    margin: 0 0px;
+  }
+  
+}

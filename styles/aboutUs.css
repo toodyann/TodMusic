@@ -40,6 +40,7 @@ header nav a {
   text-decoration: none;
 
   margin-left: 20px;
+  font-size: 15px;
 }
 main {
   display: flex;
