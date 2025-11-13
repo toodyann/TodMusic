@@ -1,79 +1,85 @@
 body {
-    font-family: "Segoe UI", sans-serif;
-    color: #f1f1f1;
+    background: var(--body-background-gradient);
+
+    font-family: var(--font-family);
+    color: var(--white-color);
+
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #151515, #a5602b 50%);
     
     display: flex;
     justify-content: center;
     align-items: flex-start;
+
     min-height: 100vh;
     animation: fadeIn 1s ease-in-out;
 }
 
 html, body {
-    background-color: #151515;
+    background-color: var(--html-background-color);
 }
 
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
 .logo {
-    font-family: "Momo Signature", cursive;
-    font-weight: 400;
-    font-style: normal;
+    font-family: var(--logo-font-family);
+    color: var(--white-color);
     font-size: 2.8rem;
+    font-style: normal;
+    font-weight: 400;
     text-align: center;
-    color: #fff;
     text-decoration: none;
   }
 .faq-container {
+    background: var(--card-background-color);
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+
     max-width: 800px;
     width: 90%;
-    background: #ffffff1f;
-    border-radius: 15px;
-    padding: 30px;
+
     margin: 50px 5px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    padding: 30px;
 }
 
 h1 {
-    text-align: center;
-    color: #ffae0dc0;
+    color: var(--main-orange-color);
     font-size: 2em;
+    
+    text-align: center;
     margin-bottom: 30px;
 }
 
 .faq-item {
     border-bottom: 1px solid #333;
     padding: 20px 0;
+
     cursor: pointer;
     transition: background 0.3s;
 }
 
 .faq-item:hover {
-    background: #ffffff33;
+    background: var(--items-hover-background-color);
 }
 
 .question {
     font-size: 1.2em;
-    color: #fff;
+    color: var(--white-color);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
-    opacity: 0;
     font-size: 1em;
-    color: #bbb;
-    padding-top: 10px;
+    color: var(--grey-color);
     line-height: 1.5;
+
+    overflow: hidden;
+    max-height: 0;
+    padding-top: 10px;
+
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
 }
 
 .faq-item.active .answer {
@@ -82,8 +88,9 @@ h1 {
 }
 
 .icon {
-    color: #000000;
+    color: var(--black-color);
     font-weight: bold;
+    
     transition: transform 0.3s;
 }
 
@@ -92,11 +99,12 @@ h1 {
 }
 
 footer {
-    text-align: center;
-    padding: 15px;
-    color: #000000;
     font-size: 0.9em;
+    color: var(--black-color);
+    text-align: center;
+    
     margin-top: 20px;
+    padding: 15px;
 }
 
 @media screen and (max-width: 600px) {
@@ -118,4 +126,9 @@ footer {
     .faq-container {
         margin: 20px 10px;
     }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
 }

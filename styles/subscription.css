@@ -1,14 +1,17 @@
 body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
-    color: #fff;
-    opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
+  background: var(--body-background-gradient);
+
+  font-family: var(--font-family);
+  
+  height: 100%;
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 body.loaded {
@@ -17,32 +20,26 @@ body.loaded {
 }
 
 html {
-    background-color: #151515;
+    background-color: var(--html-background-color);
   }
 
-.logo p{
-    font-family: "Momo Signature", cursive;
-  font-style: normal;
-  font-size: 1.4rem;
-  color: #fff;
-  text-decoration: none;
-}
 .logo {
-  font-family: "Momo Signature", cursive;
+  font-family: var(--logo-font-family);
+  color: var(--white-color);
+  font-size: 1.4rem;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #fff;
   text-decoration: none;
 }
 header {
-  background: linear-gradient(120deg, #151515 0%, #361d0a 50%);
-  color: #fff;
+  background: var(--header-background-gradient);
+  color: var(--white-color);
+
   padding: 0px 40px;
+
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 header .logo {
@@ -51,93 +48,105 @@ header .logo {
 }
 
 header nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 20px;
+  color: var(--white-color);
   font-size: 15px;
+  text-decoration: none;
+
+  margin-left: 20px;
 }
 
 .subscription-section {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 90px 20px;
-    box-sizing: border-box;
+    flex-direction: column;
+    
     text-align: center;
+    box-sizing: border-box;
+
+    padding: 90px 20px;
 }
 
 .subscription-section h1 {
+    color: var(--white-color);
     font-size: 2.5em;
+
     margin-bottom: 10px;
-    color: #ffffff;
 }
 
 .subscription-cards {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 35px;
-    flex-wrap: wrap;
     margin-top: 50px;
 }
 
 .card {
-    background: rgba(240, 240, 240, 0.05);
-    border: 1px solid #fff8f00b;
+    background: var(--card-background-color);
+    border: var(--card-border);
     border-radius: 15px;
-    padding: 30px 20px;
+
     width: 250px;
+    padding: 30px 20px;
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
 }
 
 .card:hover {
-    border-color: #ff8800;
+  box-shadow: 0 0 20px rgba(255,136,0,0.2);
+    border-color: var(--main-orange-color);
     transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(255,136,0,0.2);
 }
 
 .card h2 {
     margin-bottom: 15px;
-    color: #ffffff;
+    color: var(--white-color);
 }
 
 .card p {
+    color: var(--grey-color);
     font-size: 0.95em;
     line-height: 1.5;
-    color: #ccc;
 }
 
 .coming-soon {
+    background: var(--main-orange-color);
+    border-radius: 12px;
+
     position: absolute;
     top: -10px;
     right: -10px;
-    background: #ff4c00;
-    color: #fff;
     padding: 5px 10px;
-    border-radius: 12px;
+    
+    color: var(--white-color);
     font-size: 0.75em;
     font-weight: bold;
+    
     animation: pulse 1.5s infinite;
 }
 
 
 .next-btn {
-    margin-top: 80px;
-    padding: 14px 100px;
-    background: #fff8f1;
-    color: black;
+    background: var(--white-color);
     border: none;
     border-radius: 30px;
-    font-weight: bold;
+
     font-size: 16px;
+    color: black;
+    font-weight: bold;
+
+    margin-top: 80px;
+    padding: 14px 100px;
+
     cursor: pointer;
     transition: all 0.2s ease;
   }
 
   .next-btn:hover {
-    background: #be4609;
-    color: #fff;
+    background: var(--main-orange-color);
+    color: var(--white-color);
     transform: scale(1.05);
   }
 

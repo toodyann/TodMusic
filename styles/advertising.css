@@ -5,63 +5,72 @@
   }
 
   body {
-    font-family: "Inter", Arial, sans-serif;
-    background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
-    color: #fff;
+    background: var(--body-background-gradient);
+
+    font-family: var(--font-family);
+    color: var(--white-color);
+
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
 
   html {
-    background-color: #151515;
+    background-color: var(--html-background-color);
   }
 
 
 .logo {
-  font-family: "Momo Signature", cursive;
-  font-style: normal;
+  font-family: var(--logo-font-family);
   font-size: 1.4rem;
-  color: #fff;
+  color: var(--white-color);
+  font-style: normal;
   text-decoration: none;
   
 }
 header {
-  background: linear-gradient(120deg, #151515 0%, #361d0a 50%);
-  color: #fff;
-  padding: 23px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  background: var(--header-background-gradient);
+
+  color: var(--white-color);
   line-height: 1.6;
+
+  padding: 23px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 header nav a  {
-  color: #fff;
+  color: var(--white-color);
   text-decoration: none;
+  
   margin-left: 20px;
 }
   .ad-section {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex: 1;
+
     padding: 60px 20px;
     text-align: center;
+
     animation: fadeIn 0.8s ease forwards;
   }
 
   .ad-section h1 {
     font-size: 2.3rem;
-    color: #ffffff;
+    color: var(--white-color);
     margin-bottom: 20px;
   }
 
   .ad-section p {
-    max-width: 700px;
+    color: var(--grey-color);
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #ddd;
+
+    max-width: 700px;
     margin-bottom: 35px;
   }
 
@@ -70,82 +79,93 @@ header nav a  {
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
+
     margin-bottom: 40px;
   }
 
   .ad-card {
+    background: var(--card-background-color);
+    border: var(--card-border);
+    border-radius: 20px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: rgba(240, 240, 240, 0.05);
-    border: 1px solid #fff8f00b;
-    border-radius: 20px;
+    
     padding: 40px 20px;
     max-width: 280px;
     transition: all 0.3s ease;
   }
 
   .ad-card:hover {
-    border-color: #ff8800;
-    transform: translateY(-5px);
+    border-color: var(--main-orange-color);
     box-shadow: 0 0 20px rgba(255,136,0,0.2);
+    transform: translateY(-5px);
   }
 
   .ad-card h3 {
-    color: #ffffff;
-    margin-bottom: 10px;
+    color: var(--white-color);
     font-size: 1.3rem;
+
+    margin-bottom: 10px;
   }
 
   .ad-card p {
     font-size: 0.95rem;
-    color: #ccc;
+    color: var(--grey-color);
     line-height: 1.5;
   }
 
   .cta-btn {
-    padding: 14px 100px;
-    background: #fff8f1;
-    color: black;
+    background: var(--white-color);
     border: none;
     border-radius: 30px;
-    font-weight: bold;
+
     font-size: 16px;
+    color: var(--black-color);
+    font-weight: bold;
     cursor: pointer;
+
+    padding: 14px 100px;
+
     transition: all 0.2s ease;
   }
 
   .cta-btn:hover {
-    background: #be4609;
-    color: #fff;
+    background: var(--btn-orange-hover);
+    color: var(--white-color);
     transform: scale(1.05);
   }
 
   .alert-overlay{
     display: none; 
+
     justify-content: center; 
     align-items: center"
   }
 
   .alert-box{
-    background: rgba(255, 255, 255, 0.216);
-    border: 1px solid #fff2e428;
+    background: var(--card-background-color);
+    border: var(--card-border);
     border-radius: 20px;
-    padding: 35px 25px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.152);
+
     text-align: center;
-    box-shadow: 0 0 20px rgba(255, 136, 0, 0.3);
+    padding: 35px 25px;
     animation: fadeIn 0.3s ease;
   }
  
   #closeAlertBtn{
-    padding: 12px 35px;
-    background: #ff8800;
-    color: rgb(0, 0, 0);
+    background: var(--main-orange-color);
     border: none;
     border-radius: 30px;
+
+    color: var(--black-color);
     font-weight: bold;
     cursor: pointer;
+
+    padding: 12px 35px;
   }
 
   @keyframes fadeIn {

@@ -1,61 +1,43 @@
 body {
+  font-family: var(--font-family);
+  background: var(--body-background-gradient);
+  color: var(--white-color);
+
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(120deg, #151515 0%, #a5602b 50%);
-  color: #fff;
   opacity: 0;
+
   transform: translateY(30px);
   animation: fadeInUp 1s ease-out forwards;
 }
 
 html {
-  background-color: #151515;
+  background-color: var(--html-background-color);
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.logo p{
-    font-family: "Momo Signature", cursive;
-  font-style: normal;
-  font-size: 1.4rem;
-  color: #fff;
-  text-decoration: none;
-}
 .logo {
-  font-family: "Momo Signature", cursive;
+  font-family: var(--logo-font-family);
+  color: var(--white-color);
+  font-size: 1.4rem;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #fff;
   text-decoration: none;
 }
-header {
-  background: linear-gradient(120deg, #151515 0%, #361d0a 50%);
-  color: #fff;
-  padding: 0px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-header .logo {
-  font-size: 22px;
-  font-weight: bold;
+header {
+  background: var(--header-background-gradient);
+  color: var(--white-color);
+
+  padding: 0px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header nav a {
-  color: #fff;
+  color: var(--white-color);
   text-decoration: none;
+
   margin-left: 20px;
   font-size: 15px;
 }
@@ -64,21 +46,27 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+
   min-height: 50vh;
+
   padding: 20px;
 }
 
 .support-box {
+  background-color: var(--card-background-color);
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #f0f0f00d;
-  padding: 100px 5px;
+
+
+  border: var(--card-border);
   border-radius: 10px;
+
+  padding: 100px 5px;
   width: 100%;
   max-width: 1500px;
-  border: 1px solid #ffffff0f;
 }
 
 .support-box h1 {
@@ -93,63 +81,69 @@ label {
   font-size: 15px;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 12px;
+input, textarea {
+  background-color: var(--input-background-color);
+  color: var(--white-color);
+  font-size: 15px;
+
   border: none;
   border-radius: 6px;
+  
+  width: 100%;
+  padding: 12px;
   margin-bottom: 20px;
-  font-size: 15px;
-  background-color: #ffffff09;
-  color: #fff;
 }
 
-input:focus,
-textarea:focus {
-  outline: 2px solid #ea7413;
+input:focus, textarea:focus {
+  outline: 1px solid var(--main-orange-color);
 }
 
 button {
+  background-color: var(--white-color);
+  font-size: 16px;
   color: #000;
+  font-weight: bold;
+
+  border: none;
+  border-radius: 20px;
+
   width: 100%;
   padding: 12px;
   margin-top: 20px;
-  background-color: #ffffff;
-  border: none;
-  border-radius: 20px;
-  font-size: 16px;
-  font-weight: bold;
+
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #fb9f00f6;
+  background-color: var(--btn-orange-hover);
+  color: var(--white-color);
 }
 
 .footer {
-  text-align: center;
-  background-color: #000;
-  color: #b3b3b3;
-  padding: 15px;
   font-size: 14px;
+  text-align: center;
+  padding: 15px;
   margin-top: 0;
 }
-a {
-    color: #c16713;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
 
 @media screen and (max-width: 600px) {
   .support-box {
     padding: 20px 15px;
   }
-  input,textarea{
+  input, textarea {
     width: 315px;
+    margin-top: 10px;
   }
+}
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
