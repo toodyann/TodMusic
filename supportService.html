@@ -26,28 +26,21 @@
     <main>
       <div class="support-box">
         <h1>Чим ми можемо допомогти?</h1>
-        <form>
-          <label for="name">Ваше ім’я</label>
-          <input type="text" id="name" placeholder="Введіть ім’я" required />
-
-          <label for="email">Електронна пошта</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="example@email.com"
-            required
-          />
-
-          <label for="message">Ваше повідомлення</label>
-          <textarea
-            id="message"
-            rows="5"
-            placeholder="Опишіть проблему або запитання..."
-            required
-          ></textarea>
-
-          <button type="submit">Надіслати звернення</button>
-        </form>
+        <form
+        action="https://formspree.io/f/mqawadop"
+        method="POST"
+      >
+        <label>
+          Введіть вашу пошту:
+          <input type="email" name="email">
+        </label>
+        <label>
+          Введіть ваше звернення:
+          <textarea name="message"></textarea>
+        </label>
+        <!-- your other form fields go here -->
+        <button type="submit">Send</button>
+      </form>
       </div>
     </main>
 
@@ -159,6 +152,24 @@
         loader.style.opacity = "0";
         setTimeout(() => (loader.style.display = "none"), 500);
       });
+
+  const form = document.querySelector("form");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        alert("✅ Повідомлення надіслано успішно!");
+        form.reset();
+      } else {
+        alert("❌ Помилка при надсиланні. Спробуйте ще раз.");
+      }
+    }).catch(() => alert("⚠️ Помилка з'єднання."));
+  });
     </script>
   </body>
 </html>

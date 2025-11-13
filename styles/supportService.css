@@ -69,11 +69,15 @@ main {
 }
 
 .support-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: #f0f0f00d;
-  padding: 40px;
+  padding: 100px 5px;
   border-radius: 10px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1500px;
   border: 1px solid #ffffff0f;
 }
 
@@ -139,3 +143,12 @@ a {
     text-decoration: underline;
   }
 
+@media screen and (max-width: 600px) {
+  .support-box {
+    padding: 20px 15px;
+  }
+  input,textarea{
+    width: 315px;
+  }
+  
+}
