@@ -1,3 +1,5 @@
+@use "mixins.scss";
+
 body {
   font-family: var(--font-family);
   background: var(--body-background-gradient);
@@ -70,8 +72,9 @@ main {
 }
 
 .support-box h1 {
+  @include mixins.gradientText;
   text-align: center;
-  font-size: 28px;
+  font-size: 2.1rem;
   margin-bottom: 25px;
 }
 
@@ -133,8 +136,12 @@ button:hover {
     padding: 20px 15px;
   }
   input, textarea {
+    font-size: 16px;
     width: 315px;
     margin-top: 10px;
+  }
+  input{
+    font-size: 16px;
   }
 }
 

@@ -1,3 +1,5 @@
+@use "mixins.scss";
+
 body {
     background: var(--body-background-gradient);
 
@@ -22,7 +24,7 @@ html, body {
 .logo {
     font-family: var(--logo-font-family);
     color: var(--white-color);
-    font-size: 2.8rem;
+    font-size: 3.2rem;
     font-style: normal;
     font-weight: 400;
     text-align: center;
@@ -41,7 +43,7 @@ html, body {
 }
 
 h1 {
-    color: var(--main-orange-color);
+    @include mixins.gradientText;
     font-size: 2em;
     
     text-align: center;
@@ -100,7 +102,7 @@ h1 {
 
 footer {
     font-size: 0.9em;
-    color: var(--black-color);
+    @include mixins.gradientText;
     text-align: center;
     
     margin-top: 20px;

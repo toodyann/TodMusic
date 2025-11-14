@@ -1,3 +1,4 @@
+@use "mixins.scss";
 body {
   background: var(--body-background-gradient);
   font-family: var(--font-family);
@@ -49,6 +50,7 @@ main {
   padding: 60px 20px;
 }
 .content {
+  @include mixins.gradientText;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;

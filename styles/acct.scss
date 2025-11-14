@@ -1,3 +1,4 @@
+@use "mixins.scss";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -54,7 +55,8 @@ html, body {
 
 h1 {
   font-size: 1.3rem;
-  color: var(--white-color);
+  // color: var(--white-color);
+  @include mixins.gradientText;
   font-weight: bold;
   line-height: 1.3;
 
