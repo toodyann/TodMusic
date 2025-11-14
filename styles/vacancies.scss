@@ -1,3 +1,4 @@
+@use "mixins.scss";
 body {
   margin: 0;
   font-family: var(--font-family);
@@ -101,11 +102,8 @@ header nav a:hover {
   transform: scale(1.05);
 }
 
-/* Динамічна форма */
-
 .apply-section {
-  background: #171717fa;
-  border: var(--card-border);
+  background: linear-gradient(30deg, #121111d7, #ff7300);
   border-radius: 20px;
   max-width: 730px;
   padding: 40px;
@@ -115,6 +113,7 @@ header nav a:hover {
   transform: translate(-50%, -50%) scale(0.9); 
   opacity: 0;
   z-index: 1000;
+
 
   transition: all 0.4s ease-out;
 }
@@ -126,12 +125,13 @@ header nav a:hover {
 
 
 .apply-section h2 {
+  color: #ffffffee;
   text-align: center;
-  color: var(--main-orange-color);
   margin-bottom: 20px;
 }
 
 .apply-section label {
+  color: #ffffffc8;
   display: block;
   margin-top: 15px;
   font-weight: 600;
@@ -141,10 +141,13 @@ header nav a:hover {
   background: var(--item-background-color);
   border: none;
   border-radius: 8px;
-  color: var(--main-orange-color);
+
+  color: #ffefdd;
+  font-size: 16px;
   width: 100%;
   padding: 10px;
   margin-top: 8px;
+  resize: none;
 }
 
 .apply-section input::placeholder, .apply-section textarea::placeholder {
@@ -177,7 +180,7 @@ header nav a:hover {
 
 .close-form {
   text-align: center;
-  color: var(--grey-color);
+  color: var(--white-color);
   margin-top: 15px;
   cursor: pointer;
 }
@@ -251,13 +254,17 @@ header nav a:hover {
   }
 
   .apply-section {
-    background: #171717fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(30deg, rgba(18, 17, 17, 0.8431372549), #ff7300);
     padding: 30px;
     width: 90%;
+    height: 100%;
   }
   .apply-section input, .apply-section textarea {
-    width: 90%;
-    padding: 20px;
+    padding:  5px;
     margin: 0 0px;
   }
   
