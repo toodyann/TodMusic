@@ -1,8 +1,11 @@
+@use "mixins.scss";
+
 .playlist-header {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
     flex-wrap: wrap;
+    gap: 10px;
+
+    margin-bottom: 20px;
     margin-left: 10px;
     margin-right: 10px;
   }
@@ -38,7 +41,7 @@
   .playlist-name {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--white-color);
     margin-bottom: 4px;
   }
   
@@ -50,7 +53,7 @@
   .delete-playlist-btn {
     font-family: inherit;
     background: #dc3545;
-    color: white;
+    color: var(--white-color);
     border: none;
     border-radius: 50%;
     width: 40px;
