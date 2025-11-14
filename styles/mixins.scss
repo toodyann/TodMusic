@@ -1,4 +1,4 @@
-/////////////  text Section /////////////
+/////////////  Text Section /////////////
 @mixin gradientText {
     background: linear-gradient(90deg, #fff, #ff7b00);
     -webkit-background-clip: text;
@@ -11,7 +11,7 @@
     -webkit-text-fill-color: transparent;
   }
 
-///////////// flex Settings /////////////
+///////////// Flex Settings /////////////
 
   @mixin flexSettingsCenter{
     display: flex;
@@ -24,8 +24,7 @@
     justify-content: space-between;
   }
 
-
-///////////////logo settnigs /////////////
+/////////////// Logo Settings /////////////
 
  @mixin headerLogoStyle{
     font-family: var(--logo-font-family);

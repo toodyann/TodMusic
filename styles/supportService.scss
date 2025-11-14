@@ -76,15 +76,17 @@ label {
 }
 
 input, textarea {
+
   background-color: #ffffff0b;
   color: var(--white-color);
   font-size: 15px;
 
   border: none;
-  border-radius: 6px;
+  border-radius: 30px;
+  resize: none;
   
   width: 100%;
-  padding: 12px;
+  padding: 15px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -94,15 +96,18 @@ input:focus, textarea:focus {
 }
 
 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--white-color);
   font-size: 16px;
-  color: #000;
+  color: var(--black-color);
   font-weight: bold;
 
   border: none;
   border-radius: 20px;
 
-  width: 100%;
+  width: 105%;
   padding: 12px;
   margin-top: 20px;
 
@@ -133,6 +138,9 @@ button:hover {
   }
   input{
     font-size: 16px;
+  }
+  button{
+    width: 100%;
   }
 }
 
