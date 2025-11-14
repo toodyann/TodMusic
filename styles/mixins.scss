@@ -1,4 +1,4 @@
-//text Section
+/////////////  text Section /////////////
 @mixin gradientText {
     background: linear-gradient(90deg, #fff, #ff7b00);
     -webkit-background-clip: text;
@@ -11,7 +11,7 @@
     -webkit-text-fill-color: transparent;
   }
 
-////////////// flex Settings //////////////
+///////////// flex Settings /////////////
 
   @mixin flexSettingsCenter{
     display: flex;
@@ -21,9 +21,29 @@
 
   @mixin flexSettingsBetween{
     display: flex;
-    align-items: center;
     justify-content: space-between;
   }
+
+
+///////////////logo settnigs /////////////
+
+ @mixin headerLogoStyle{
+    font-family: var(--logo-font-family);
+    font-size: 1.4rem;
+    color: var(--white-color);
+    font-style: normal;
+    text-decoration: none;
+  }
+
+  @mixin logoStyle{
+    font-family: var(--logo-font-family);
+    font-size: 3.8rem;
+    color: var(--white-color);
+    font-style: normal;
+    text-decoration: none;
+  }
+
+
 
 
   // @include mixins.gradientText;
@@ -31,3 +51,6 @@
 
   // @include mixins.flexSettingsCenter;
   // @include mixins.flexSettingsBetween;
+
+  // @include mixins.headerLogoStyle;
+    // @include mixins.logoStyle;

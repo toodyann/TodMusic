@@ -22,13 +22,8 @@ html, body {
 }
 
 .logo {
-    font-family: var(--logo-font-family);
-    color: var(--white-color);
-    font-size: 3.2rem;
-    font-style: normal;
-    font-weight: 400;
-    text-align: center;
-    text-decoration: none;
+    @include mixins.logoStyle;
+    @include mixins.flexSettingsCenter;
   }
 .faq-container {
     background: var(--card-background-color);

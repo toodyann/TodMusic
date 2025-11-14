@@ -45,17 +45,11 @@ html, body {
 }
 
 .logo a {
-  font-family: var(--logo-font-family);
-  font-size: 3.4rem;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--white-color);
-  text-decoration: none;
+  @include mixins.logoStyle;
 }
 
 h1 {
   font-size: 1.3rem;
-  // color: var(--white-color);
   @include mixins.gradientText;
   font-weight: bold;
   line-height: 1.3;

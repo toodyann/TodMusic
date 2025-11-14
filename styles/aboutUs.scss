@@ -19,11 +19,7 @@ body.loaded {
 }
 
 .logo p {
-  font-family: var(--logo-font-family);
-  font-size: 1.4rem;
-  color: var(--white-color);
-  font-style: normal;
-  text-decoration: none;
+  @include mixins.headerLogoStyle;
 }
 header {
   background: var(--header-background-gradient);
