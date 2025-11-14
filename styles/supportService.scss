@@ -45,9 +45,7 @@ header nav a {
 }
 
 main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include mixins.flexSettingsCenter;
 
   min-height: 50vh;
 
@@ -57,9 +55,7 @@ main {
 .support-box {
   background-color: var(--card-background-color);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include mixins.flexSettingsCenter;
   flex-direction: column;
 
 

@@ -129,9 +129,7 @@ input:focus {
   
   padding: 12px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include mixins.flexSettingsCenter;
   position: relative;
 
   transition: 0.2s;

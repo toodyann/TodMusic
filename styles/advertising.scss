@@ -37,9 +37,7 @@ header {
 
   padding: 23px 40px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include mixins.flexSettingsBetween;
 }
 header nav a  {
   color: var(--white-color);
@@ -48,10 +46,8 @@ header nav a  {
   margin-left: 20px;
 }
   .ad-section {
-    display: flex;
+    @include mixins.flexSettingsCenter;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     flex: 1;
 
     padding: 60px 20px;
@@ -78,8 +74,8 @@ header nav a  {
 
   .ad-card-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 25px;
 
     margin-bottom: 40px;
@@ -90,9 +86,7 @@ header nav a  {
     border: var(--card-border);
     border-radius: 20px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   @include mixins.flexSettingsCenter;
     flex-direction: column;
     
     padding: 40px 20px;

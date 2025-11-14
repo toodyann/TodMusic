@@ -1,3 +1,4 @@
+//text Section
 @mixin gradientText {
     background: linear-gradient(90deg, #fff, #ff7b00);
     -webkit-background-clip: text;
@@ -9,3 +10,24 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+////////////// flex Settings //////////////
+
+  @mixin flexSettingsCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @mixin flexSettingsBetween{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+  // @include mixins.gradientText;
+  // @include mixins.gradientSubText;
+
+  // @include mixins.flexSettingsCenter;
+  // @include mixins.flexSettingsBetween;
