@@ -1,3 +1,4 @@
+@use "mixins.scss";
 .footer {
   background-color: var(--black-color);
   height: 300px;
@@ -75,12 +76,10 @@
   font-size: 14px;
   cursor: pointer;
 
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include mixins.flexSettingsCenter;
 
   transition: 0.3s ease;
 }
