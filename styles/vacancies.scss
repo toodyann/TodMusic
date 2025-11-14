@@ -52,7 +52,7 @@ header nav a:hover {
 
 .intro h1 {
   font-size: 40px;
-  color: var(--main-orange-color);
+  @include mixins.gradientText;
 }
 
 .jobs {
@@ -66,11 +66,11 @@ header nav a:hover {
   background: var(--card-background-color);
   border: var(--card-border);
   border-radius: 15px;
-  display: flex;
+
+  @include mixins.flexSettingsCenter;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+
   padding: 25px;
   backdrop-filter: blur(8px);
   transition: transform 0.3s ease, background 0.3s ease;
@@ -82,7 +82,7 @@ header nav a:hover {
 }
 
 .job-card h2 {
-  color: var(--main-orange-color);
+  @include mixins.gradientSubText;
   margin-bottom: 10px;
 }
 
@@ -90,11 +90,14 @@ header nav a:hover {
   background: var(--main-orange-color);
   border: none;
   border-radius: 30px;
+
   font-weight: 600;
   color: var(--black-color);
   cursor: pointer;
+
   margin-top: 20px;
   padding: 12px 40px;
+
   transition: 0.3s;
 }
 
@@ -105,16 +108,16 @@ header nav a:hover {
 .apply-section {
   background: linear-gradient(30deg, #121111d7, #ff7300);
   border-radius: 20px;
+
   max-width: 730px;
   padding: 40px;
+
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.9); 
-  opacity: 0;
   z-index: 1000;
-
-
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9); 
   transition: all 0.4s ease-out;
 }
 
@@ -164,10 +167,13 @@ header nav a:hover {
   background: var(--main-orange-color);
   border: none;
   border-radius: 25px;
+
   color: var(--white-color);
   font-weight: 700;
+
   margin-top: 25px;
-  padding: 12px 25px;
+  padding: 13px 25px;
+
   width: 100%;
   cursor: pointer;
   transition: 0.3s;
@@ -189,21 +195,20 @@ header nav a:hover {
   color: var(--btn-orange-hover);
 }
 
-/* Модальне вікно */
 .custom-modal {
+  background: rgba(0, 0, 0, 0.6);
   position: fixed;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  background: rgba(0,0,0,0.6);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  opacity:0;
-  pointer-events:none;
-  transition: opacity 0.3s ease;
   z-index: 10000;
+
+  @include mixins.flexSettingsCenter;
+  
+  pointer-events:none;
+  opacity:0;
+  transition: opacity 0.3s ease;
 }
 
 .custom-modal.active {
@@ -212,29 +217,36 @@ header nav a:hover {
 }
 
 .custom-modal-content {
-  background: var(--card-background-color);
+  background: #806d5e;
   border-radius: 15px;
+  color: var(--white-color);
+
   padding: 30px;
+  margin: 0 5px;
+
   max-width: 500px;
   width: 90%;
+  
   text-align: center;
-  color: var(--white-color);
 }
 
 .custom-modal-content h2 {
   margin-bottom: 15px;
-  color: var(--main-orange-color);
+  @include mixins.gradientText;
 }
 
 .custom-modal-content button {
   background: var(--main-orange-color);
   border: none;
   border-radius: 25px;
+
   color: var(--black-color);
   font-weight: 700;
-  padding: 10px 25px;
-  cursor: pointer;
+
   margin-top: 15px;
+  padding: 10px 25px;
+
+  cursor: pointer;
   transition: 0.3s;
 }
 
@@ -254,18 +266,24 @@ header nav a:hover {
   }
 
   .apply-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include mixins.flexSettingsCenter;
     flex-direction: column;
+    
     background: linear-gradient(30deg, rgba(18, 17, 17, 0.8431372549), #ff7300);
     padding: 30px;
     width: 90%;
     height: 100%;
   }
+  .apply-section button{
+    padding: 16px 25px;
+  }
   .apply-section input, .apply-section textarea {
-    padding:  5px;
+    padding:  15px 0;
+    border-radius: 15px;
     margin: 0 0px;
+  }
+  input{
+    padding: 0;
   }
   
 }
