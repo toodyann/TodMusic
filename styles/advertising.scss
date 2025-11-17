@@ -96,7 +96,7 @@ header nav a  {
   }
 
   .ad-card h3 {
-    color: var(--white-color);
+    @include mixins.gradientSubText;
     font-size: 1.3rem;
 
     margin-bottom: 10px;
@@ -138,14 +138,24 @@ header nav a  {
   }
 
   .alert-box{
-    background: var(--card-background-color);
+    background: var(--black-color);
     border: var(--card-border);
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.152);
 
+    position: fixed;
+    z-index: 9999;
+    bottom: 27vh;
+
     text-align: center;
     padding: 35px 25px;
     animation: fadeIn 0.3s ease;
+  }
+
+  #alertTitle{
+    @include mixins.gradientText;
+
+    margin-bottom: 10px
   }
  
   #closeAlertBtn{
@@ -169,6 +179,10 @@ header nav a  {
     .ad-card-container {
       flex-direction: column;
       align-items: center;
+    }
+    .alert-box{
+      width: 95vw;
+      bottom: 40vh;
     }
   }
 
