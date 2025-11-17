@@ -44,6 +44,7 @@ main {
   justify-content: center;
 
   padding: 60px 20px;
+  margin-bottom: 130px
 }
 .content {
   @include mixins.gradientText;
@@ -73,7 +74,7 @@ main {
 }
 .content a {
   color: var(--main-orange-color);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 

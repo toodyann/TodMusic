@@ -212,7 +212,8 @@ h1 {
   min-height: 300px;
 
   padding: 15px;
-  margin-bottom: 55px;
+  margin-bottom: 200px;
+
 }
 
 .tracks-list {
@@ -269,13 +270,13 @@ h1 {
 }
 
 .play-btn:hover {
-  background: #fff;
-  color: #000;
+  background: var(--white-color);
+  color: var(--black-color);
   transform: scale(1.1);
 }
 
 .play-btn.disabled {
-  background: #ccc;
+  background: var(--grey-color);
   cursor: not-allowed;
 }
 
@@ -298,8 +299,8 @@ h1 {
 }
 
 .play-track-btn:hover {
-  background: #fff;
-  color: #000;
+  background: var(--white-color);
+  color: var(black-color);
   transform: scale(1.1);
 }
 

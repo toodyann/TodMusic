@@ -1,10 +1,8 @@
 @use "mixins.scss";
 .footer {
   background-color: var(--black-color);
-  height: 300px;
-
+  
   padding: 60px 20px;
-  margin-top: 310px;
 }
 
 .footer_logo {
@@ -114,7 +112,6 @@
   .footer {
     height: auto;
     padding: 40px 20px;
-    margin-top: 185px;
   }
 }
 
