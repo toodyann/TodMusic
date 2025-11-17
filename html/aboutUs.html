@@ -3,22 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Реклама - TodMusic</title>
 
-    <link rel="stylesheet" href="styles/advertising.scss" />
-    <link rel="stylesheet" href="styles/variables.scss">
-    <link rel="stylesheet" href="styles/footer.scss" />
+    <title>Про нас — TodMusic</title>
 
-    <link rel="icon" href="/faviconTM.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../styles/aboutUs.scss" />
+    <link rel="stylesheet" href="../styles/footer.scss" />
+    <link rel="stylesheet" href="../styles/variables.scss">
+    
+    <link rel="icon" href="../faviconTM.png" type="image/x-icon" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap" rel="stylesheet"/>
+
   </head>
   <body>
     <header>
-      <a class="logo" href="index.html">
+      <a style="text-decoration: none;" class="logo" href="../index.html">
         <p>TodMusic</p>
       </a>
       <nav>
@@ -27,63 +26,89 @@
       </nav>
     </header>
 
-    <section class="ad-section">
-      <h1>Розкажіть світу про свій бренд</h1>
-      <p>
-        Розмістіть рекламу на платформі <b>TodMusic</b> — місці, де щодня тисячі
-        користувачів слухають музику, дізнаються нове й обирають, що слухати
-        далі. Ми допоможемо вашому бренду стати помітним серед молодої та
-        активної аудиторії.
-      </p>
+    <main>
+      <div class="content">
+        <div>
+          <h1>Про нас</h1>
+          <p>
+            З TodMusic легко знаходити пісні й подкасти на будь-який смак —
+            слухайте їх на телефоні, комп’ютері чи планшеті.
+          </p>
+          <p>
+            У TodMusic мільйони треків і епізодів. Улюблені пісні та подкасти
+            завжди поруч — на тренуванні, у дорозі чи під час відпочинку.
+            Обирайте музику, якій довіряєте, і ми запропонуємо вам ще більше.
+          </p>
+          <p>
+            Також ви можете переглядати колекції друзів, виконавців або
+            знаменитостей, створювати власні плейлісти й насолоджуватись
+            улюбленою музикою.
+          </p>
 
-      <div class="ad-card-container">
-        <div class="ad-card">
-          <h3>Банерна реклама</h3>
+          <h2>Підтримка клієнтів</h2>
+          <ol>
+            <li>
+              <a href="information.html">Сайт довідки</a>. Знайдіть відповіді на запитання й
+              дізнайтеся, як користуватися сервісом TodMusic.
+            </li>
+            <li>
+              <a href="supportService.html">Спільнота</a>. Діліться своїм досвідом, ставте
+              запитання та спілкуйтеся з іншими користувачами.
+            </li>
+            <li>
+              <a href="supportService.html">Зв’язок із нами</a>. Якщо ви не знайшли рішення —
+              напишіть у службу підтримки.
+            </li>
+          </ol>
+
+          <h2>Або виберіть одну з тем нижче</h2>
+          <ul>
+            <li>
+              Розміщуєте рекламу у TodMusic? Перейдіть у
+              <a href="advertising.html">Розділ "Реклама"</a>.
+            </li>
+            <li>
+              Маєте питання для преси? Перейдіть у
+              <a href="#">Розділ "Пресслужба"</a>.
+            </li>
+            <li>
+              Хочете приєднатися до нашої команди? Перейдіть у
+              <a href="vacancies.html">Розділ "Вакансії"</a>.
+            </li>
+          </ul>
           <p>
-            Розміщення банерів на головній сторінці або в розділах сайту з
-            високим трафіком.
+            Компанія TodMusic Inc. надає свої послуги в Україні, а TodMusic AB
+            відповідає за роботу сервісу у всіх інших регіонах.
           </p>
         </div>
-        <div class="ad-card">
-          <h3>Спонсорство плейлистів</h3>
+
+        <div>
+          <h2>Центральний офіс TodMusic</h2>
           <p>
-            Ваш бренд може бути представлений у популярних тематичних
-            плейлистах.
+            TodMusic<br />
+            Івано-Франківськ<br />
+            вулиця В'ячеслава Чорновола, 11<br />
+            Україна<br />
+            76002<br />
+            TodMusicHelp@gmail.com
           </p>
-        </div>
-        <div class="ad-card">
-          <h3>Реклама у додатку</h3>
+
+          <h2>Регіональні офіси TodMusic</h2>
           <p>
-            Інтеграція вашого продукту безпосередньо у мобільний застосунок
-            TodMusic.
+            <b>TodMusic AB Halych</b><br />
+            вулиця Святого Миколая<br />
+            77100<br />
+            TodMusicHelp@gmail.com
           </p>
         </div>
       </div>
-
-      <button
-        class="cta-btn"
-        onclick="showAlert('Дякуємо!', 'Наш менеджер звʼяжеться з вами протягом 24 годин!')"
-      >
-        Залишити заявку
-      </button>
-    </section>
-
-   
-    <div class="alert-overlay" id="customAlert">
-      <div class="alert-box">
-        <h2 id="alertTitle" style="color: #ffffff; margin-bottom: 10px"></h2>
-        <p id="alertMessage" style="color: #ccc; margin-bottom: 20px"></p>
-        <button id="closeAlertBtn" onclick="closeAlert()">
-          OK
-        </button>
-      </div>
-    </div>
+    </main>
 
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-column">
           <div class="footer_logo">
-            <a style="text-decoration: none;" href="index.html"><p style="color: #fff;">TodMusic</p></a>
+            <a style="text-decoration: none;" href="../index.html"><p style="color: var(--white-color);">TodMusic</p></a>
           </div>
         </div>
 
@@ -107,7 +132,7 @@
           <h4>Корисні посилання</h4>
           <ul>
             <li><a href="supportService.html">Підтримка</a></li>
-            <li><a href="index.html">Вебпрогравач</a></li>
+            <li><a href="../index.html">Вебпрогравач</a></li>
           </ul>
         </div>
 
@@ -181,14 +206,12 @@
     </footer>
 
     <script>
-      function showAlert(title, message) {
-        document.getElementById("alertTitle").innerText = title;
-        document.getElementById("alertMessage").innerText = message;
-        document.getElementById("customAlert").style.display = "flex";
-      }
-      function closeAlert() {
-        document.getElementById("customAlert").style.display = "none";
-      }
+      window.addEventListener("load", () => {
+        const loader = document.getElementById("loader");
+        document.body.classList.add("loaded");
+        loader.style.opacity = "0";
+        setTimeout(() => (loader.style.display = "none"), 500);
+      });
     </script>
   </body>
 </html>

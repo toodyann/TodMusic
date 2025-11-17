@@ -117,15 +117,14 @@ header nav a:hover {
   left: 50%;
   z-index: 1000;
   opacity: 0;
-  transform: translate(-50%, -50%) scale(0.9); 
+  transform: translate(-50%, -50%) scale(0.9);
   transition: all 0.4s ease-out;
 }
 
 .apply-section.show {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1); 
+  transform: translate(-50%, -50%) scale(1);
 }
-
 
 .apply-section h2 {
   color: #ffffffee;
@@ -140,7 +139,8 @@ header nav a:hover {
   font-weight: 600;
 }
 
-.apply-section input, .apply-section textarea {
+.apply-section input,
+.apply-section textarea {
   background: var(--item-background-color);
   border: none;
   border-radius: 8px;
@@ -153,14 +153,16 @@ header nav a:hover {
   resize: none;
 }
 
-.apply-section input::placeholder, .apply-section textarea::placeholder {
+.apply-section input::placeholder,
+.apply-section textarea::placeholder {
   color: var(--grey-color);
 }
 
-.apply-section input:focus, .apply-section textarea:focus {
+.apply-section input:focus,
+.apply-section textarea:focus {
   outline: none;
   border: 2px solid #ff7b00;
-  box-shadow: 0 0 10px rgba(255,123,0,0.4);
+  box-shadow: 0 0 10px rgba(255, 123, 0, 0.4);
 }
 
 .apply-section button {
@@ -198,21 +200,21 @@ header nav a:hover {
 .custom-modal {
   background: rgba(0, 0, 0, 0.6);
   position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 10000;
 
   @include mixins.flexSettingsCenter;
-  
-  pointer-events:none;
-  opacity:0;
+
+  pointer-events: none;
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .custom-modal.active {
-  opacity:1;
+  opacity: 1;
   pointer-events: all;
 }
 
@@ -226,7 +228,7 @@ header nav a:hover {
 
   max-width: 500px;
   width: 90%;
-  
+
   text-align: center;
 }
 
@@ -256,8 +258,14 @@ header nav a:hover {
 }
 
 @keyframes fadeIn {
-  from { opacity:0; transform: translateY(20px); }
-  to { opacity:1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -268,22 +276,22 @@ header nav a:hover {
   .apply-section {
     @include mixins.flexSettingsCenter;
     flex-direction: column;
-    
+
     background: linear-gradient(30deg, rgba(18, 17, 17, 0.8431372549), #ff7300);
     padding: 30px;
     width: 90%;
     height: 100%;
   }
-  .apply-section button{
+  .apply-section button {
     padding: 16px 25px;
   }
-  .apply-section input, .apply-section textarea {
-    padding:  15px 0;
+  .apply-section input,
+  .apply-section textarea {
+    padding: 15px 0;
     border-radius: 15px;
     margin: 0 0px;
   }
-  input{
+  input {
     padding: 0;
   }
-  
 }

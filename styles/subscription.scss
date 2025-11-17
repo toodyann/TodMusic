@@ -3,7 +3,7 @@ body {
   background: var(--body-background-gradient);
 
   font-family: var(--font-family);
-  
+
   height: 100%;
   width: 100%;
 
@@ -16,13 +16,13 @@ body {
 }
 
 body.loaded {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 html {
-    background-color: var(--html-background-color);
-  }
+  background-color: var(--html-background-color);
+}
 
 .logo {
   @include mixins.headerLogoStyle;
@@ -54,102 +54,108 @@ header nav a {
 .subscription-section {
   @include mixins.flexSettingsCenter;
 
-    flex-direction: column;
-    
-    text-align: center;
-    box-sizing: border-box;
+  flex-direction: column;
 
-    padding: 90px 20px;
+  text-align: center;
+  box-sizing: border-box;
+
+  padding: 90px 20px;
 }
 
 .subscription-section h1 {
   @include mixins.gradientText;
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .subscription-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 35px;
-    margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+  margin-top: 50px;
 }
 
 .card {
-    background: var(--card-background-color);
-    border: var(--card-border);
-    border-radius: 15px;
+  background: var(--card-background-color);
+  border: var(--card-border);
+  border-radius: 15px;
 
-    width: 300px;
-    padding: 30px 20px;
+  width: 300px;
+  padding: 30px 20px;
 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .card:hover {
-  box-shadow: 0 0 20px rgba(255,136,0,0.2);
-    border-color: var(--main-orange-color);
-    transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 136, 0, 0.2);
+  border-color: var(--main-orange-color);
+  transform: translateY(-5px);
 }
 
 .card h2 {
-    margin-bottom: 15px;
-    @include mixins.gradientSubText;
+  margin-bottom: 15px;
+  @include mixins.gradientSubText;
 }
 
 .card p {
-    color: var(--grey-color);
-    font-size: 0.95em;
-    line-height: 1.5;
+  color: var(--grey-color);
+  font-size: 0.95em;
+  line-height: 1.5;
 }
 
 .coming-soon {
-    background: var(--main-orange-color);
-    border-radius: 12px;
+  background: var(--main-orange-color);
+  border-radius: 12px;
 
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    padding: 5px 10px;
-    
-    color: var(--white-color);
-    font-size: 0.75em;
-    font-weight: bold;
-    
-    animation: pulse 1.5s infinite;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+
+  color: var(--white-color);
+  font-size: 0.75em;
+  font-weight: bold;
+
+  animation: pulse 1.5s infinite;
 }
-
 
 .next-btn {
-    background: var(--white-color);
-    border: none;
-    border-radius: 30px;
+  background: var(--white-color);
+  border: none;
+  border-radius: 30px;
 
-    font-size: 16px;
-    color: black;
-    font-weight: bold;
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
 
-    margin-top: 80px;
-    margin-bottom: 130px;
-    padding: 14px 100px;
+  margin-top: 80px;
+  margin-bottom: 130px;
+  padding: 14px 100px;
 
-
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .next-btn:hover {
-    background: var(--main-orange-color);
-    color: var(--white-color);
-    transform: scale(1.05);
-  }
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.8; }
-    100% { transform: scale(1); opacity: 1; }
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
+.next-btn:hover {
+  background: var(--main-orange-color);
+  color: var(--white-color);
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

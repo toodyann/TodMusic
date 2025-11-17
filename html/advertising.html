@@ -3,49 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Підтримка — TodMusic</title>
-    <link rel="stylesheet" href="styles/supportService.scss" />
-    <link rel="stylesheet" href="styles/footer.scss" />
-    <link rel="stylesheet" href="styles/variables.scss">
-    <link rel="icon" href="/faviconTM.png" type="image/x-icon" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap"
-      rel="stylesheet"
-    />
+    
+    <title>Реклама - TodMusic</title>
+
+    <link rel="stylesheet" href="../styles/advertising.scss" />
+    <link rel="stylesheet" href="../styles/variables.scss">
+    <link rel="stylesheet" href="../styles/footer.scss" />
+
+    <link rel="icon" href="../faviconTM.png" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap" rel="stylesheet"/>
   </head>
   <body>
     <header>
-      <div>
-        <a class="logo" href="index.html"><p>TodMusic</p></a>
-      </div>
+      <a class="logo" href="../index.html">
+        <p>TodMusic</p>
+      </a>
       <nav>
-        <a href="aboutUs.html">Про нас</a>
+        <a href="supportService.html">Підтримка</a>
         <a href="acct.html">Увійти</a>
       </nav>
     </header>
 
-    <main>
-      <div class="support-box">
-        <h1 class="main-subtext">Чим ми можемо допомогти?</h1>
-        <form action="https://formspree.io/f/mqawadop" method="POST">
-          <label>
-            Введіть вашу пошту:
-            <input type="email" name="email" />
-          </label>
-          <label>
-            Введіть ваше звернення:
-            <textarea name="message"></textarea>
-          </label>
-          <button type="submit">Надіслати</button>
-        </form>
+    <section class="ad-section">
+      <h1>Розкажіть світу про свій бренд</h1>
+      <p>
+        Розмістіть рекламу на платформі <b>TodMusic</b> — місці, де щодня тисячі
+        користувачів слухають музику, дізнаються нове й обирають, що слухати
+        далі. Ми допоможемо вашому бренду стати помітним серед молодої та
+        активної аудиторії.
+      </p>
+
+      <div class="ad-card-container">
+        <div class="ad-card">
+          <h3>Банерна реклама</h3>
+          <p>
+            Розміщення банерів на головній сторінці або в розділах сайту з
+            високим трафіком.
+          </p>
+        </div>
+        <div class="ad-card">
+          <h3>Спонсорство плейлистів</h3>
+          <p>
+            Ваш бренд може бути представлений у популярних тематичних
+            плейлистах.
+          </p>
+        </div>
+        <div class="ad-card">
+          <h3>Реклама у додатку</h3>
+          <p>
+            Інтеграція вашого продукту безпосередньо у мобільний застосунок
+            TodMusic.
+          </p>
+        </div>
       </div>
-    </main>
+
+      <button
+        class="cta-btn"
+        onclick="showAlert('Дякуємо!', 'Наш менеджер звʼяжеться з вами протягом 24 годин!')"
+      >
+        Залишити заявку
+      </button>
+    </section>
+
+   
+    <div class="alert-overlay" id="customAlert">
+      <div class="alert-box">
+        <h2 id="alertTitle" style="color: var(--white-color); margin-bottom: 10px"></h2>
+        <p id="alertMessage" style="color: var(--grey-color); margin-bottom: 20px"></p>
+        <button id="closeAlertBtn" onclick="closeAlert()">
+          OK
+        </button>
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-column">
-          <div>
-            <a class="footer_logo" href="index.html"><p>TodMusic</p></a>
+          <div class="footer_logo">
+            <a style="text-decoration: none;" href="../index.html"><p style="color: var(--white-color);">TodMusic</p></a>
           </div>
         </div>
 
@@ -69,7 +105,7 @@
           <h4>Корисні посилання</h4>
           <ul>
             <li><a href="supportService.html">Підтримка</a></li>
-            <li><a href="index.html">Вебпрогравач</a></li>
+            <li><a href="../index.html">Вебпрогравач</a></li>
           </ul>
         </div>
 
@@ -143,32 +179,14 @@
     </footer>
 
     <script>
-      window.addEventListener("load", () => {
-        const loader = document.getElementById("loader");
-        document.body.classList.add("loaded");
-        loader.style.opacity = "0";
-        setTimeout(() => (loader.style.display = "none"), 500);
-      });
-
-      const form = document.querySelector("form");
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const data = new FormData(form);
-        fetch(form.action, {
-          method: form.method,
-          body: data,
-          headers: { Accept: "application/json" },
-        })
-          .then((response) => {
-            if (response.ok) {
-              alert("✓ Повідомлення надіслано успішно!");
-              form.reset();
-            } else {
-              alert("✖ Помилка при надсиланні. Спробуйте ще раз.");
-            }
-          })
-          .catch(() => alert("⚠️ Помилка з'єднання."));
-      });
+      function showAlert(title, message) {
+        document.getElementById("alertTitle").innerText = title;
+        document.getElementById("alertMessage").innerText = message;
+        document.getElementById("customAlert").style.display = "flex";
+      }
+      function closeAlert() {
+        document.getElementById("customAlert").style.display = "none";
+      }
     </script>
   </body>
 </html>

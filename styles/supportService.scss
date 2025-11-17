@@ -53,7 +53,6 @@ main {
   @include mixins.flexSettingsCenter;
   flex-direction: column;
 
-
   border: var(--card-border);
   border-radius: 10px;
 
@@ -77,23 +76,24 @@ label {
   font-size: 15px;
 }
 
-input, textarea {
-
+input,
+textarea {
   background-color: #ffffff0b;
   color: var(--white-color);
   font-size: 15px;
 
   border: none;
-  border-radius: 30px;
+  border-radius: 10px;
   resize: none;
-  
+
   width: 100%;
   padding: 15px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: 1px solid var(--main-orange-color);
 }
 
@@ -133,15 +133,16 @@ button:hover {
   .support-box {
     padding: 20px 15px;
   }
-  input, textarea {
+  input,
+  textarea {
     font-size: 16px;
     width: 315px;
     margin-top: 10px;
   }
-  input{
+  input {
     font-size: 16px;
   }
-  button{
+  button {
     width: 100%;
   }
 }

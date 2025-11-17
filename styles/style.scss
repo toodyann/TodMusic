@@ -56,15 +56,24 @@ h1 {
   -webkit-text-fill-color: transparent;
   animation: colorShift 4s linear infinite;
 }
- 
+
 @keyframes colorShift {
-    0% { background-position: 0%; }
-    100% { background-position: 200%; }
+  0% {
+    background-position: 0%;
   }
+  100% {
+    background-position: 200%;
+  }
+}
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 .subtitle {
@@ -99,6 +108,7 @@ h1 {
 .tab-btn.active {
   color: var(--main-orange-color);
   border-bottom-color: #f77d21;
+  
 }
 
 .tab-content {
@@ -133,14 +143,14 @@ h1 {
 }
 
 .search-btn {
-  background: #d76a0be1;
+  background: var(--main-orange-color);
   border-radius: 10px;
   border: none;
 
   font-size: 1rem;
   color: #732c00;
   font-weight: 600;
-  
+
   padding: 15px 40px;
   transition: 0.15s ease;
 }
@@ -213,7 +223,6 @@ h1 {
 
   padding: 15px;
   margin-bottom: 200px;
-
 }
 
 .tracks-list {
@@ -300,7 +309,7 @@ h1 {
 
 .play-track-btn:hover {
   background: var(--white-color);
-  color: var(black-color);
+  color: var(--black-color);
   transform: scale(1.1);
 }
 
@@ -439,7 +448,7 @@ h1 {
 
   margin: 0 5px 10px 5px;
   padding: 15px 20px;
-  
+
   transition: transform 0.3s ease;
 }
 
@@ -516,7 +525,7 @@ h1 {
   background: rgba(255, 255, 255, 0.3);
 }
 
-.add-to-preferences-btn{
+.add-to-preferences-btn {
   display: flex;
   color: var(--white-color);
   background: none;
@@ -524,7 +533,7 @@ h1 {
   transition: all 0.2s ease;
 }
 
-.add-to-preferences-btn:hover{
+.add-to-preferences-btn:hover {
   color: var(--btn-orange-hover);
   cursor: pointer;
   transform: scale(1.1);
@@ -606,11 +615,11 @@ h1 {
     padding-top: 10px;
     font-size: 1rem;
   }
-  .error{
+  .error {
     margin-left: 10px;
     margin-right: 10px;
   }
-  .tabs{
+  .tabs {
     align-items: center;
     justify-content: center;
   }
