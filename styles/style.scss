@@ -20,6 +20,8 @@ body {
 #page.loaded {
   opacity: 1;
   transform: translateY(0);
+
+  
 }
 
 html {
@@ -41,7 +43,7 @@ html {
 h1 {
   font-family: var(--logo-font-family);
   color: var(--white-color);
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 400;
   font-style: normal;
   text-decoration: none;
@@ -400,6 +402,7 @@ h1 {
 
   padding: 40px 20px;
   margin-bottom: 130px;
+
 }
 
 .track-player {
