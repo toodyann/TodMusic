@@ -112,14 +112,15 @@ header nav a  {
     background: var(--white-color);
     border: none;
     border-radius: 30px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 
     font-size: 16px;
     color: var(--black-color);
-    font-weight: bold;
     cursor: pointer;
 
     padding: 14px 100px;
     margin-bottom: 130px;
+
 
     transition: all 0.2s ease;
   }
@@ -127,7 +128,6 @@ header nav a  {
   .cta-btn:hover {
     background: var(--btn-orange-hover);
     color: var(--white-color);
-    transform: scale(1.05);
   }
 
   .alert-overlay{

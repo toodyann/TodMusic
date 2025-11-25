@@ -87,22 +87,26 @@ header nav a:hover {
 }
 
 .apply-btn {
-  background: var(--main-orange-color);
+  
+  background: var(--white-color);
+
   border: none;
   border-radius: 30px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 
   font-weight: 600;
   color: var(--black-color);
   cursor: pointer;
 
   margin-top: 20px;
-  padding: 12px 40px;
+  padding: 13px 60px;
 
   transition: 0.3s;
 }
 
 .apply-btn:hover {
-  transform: scale(1.05);
+  background: var(--btn-orange-hover);
+  color: var(--white-color);
 }
 
 .apply-section {
@@ -166,11 +170,13 @@ header nav a:hover {
 }
 
 .apply-section button {
-  background: var(--main-orange-color);
+  background: var(--white-color);
+  
   border: none;
   border-radius: 25px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 
-  color: var(--white-color);
+  color: var(--black-color);
   font-weight: 700;
 
   margin-top: 25px;
@@ -178,12 +184,12 @@ header nav a:hover {
 
   width: 100%;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s ease;
 }
 
 .apply-section button:hover {
   background: var(--btn-orange-hover);
-  color: var(--black-color);
+  color: var(--white-color);
 }
 
 .close-form {
