@@ -22,17 +22,19 @@ export const renderTracks = tracks => {
             : `<div class="track-thumbnail" style="background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🎵</div>`;
         
         const playButton = track.previewUrl 
-            ? `<button class="play-btn" data-track-id="${track.id}" title="Грати">▶</button>`
+            ? `<button class="play-btn" data-track-id="${track.id}" title="Грати"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+          </svg></button>`
             : `<span class="play-btn disabled" title="Нема попереднього перегляду">-</span>`;
         
             const preferencesButton = track.previewUrl 
-            ? `<button class="add-to-preferences-btn" data-track-id="${track.id}" title="Уподобати"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+            ? `<button class="add-to-preferences-btn" data-track-id="${track.id}" title="Уподобати"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
           </svg></button>`
             : '';
         
         const addToPlaylistBtn = track.previewUrl
-            ? `<button class="add-to-playlist-btn" data-track-id="${track.id}" title="Додати в плейліст"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+            ? `<button class="add-to-playlist-btn" data-track-id="${track.id}" title="Додати в плейліст"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
           </svg></button>`
             : '';

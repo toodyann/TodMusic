@@ -20,8 +20,6 @@ body {
 #page.loaded {
   opacity: 1;
   transform: translateY(0);
-
-  
 }
 
 html {
@@ -46,13 +44,14 @@ h1 {
   font-size: 4.5rem;
   font-weight: 400;
   font-style: normal;
+
   text-decoration: none;
 
   padding-top: 50px;
   margin-bottom: 10px;
   transition: color 0.3s ease;
 
-  background: linear-gradient(90deg, #ed6701, #ffffff, #e06d01);
+  background: linear-gradient(90deg, #ed6701, var(--white-color), #e06d01);
   background-size: 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -83,7 +82,6 @@ h1 {
   opacity: 0.9;
 }
 
-/* Tabs */
 .tabs {
   display: flex;
   gap: 10px;
@@ -110,7 +108,6 @@ h1 {
 .tab-btn.active {
   color: var(--main-orange-color);
   border-bottom-color: #f77d21;
-  
 }
 
 .tab-content {
@@ -277,44 +274,18 @@ h1 {
 
   @include mixins.flexSettingsCenter;
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .play-btn:hover {
   background: var(--white-color);
   color: var(--black-color);
-  transform: scale(1.1);
 }
 
 .play-btn.disabled {
   background: var(--grey-color);
   cursor: not-allowed;
 }
-
-.play-track-btn {
-  background: var(--main-orange-color);
-  border: none;
-  border-radius: 50%;
-
-  font-size: 0.8rem;
-  color: var(--white-color);
-  cursor: pointer;
-
-  width: 40px;
-  height: 40px;
-
-  @include mixins.flexSettingsCenter;
-
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.play-track-btn:hover {
-  background: var(--white-color);
-  color: var(--black-color);
-  transform: scale(1.1);
-}
-
 
 .placeholder-small {
   font-size: 0.9rem;
@@ -402,7 +373,6 @@ h1 {
 
   padding: 40px 20px;
   margin-bottom: 130px;
-
 }
 
 .track-player {

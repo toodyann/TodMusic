@@ -52,7 +52,8 @@ main {
 
   @include mixins.flexSettingsCenter;
   flex-direction: row;
-  gap: 100px;
+  flex-wrap: wrap;
+  gap: 200px;
 
   border: var(--card-border);
   border-radius: 10px;
@@ -71,7 +72,12 @@ main {
 }
 
 label {
-  display: block;
+  display: flex;
+
+  flex-direction: column;
+
+  width: 25vw;
+
   margin-bottom: 8px;
   font-size: 15px;
 }
@@ -139,13 +145,16 @@ button:hover {
   input,
   textarea {
     font-size: 16px;
-    width: 315px;
+    width: 73vw;
     margin-top: 10px;
   }
   input {
     font-size: 16px;
   }
   button {
+    width: 100%;
+  }
+  label{
     width: 100%;
   }
 }
