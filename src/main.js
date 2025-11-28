@@ -165,4 +165,3 @@ if ('ontouchstart' in document.documentElement) {
 window.addEventListener('load', () => {
 document.getElementById('page').classList.add('loaded');
 });
-

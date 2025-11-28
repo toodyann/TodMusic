@@ -3,7 +3,7 @@ body {
   margin: 0;
   font-family: var(--font-family);
   background: var(--body-background-gradient);
-  color: #fff;
+  color: var(--white-color);
   overflow-x: hidden;
 }
 
@@ -89,7 +89,6 @@ header nav a:hover {
 }
 
 .apply-btn {
-  
   background: var(--white-color);
 
   border: none;
@@ -175,7 +174,7 @@ header nav a:hover {
 
 .apply-section button {
   background: var(--white-color);
-  
+
   border: none;
   border-radius: 25px;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
@@ -210,7 +209,7 @@ header nav a:hover {
 
 .custom-modal {
   background: rgba(0, 0, 0, 0.6);
-  
+
   position: fixed;
   top: 0;
   left: 0;
@@ -289,8 +288,9 @@ header nav a:hover {
     @include mixins.flexSettingsCenter;
     flex-direction: column;
 
-    background: linear-gradient(30deg, rgba(18, 17, 17, 0.8431372549), #ff7300);
+    background: linear-gradient(30deg, rgb(18 17 17 / 98%), #ff7300);
     padding: 30px;
+
     width: 90%;
     height: 100%;
   }
@@ -299,8 +299,9 @@ header nav a:hover {
   }
   .apply-section input,
   .apply-section textarea {
-    padding: 15px 0;
     border-radius: 15px;
+
+    padding: 15px 0;
     margin: 0 0px;
   }
   input {

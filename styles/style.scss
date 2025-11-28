@@ -407,7 +407,6 @@ h1 {
   margin: 0;
 }
 
-/* Sticky Player */
 .sticky-player {
   background: linear-gradient(144deg, #c57a42 0%, #000000fa 100%);
   box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
@@ -528,6 +527,13 @@ h1 {
 
   min-width: 80px;
   opacity: 0.9;
+}
+
+.no-results{
+  @include mixins.flexSettingsCenter;
+  margin-top: 30px;
+  font-size: 1.7rem;
+  color: #18262b;
 }
 
 @media (max-width: 600px) {
