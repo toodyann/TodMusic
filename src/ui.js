@@ -7,7 +7,7 @@ const messageDiv = document.getElementById('message');
 
 export const renderTracks = tracks => {
     if (!tracks || tracks.length === 0) {
-        tracksList.innerHTML = '<p class="no-results">Немає результатів!</p><img src="404Error.svg">';
+        tracksList.innerHTML = '<p class="no-results">Немає результатів!</p><img src="./404Error.svg">';
         return;
     }
 
