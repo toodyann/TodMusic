@@ -2,30 +2,36 @@
 
 import { getLikes, removeLike } from './likes.js';
 import { formatDuration } from './utils.js';
-import { playTrack } from './player.js';
+import { playTrack, pausePlayer, getPlayingTrackId, isPlaying } from './player.js';
 
-const likesList = document.getElementById('likesList');
+const likesList = document.getElementById('tracksListPreferences');
 
 export const renderLikes = () => {
     const likes = getLikes();
 
     if (likes.length === 0) {
-        likesList.innerHTML = '<p class="placeholder">Немає улюблених треків. Додайте перший! ❤️</p>';
+        likesList.innerHTML = '<p class="placeholder">Немає уподобаних пісень. Додайте перший! 💛</p>';
         return;
     }
 
     likesList.innerHTML = `
         <div class="likes-container">
             ${likes.map((track, idx) => `
-                <div class="likes-track-item">
-                    <span class="likes-track-num">${idx + 1}</span>
-                    <div class="likes-track-info">
-                        <div class="likes-track-title">${track.title}</div>
-                        <div class="likes-track-artist">${track.artist}</div>
+                <div class="likes-track-item" data-track-id="${track.id}">
+                    <div class="likes-track-content">
+                        <span class="likes-track-num">${idx + 1}</span>
+                        <div class="likes-track-thumbnail" style="background: linear-gradient(135deg, #FFD700, #FFA500); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; border-radius: 5px;">💛</div>
+                        <div class="likes-track-info">
+                            <div class="likes-track-title">${track.title}</div>
+                            <div class="likes-track-artist">${track.artist}</div>
+                            <div class="likes-track-album">${track.album || 'Unknown Album'}</div>
+                        </div>
                     </div>
-                    <span class="likes-track-duration">${formatDuration(track.duration)}</span>
-                    <button class="play-liked-btn" data-track-id="${track.id}" title="Запустити">▶</button>
-                    <button class="remove-liked-btn" data-track-id="${track.id}" title="Видалити з улюблених">❌</button>
+                    <div class="likes-track-actions">
+                        <span class="likes-track-duration">${formatDuration(track.duration)}</span>
+                        <button class="play-liked-btn" data-track-id="${track.id}" title="Запустити">▶</button>
+                        <button class="remove-liked-btn" data-track-id="${track.id}" title="Видалити з уподобаного">✕</button>
+                    </div>
                 </div>
             `).join('')}
         </div>
@@ -40,7 +46,14 @@ const attachLikesEventListeners = (likes) => {
             e.stopPropagation();
             const trackId = parseInt(btn.dataset.trackId);
             const track = likes.find(t => t.id === trackId);
-            if (track) {
+            
+            if (!track) return;
+            
+            const playingTrackId = getPlayingTrackId();
+            
+            if (playingTrackId === trackId && isPlaying()) {
+                pausePlayer();
+            } else {
                 playTrack(track);
             }
         });
@@ -59,4 +72,5 @@ const attachLikesEventListeners = (likes) => {
 export const clearLikesUI = () => {
     likesList.innerHTML = '';
 };
+
 

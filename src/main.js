@@ -1,6 +1,6 @@
 import { searchTracks } from './api.js';
 import { renderTracks, clearTracks, showLoading, hideLoading, showError, hideError, showMessage, hideMessage } from './ui.js';
-import { initPlayer, playTrack } from './player.js';
+import { initPlayer, playTrack, pausePlayer, onPlaybackStateChange, getPlayingTrackId, isPlaying } from './player.js';
 import { createPlaylist, addTrackToPlaylist } from './playlist.js';
 import { renderPlaylists } from './playlist-ui.js';
 import { getPlaylists } from './playlist.js';
@@ -19,8 +19,17 @@ let currentSearchTracks = [];
 document.addEventListener('DOMContentLoaded', () => {
     initPlayer();
     renderPlaylists();
-    renderLikes();
+    renderPreferences();
     setupTabs();
+    
+    onPlaybackStateChange(() => {
+        if (currentSearchTracks.length > 0) {
+            renderTracks(currentSearchTracks);
+            attachPlayButtons(currentSearchTracks);
+            attachAddToPlaylistButtons(currentSearchTracks);
+            attachPreferencesButtons(currentSearchTracks);
+        }
+    });
 });
 
 const setupTabs = () => {
@@ -59,7 +68,7 @@ const handleSearch = async () => {
         renderTracks(tracks);
         attachPlayButtons(tracks);
         attachAddToPlaylistButtons(tracks);
-        attachLikeButtons(tracks);
+        attachPreferencesButtons(tracks);
     } catch (error) {
         hideLoading();
         showError(`Помилка пошуку: ${error.message}`);
@@ -76,9 +85,16 @@ const attachPlayButtons = tracks => {
     document.querySelectorAll('.play-btn:not(.disabled)').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            const trackId = btn.dataset.trackId;
+            const trackId = parseInt(btn.dataset.trackId);
             const track = trackMap[trackId];
-            if (track && track.previewUrl) {
+            
+            if (!track || !track.previewUrl) return;
+            
+            const playingTrackId = getPlayingTrackId();
+            
+            if (playingTrackId === trackId && isPlaying()) {
+                pausePlayer();
+            } else {
                 playTrack(track);
             }
         });
@@ -163,13 +179,13 @@ const showPlaylistSelector = (playlists, track) => {
     });
 };
 
-const attachLikeButtons = tracks => {
+const attachPreferencesButtons = tracks => {
     const trackMap = {};
     tracks.forEach(track => {
         trackMap[track.id] = track;
     });
 
-    document.querySelectorAll('.like-btn').forEach(btn => {
+    document.querySelectorAll('.add-to-preferences-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             const trackId = parseInt(btn.dataset.trackId);
@@ -183,17 +199,18 @@ const attachLikeButtons = tracks => {
             if (liked) {
                 btn.classList.add('liked');
                 trackItem.classList.add('is-liked');
-                showMessage('Додано в улюблені!');
             } else {
                 btn.classList.remove('liked');
                 trackItem.classList.remove('is-liked');
-                showMessage('Видалено з улюблених!');
             }
             
-            setTimeout(() => hideMessage(), 1500);
-            renderLikes();
+            renderPreferences();
         });
     });
+};
+
+const renderPreferences = () => {
+    renderLikes();
 };
 
 createPlaylistBtn.addEventListener('click', () => {

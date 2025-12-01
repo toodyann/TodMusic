@@ -2,7 +2,7 @@
 
 import { getPlaylists, deletePlaylist, removeTrackFromPlaylist } from './playlist.js';
 import { formatDuration } from './utils.js';
-import { playTrack } from './player.js';
+import { playTrack, pausePlayer, getPlayingTrackId, isPlaying } from './player.js';
 
 const playlistsList = document.getElementById('playlistsList');
 
@@ -35,7 +35,7 @@ export const renderPlaylists = () => {
                             <div class="playlist-track-artist">${track.artist}</div>
                         </div>
                         <span class="playlist-track-duration">${formatDuration(track.duration)}</span>
-                        <button class="play-track-btn" data-track-id="${track.id}" title="Запустити"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                        <button class="play-track-btn" data-playlist-id="${playlist.id}" data-track-id="${track.id}" title="Запустити"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
                         <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
                       </svg></button>
                         <button class="remove-track-btn" data-playlist-id="${playlist.id}" data-track-id="${track.id}" title="Видалити"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
@@ -78,11 +78,18 @@ const attachPlaylistEventListeners = () => {
             const trackId = parseInt(btn.dataset.trackId);
             const playlists = getPlaylists();
             const playlist = playlists.find(p => p.id === playlistId);
-            if (playlist) {
-                const track = playlist.tracks.find(t => t.id === trackId);
-                if (track) {
-                    playTrack(track);
-                }
+            
+            if (!playlist) return;
+            
+            const track = playlist.tracks.find(t => t.id === trackId);
+            if (!track) return;
+            
+            const playingTrackId = getPlayingTrackId();
+            
+            if (playingTrackId === trackId && isPlaying()) {
+                pausePlayer();
+            } else {
+                playTrack(track);
             }
         });
     });

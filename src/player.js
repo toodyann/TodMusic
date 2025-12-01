@@ -57,6 +57,24 @@ export const playTrack = (track) => {
 
 export const getCurrentTrack = () => currentTrack;
 
+export const isPlaying = () => !playerAudio.paused && currentTrack !== null;
+
+export const getPlayingTrackId = () => {
+    if (isPlaying()) {
+        return currentTrack?.id;
+    }
+    return null;
+};
+
+export const onPlaybackStateChange = (callback) => {
+    playerAudio.addEventListener('play', callback);
+    playerAudio.addEventListener('pause', callback);
+};
+
+export const pausePlayer = () => {
+    playerAudio.pause();
+};
+
 export const stopPlayer = () => {
     playerAudio.pause();
     playerAudio.currentTime = 0;
