@@ -1,4 +1,5 @@
 import { formatDuration } from './utils.js';
+import { isLiked } from './likes.js';
 
 const tracksList = document.getElementById('tracksList');
 const loadingSpinner = document.getElementById('loadingSpinner');
@@ -24,8 +25,12 @@ export const renderTracks = tracks => {
             ? `<button class="add-to-playlist-btn" data-track-id="${track.id}" title="Додати в плейліст">➕</button>`
             : '';
         
+        const liked = isLiked(track.id);
+        const likeBtn = `<button class="like-btn ${liked ? 'liked' : ''}" data-track-id="${track.id}" title="${liked ? 'Видалити з улюблених' : 'Додати в улюблені'}">💛</button>`;
+        const likedClass = liked ? 'is-liked' : '';
+        
         return `
-            <div class="track-item" data-track-id="${track.id}" data-track-url="${track.url || ''}" data-preview-url="${track.previewUrl || ''}" data-track-title="${track.title}" data-track-artist="${track.artist}" data-track-album="${track.album}" data-track-duration="${track.duration}" title="${track.title} - ${track.artist}">
+            <div class="track-item ${likedClass}" data-track-id="${track.id}" data-track-url="${track.url || ''}" data-preview-url="${track.previewUrl || ''}" data-track-title="${track.title}" data-track-artist="${track.artist}" data-track-album="${track.album}" data-track-duration="${track.duration}" title="${track.title} - ${track.artist}">
                 <div class="track-header">
                     <span class="track-number">${index + 1}</span>
                     ${thumbnail}
@@ -39,6 +44,7 @@ export const renderTracks = tracks => {
                     <span class="track-duration">${formatDuration(track.duration)}</span>
                     ${playButton}
                     ${addToPlaylistBtn}
+                    ${likeBtn}
                 </div>
             </div>
         `;
