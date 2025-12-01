@@ -73,6 +73,7 @@
   transition: all 0.1s ease;
 }
 .delete-playlist-btn:hover {
+  color: var(--black-color);
   background: #ff0019;
 }
 
@@ -158,13 +159,13 @@
 
   @include mixins.flexSettingsCenter;
 
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
   flex-shrink: 0;
 }
 
 .remove-track-btn:hover {
+  color: var(--black-color);
   background: #ff0019;
-  transform: scale(1.1);
 }
 
 .add-to-playlist-btn {

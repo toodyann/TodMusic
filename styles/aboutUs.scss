@@ -78,6 +78,10 @@ main {
   text-decoration-color: #ffffff51;
 }
 
+.content a:hover {
+  text-decoration-color: var(--main-orange-color);
+}
+
 
 
 @media (max-width: 768px) {
