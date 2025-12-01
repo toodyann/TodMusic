@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Довідка - TodMusic</title>
+
+    <link rel="stylesheet" href="../styles/information.scss">
+    <link rel="stylesheet" href="../styles/footer.scss">
+    <link rel="stylesheet" href="../styles/variables.scss">
+
+    <link rel="icon" href="../faviconTM.png" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+    
+    <div class="faq-container">
+        <a style="text-decoration: none;" href="../index.html"><p class="logo">TodMusic</p></a>
+        <h1>Поширені питання</h1>
+
+        <div class="faq-item">
+            <div class="question">Як створити акаунт на TodMusic? <span class="icon">+</span></div>
+            <div class="answer">На данний момент такої функції ще немає, але ми працюєм на цим, щоб передати вам найкращий досвід користування.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Чи можу я слухати музику безкоштовно? <span class="icon">+</span></div>
+            <div class="answer">Так! TodMusic - безкоштовна WEB-платформа, яка доступна усім!</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Як додати трек у свій плейлист? <span class="icon">+</span></div>
+            <div class="answer">Просто натисніть на іконку “+” біля треку та оберіть в який саме плейліст хочете додати трек.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Які формати аудіо підтримує TodMusic? <span class="icon">+</span></div>
+            <div class="answer">Платформа підтримує популярні формати — MP3, FLAC, WAV, AAC. Інші формати наразі не гарантовано відтворюються.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Чому трек не відтворюється? <span class="icon">+</span></div>
+            <div class="answer">Переконайтеся, що у вас стабільне інтернет-з’єднання та оновлена версія браузера. Якщо проблема зберігається — очистьте кеш.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="question">Коли буде доступна преміум-версія? <span class="icon">+</span></div>
+            <div class="answer">Розробка преміум-функцій триває. Очікуйте реліз у 2026-2027 році.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Чи можна використовувати TodMusic на телефоні? <span class="icon">+</span></div>
+            <div class="answer">Так! Веб-версія чудово працює на мобільних пристроях, а офіційний застосунок для Android та iOS з’явиться незабаром.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Як повідомити про помилку чи баг? <span class="icon">+</span></div>
+            <div class="answer">Натисніть “Підтримка” у нижньому меню або напишіть на TodMusicHelp@gmail.com — ми швидко розглянемо ваше звернення.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Чи можу я завантажувати музику з TodMusic? <span class="icon">+</span></div>
+            <div class="answer">Так! Можете завантажувати уподобані пісні без перешкод!</div>
+        </div>
+
+        <footer>© 2025 TodMusic. Усі права захищено.</footer>
+    </div>
+
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

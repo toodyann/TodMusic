@@ -1,0 +1,131 @@
+@use "mixins.scss";
+
+body {
+    background: var(--body-background-gradient);
+
+    font-family: var(--font-family);
+    color: var(--white-color);
+
+    margin: 0;
+    padding: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    min-height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+}
+
+html, body {
+    background-color: var(--html-background-color);
+}
+
+.logo {
+    @include mixins.logoStyle;
+    @include mixins.flexSettingsCenter;
+  }
+.faq-container {
+    background: var(--card-background-color);
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+
+    max-width: 800px;
+    width: 90%;
+
+    margin: 50px 5px;
+    padding: 30px;
+}
+
+h1 {
+    @include mixins.gradientText;
+    font-size: 2em;
+    
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #333;
+    padding: 20px 0;
+
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.faq-item:hover {
+    background: var(--items-hover-background-color);
+}
+
+.question {
+    font-size: 1.2em;
+    color: var(--white-color);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.answer {
+    font-size: 1em;
+    color: var(--grey-color);
+    line-height: 1.5;
+
+    overflow: hidden;
+    max-height: 0;
+    padding-top: 10px;
+
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.faq-item.active .answer {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.icon {
+    color: var(--black-color);
+    font-weight: bold;
+    
+    transition: transform 0.3s;
+}
+
+.faq-item.active .icon {
+    transform: rotate(45deg);
+}
+
+footer {
+    font-size: 0.9em;
+    @include mixins.gradientText;
+    text-align: center;
+    
+    margin-top: 20px;
+    padding: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    .faq-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .question {
+        font-size: 1em;
+    }
+
+    .answer {
+        font-size: 0.9em;
+    }
+    .faq-container {
+        margin: 20px 10px;
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}

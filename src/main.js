@@ -226,3 +226,14 @@ newPlaylistName.addEventListener('keypress', (e) => {
         createPlaylistBtn.click();
     }
 });
+
+
+if ('ontouchstart' in document.documentElement) {
+    const style = document.createElement('style');
+    style.innerHTML = '.faq-item:hover { background: none !important; }';
+    document.head.appendChild(style);
+}
+
+window.addEventListener('load', () => {
+document.getElementById('page').classList.add('loaded');
+});

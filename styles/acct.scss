@@ -1,0 +1,166 @@
+@use "mixins.scss";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: block;
+  
+  background: var(--body-background-gradient);
+
+  font-family: var(--font-family);
+  color: var(--white-color);
+
+  min-height: auto;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+body.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html {
+  background-color: var(--html-background-color);
+}
+
+html, body {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.login-container {
+  text-align: center;
+
+  max-width: 400px;
+  width: 100%;
+
+  margin: 40px auto;
+  padding: 40px 20px;
+}
+
+.logo a {
+  @include mixins.logoStyle;
+}
+
+h1 {
+  font-size: 1.3rem;
+  @include mixins.gradientText;
+  font-weight: bold;
+  line-height: 1.3;
+
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+input {
+  font-size: 15px;
+  color: var(--white-color);
+
+  background-color: var(--input-background);
+  border: none;
+  border-radius: 5px;
+
+  width: 100%;
+
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+input:focus {
+  outline: 2px solid var(--main-orange-color);
+  background-color: #27272775;
+}
+
+.main-btn {
+  background-color: var(--main-orange-color);
+  border: none;
+  border-radius: 25px;
+
+  font-size: 15px;
+  color: var(--black-color);
+  font-weight: bold;
+  cursor: pointer;
+
+  width: 100%;
+  padding: 14px;
+
+  transition: 0.2s ease;
+}
+
+.main-btn:hover {
+  background-color: var(--btn-orange-hover);
+}
+
+.divider {
+  font-size: 14px;
+  color: var(--white-color);
+
+  margin: 20px 0;
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-bottom: 25px;
+}
+
+.social-btn {
+  background-color: var(--card-background-color);
+  border: var(--card-border);
+  border-radius: 25px;
+
+  color: rgba(0, 0, 0, 0.647);
+  font-weight: 600;
+  cursor: pointer;
+  
+  padding: 12px;
+
+  @include mixins.flexSettingsCenter;
+  position: relative;
+
+  transition: 0.2s;
+}
+
+.social-btn:hover {
+  background-color: var(--btn-grey-hover);
+}
+
+.google-icon {
+  position: absolute;
+  left: 15px;
+}
+
+.meta-icon {
+  position: absolute;
+  left: 15px;
+}
+.apple-icon {
+  position: absolute;
+  left: 15px;
+}
+
+.register-text {
+  font-size: 14px;
+  color: var(--black-color);
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+.register-link {
+  color: var(--white-color);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+
+  margin: 1px;
+}

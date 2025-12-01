@@ -1,0 +1,91 @@
+@use "mixins.scss";
+body {
+  background: var(--body-background-gradient);
+  font-family: var(--font-family);
+  color: var(--white-color);
+
+  margin: 0;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+html {
+  background-color: var(--html-background-color);
+}
+body.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.logo p {
+  @include mixins.headerLogoStyle;
+}
+header {
+  background: var(--header-background-gradient);
+  color: var(--white-color);
+
+  padding: 0px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a {
+  color: var(--white-color);
+  text-decoration: none;
+
+  margin-left: 20px;
+  font-size: 15px;
+}
+main {
+  display: flex;
+  justify-content: center;
+
+  padding: 60px 20px;
+  margin-bottom: 130px
+}
+.content {
+  @include mixins.gradientText;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+
+  max-width: 1200px;
+  width: 110%;
+}
+
+.content h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.content h2 {
+  font-size: 22px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+.content p {
+  line-height: 1.6;
+  font-size: 16px;
+}
+.content ul {
+  padding-left: 20px;
+}
+.content a {
+  color: var(--main-orange-color);
+  text-decoration: underline;
+  text-decoration-color: #ffffff51;
+}
+
+.content a:hover {
+  text-decoration-color: var(--main-orange-color);
+}
+
+
+
+@media (max-width: 768px) {
+  .content {
+    display: block;
+  }
+}

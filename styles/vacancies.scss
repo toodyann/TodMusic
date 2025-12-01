@@ -1,0 +1,310 @@
+@use "mixins.scss";
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background: var(--body-background-gradient);
+  color: var(--white-color);
+  overflow-x: hidden;
+}
+
+html {
+  background-color: var(--html-background-color);
+}
+
+header {
+  background: var(--header-background-gradient);
+  color: var(--white-color);
+
+  padding: 0px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a {
+  color: var(--white-color);
+  text-decoration: none;
+
+  margin-left: 20px;
+  font-size: 15px;
+}
+.logo {
+  @include mixins.headerLogoStyle;
+}
+
+header nav a {
+  color: var(--white-color);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+header nav a:hover {
+  color: var(--main-orange-color);
+}
+
+.intro {
+  text-align: center;
+  padding: 60px 20px 20px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.intro h1 {
+  font-size: 40px;
+  @include mixins.gradientText;
+}
+
+.jobs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+
+  padding: 40px 60px;
+  margin-bottom: 130px;
+}
+
+.job-card {
+  background: var(--card-background-color);
+  border: var(--card-border);
+  border-radius: 15px;
+
+  @include mixins.flexSettingsCenter;
+  flex-direction: column;
+  text-align: center;
+
+  padding: 25px;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  background: var(--items-hover-background-color);
+}
+
+.job-card h2 {
+  @include mixins.gradientSubText;
+  margin-bottom: 10px;
+}
+
+.apply-btn {
+  background: var(--white-color);
+
+  border: none;
+  border-radius: 30px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+
+  font-weight: 600;
+  color: var(--black-color);
+  cursor: pointer;
+
+  margin-top: 20px;
+  padding: 13px 60px;
+
+  transition: 0.3s;
+}
+
+.apply-btn:hover {
+  background: var(--btn-orange-hover);
+  color: var(--white-color);
+}
+
+.apply-section {
+  background: linear-gradient(30deg, rgb(18 17 17 / 98%), #ff7300);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+
+  max-width: 730px;
+  padding: 40px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: all 0.4s ease-out;
+}
+
+.apply-section.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.apply-section h2 {
+  color: #ffffffee;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.apply-section label {
+  color: #ffffffc8;
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.apply-section input,
+.apply-section textarea {
+  background: var(--item-background-color);
+  border: none;
+  border-radius: 8px;
+
+  color: #ffefdd;
+  font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  resize: none;
+}
+
+.apply-section input::placeholder,
+.apply-section textarea::placeholder {
+  color: var(--grey-color);
+}
+
+.apply-section input:focus,
+.apply-section textarea:focus {
+  outline: none;
+  border: 2px solid #ff7b00;
+  box-shadow: 0 0 10px rgba(255, 123, 0, 0.4);
+}
+
+.apply-section button {
+  background: var(--white-color);
+
+  border: none;
+  border-radius: 25px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: var(--black-color);
+
+  margin-top: 25px;
+  padding: 13px 25px;
+
+  width: 100%;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.apply-section button:hover {
+  background: var(--btn-orange-hover);
+  color: var(--white-color);
+}
+
+.close-form {
+  text-align: center;
+  color: var(--white-color);
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.close-form:hover {
+  color: var(--btn-orange-hover);
+}
+
+.custom-modal {
+  background: rgba(0, 0, 0, 0.6);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+
+  @include mixins.flexSettingsCenter;
+
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.custom-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.custom-modal-content {
+  background: #806d5e;
+  border-radius: 15px;
+  color: var(--white-color);
+
+  padding: 30px;
+  margin: 0 5px;
+
+  max-width: 500px;
+  width: 90%;
+
+  text-align: center;
+}
+
+.custom-modal-content h2 {
+  margin-bottom: 15px;
+  @include mixins.gradientText;
+}
+
+.custom-modal-content button {
+  background: var(--main-orange-color);
+  border: none;
+  border-radius: 25px;
+
+  color: var(--black-color);
+  font-weight: 700;
+
+  margin-top: 15px;
+  padding: 10px 25px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.custom-modal-content button:hover {
+  background: var(--btn-orange-hover);
+  color: var(--black-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .jobs {
+    padding: 20px 30px;
+  }
+
+  .apply-section {
+    @include mixins.flexSettingsCenter;
+    flex-direction: column;
+
+    background: linear-gradient(30deg, rgb(18 17 17 / 98%), #ff7300);
+    padding: 30px;
+
+    width: 90%;
+    height: 100%;
+  }
+  .apply-section button {
+    padding: 16px 25px;
+  }
+  .apply-section input,
+  .apply-section textarea {
+    border-radius: 15px;
+
+    padding: 15px 0;
+    margin: 0 0px;
+  }
+  input {
+    padding: 0;
+  }
+}
