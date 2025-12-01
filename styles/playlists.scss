@@ -67,12 +67,13 @@
   color: var(--white-color);
   font-size: 1.1rem;
 
+  @include mixins.flexSettingsCenter;
+
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
 }
 .delete-playlist-btn:hover {
   background: #ff0019;
-  transform: scale(1.1);
 }
 
 .playlist-tracks {

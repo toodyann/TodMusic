@@ -151,13 +151,12 @@ h1 {
   font-weight: 600;
 
   padding: 15px 40px;
-  transition: 0.15s ease;
+  transition: 0.5s ease;
 }
 
 .search-btn:hover {
   background: var(--btn-orange-hover);
   cursor: pointer;
-  transform: scale(1.05);
 }
 
 .loading {

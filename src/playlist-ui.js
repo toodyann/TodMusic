@@ -38,7 +38,9 @@ export const renderPlaylists = () => {
                         <button class="play-track-btn" data-track-id="${track.id}" title="Запустити"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
                         <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
                       </svg></button>
-                        <button class="remove-track-btn" data-playlist-id="${playlist.id}" data-track-id="${track.id}" title="Видалити">✕</button>
+                        <button class="remove-track-btn" data-playlist-id="${playlist.id}" data-track-id="${track.id}" title="Видалити"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                      </svg></button>
                     </div>
                 `).join('')}
             </div>
