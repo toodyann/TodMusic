@@ -80,7 +80,6 @@ h1 {
 .subtitle {
   color: var(--white-color);
   font-size: 1.1rem;
-  
 }
 
 .tabs {
@@ -232,6 +231,7 @@ h1 {
 
 .track-item {
   background: var(--item-background-color);
+  border: var(--card-border);
 
   border-left: 5px solid #c4733179;
   border-radius: 8px;
@@ -260,25 +260,25 @@ h1 {
 }
 
 .play-btn {
-  background: var(--main-orange-color);
+  background: var(--gradient-color-btn);
+  border: none;
+  border-radius: 50%;
 
   font-size: 1rem;
   color: var(--white-color);
   cursor: pointer;
 
-  border: none;
-  border-radius: 50%;
-
   width: 40px;
   height: 40px;
 
   @include mixins.flexSettingsCenter;
+
+  transition: all 0.3s ease;
   flex-shrink: 0;
-  transition: all 0.2s ease;
 }
 
 .play-btn:hover {
-  background: var(--white-color);
+  background: linear-gradient(to right, #ea3407, #feb47b);
   color: var(--black-color);
 }
 
@@ -520,28 +520,28 @@ h1 {
 }
 
 .add-to-preferences-btn:hover svg {
-  fill: #FFA500;
+  fill: #ffa500;
   opacity: 1;
   transform: scale(1.15);
 }
 
 .add-to-preferences-btn.liked svg {
-  fill: #FFA500;
+  fill: #ffa500;
   opacity: 1;
 }
 
 .add-to-preferences-btn.liked:hover svg {
-  fill: #FFD700;
+  fill: #ffd700;
   transform: scale(1.2);
 }
 
 .play-btn.playing svg {
-  fill: #FFA500;
+  fill: #ffa500;
   filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.6));
 }
 
 .play-btn.playing:hover svg {
-  fill: #FFD700;
+  fill: #ffd700;
   filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
 }
 
@@ -563,7 +563,7 @@ h1 {
   opacity: 0.9;
 }
 
-.no-results{
+.no-results {
   @include mixins.flexSettingsCenter;
   margin-top: 30px;
   font-size: 1.7rem;
@@ -636,9 +636,16 @@ h1 {
     align-items: center;
     justify-content: center;
   }
+  .window-notify-container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 10px;
+  }
 }
 
-/* Preferences/Likes Styles */
 .likes-container {
   display: flex;
   flex-direction: column;
@@ -646,21 +653,22 @@ h1 {
 }
 
 .likes-track-item {
+  background: var(--item-background-color);
+  border: var(--card-border);
+  border-radius: 10px;
+  border-left: 5px solid #c4733179;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 15px 20px;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 165, 0, 0.08));
-  border: 2px solid #FFD700;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
+  transition: all 0.1s ease;
+  cursor: pointer;
 }
 
 .likes-track-item:hover {
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.15));
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.2);
+  background: var(--items-hover-background-color);
 }
 
 .likes-track-content {
@@ -673,15 +681,18 @@ h1 {
 
 .likes-track-num {
   display: inline-block;
-  width: 35px;
-  height: 35px;
-  background: linear-gradient(135deg, #FFD700, #FFA500);
-  color: white;
+
+  background: rgba(255, 255, 255, 0.1215686275);
   border-radius: 50%;
+
+  width: 30px;
+  height: 30px;
+
+  font-size: 0.8rem;
+  color: var(--white-color);
   text-align: center;
-  line-height: 35px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  line-height: 30px;
+
   flex-shrink: 0;
 }
 
@@ -702,30 +713,23 @@ h1 {
 }
 
 .likes-track-title {
-  font-weight: 600;
-  color: var(--white-color);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 4px;
   font-size: 1rem;
+  color: #fdf2e9;
+  font-weight: 600;
+
+  margin-bottom: 4px;
 }
 
 .likes-track-artist {
   font-size: 0.9rem;
-  color: #ccc;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: var(--grey-color);
+
   margin-bottom: 4px;
 }
 
 .likes-track-album {
   font-size: 0.85rem;
   color: #999;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .likes-track-actions {
@@ -736,60 +740,66 @@ h1 {
 
 .likes-track-duration {
   font-size: 0.9rem;
-  color: #ccc;
+  color: var(--grey-color);
   min-width: 50px;
   text-align: right;
 }
 
 .play-liked-btn {
-  background: linear-gradient(135deg, #FFD700, #FFA500);
-  color: white;
+  background: var(--gradient-color-btn);
   border: none;
   border-radius: 50%;
+
+  font-size: 1rem;
+  color: var(--white-color);
+  cursor: pointer;
+
   width: 40px;
   height: 40px;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  @include mixins.flexSettingsCenter;
+
   transition: all 0.3s ease;
   flex-shrink: 0;
 }
 
 .play-liked-btn:hover {
-  background: linear-gradient(135deg, #FFA500, #FF8C00);
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.4);
+  background: linear-gradient(to right, #ea3407, #feb47b);
+  color: var(--black-color);
 }
 
 .remove-liked-btn {
-  background: transparent;
-  color: #FF6B6B;
-  border: 2px solid #FF6B6B;
+  background: #dc3545;
+  border: none;
   border-radius: 50%;
+
   width: 40px;
   height: 40px;
-  font-size: 1.2rem;
+
+  font-size: 1rem;
+  color: var(--white-color);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
+
+  @include mixins.flexSettingsCenter;
+
+  transition: all 0.1s ease;
   flex-shrink: 0;
 }
 
 .remove-liked-btn:hover {
-  background: #FF6B6B;
-  color: white;
-  transform: scale(1.1);
+  background: #ff0019;
+  color: var(--black-color);
 }
 
 .tracks-section-preferences {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  background: var(--card-background-color);
+  border: var(--card-border);
   border-radius: 15px;
-  padding: 20px;
+
   min-height: 300px;
+
+  padding: 15px;
+  margin-bottom: 200px;
 }
 
 @media (max-width: 768px) {
@@ -803,4 +813,81 @@ h1 {
     justify-content: flex-end;
     margin-top: 10px;
   }
+  .tracks-section-preferences {
+    padding: 5px;
+  }
+}
+
+.window-notify-container {
+  background: linear-gradient(30deg, #121111fa, #ff7300);
+  padding: 190px;
+  border-radius: 40px;
+}
+
+.main-text-alert {
+  @include mixins.gradientText;
+  font-size: 1.6rem;
+
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.track-info-alert {
+  color: #fdf2e9;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+#playlistSelect {
+  background: var(--input-background);
+  border: none;
+  border-radius: 15px;
+
+  font-size: 1rem;
+  color: var(--white-color);
+  width: 100%;
+
+  padding: 10px;
+  margin: 30px 0 35px 0;
+
+  outline: none;
+}
+
+.add-btn {
+  background-color: var(--main-orange-color);
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px #00000080;
+
+  font-weight: 600;
+  color: #732c00;
+
+  padding: 10px;
+
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn {
+  background: var(--white-color);
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px #00000080;
+
+  color: #732c00;
+  font-weight: 600;
+
+  padding: 12px;
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: #db7c07bd;
+}
+
+.cancel-btn:hover {
+  background-color: #ffffffb7;
 }

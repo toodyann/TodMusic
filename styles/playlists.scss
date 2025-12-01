@@ -15,7 +15,7 @@
   flex-direction: column;
   gap: 20px;
 
-  margin-bottom: 130px;
+  margin-bottom: 200px;
 }
 
 .playlist-card {
@@ -84,7 +84,8 @@
 }
 
 .playlist-track-item {
-  background: hsl(0deg 0% 22.6% / 3.1%);
+  background: var(--item-background-color);
+  border: var(--card-border);
   border-left: 5px solid #c4733179;
   border-radius: 6px;
 
@@ -95,6 +96,7 @@
   padding: 30px 10px;
 
   transition: 0.15s ease;
+  cursor: pointer;
 }
 
 .playlist-track-item:hover {
@@ -176,7 +178,7 @@
   border: none;
   border-radius: 50%;
 
-  color: white;
+  color: var(--white-color);
   font-size: 1rem;
   cursor: pointer;
 
@@ -192,11 +194,11 @@
 }
 
 .play-track-btn {
-  background: var(--main-orange-color);
+  background: var(--gradient-color-btn);
   border: none;
   border-radius: 50%;
 
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--white-color);
   cursor: pointer;
 
@@ -210,6 +212,7 @@
 }
 
 .play-track-btn:hover {
-  background: var(--white-color);
-  color: var(--black-color);
+  background: linear-gradient(to right, #ea3407, #feb47b);
+
+  color: #ffffffba;
 }

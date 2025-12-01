@@ -133,15 +133,15 @@ const showPlaylistSelector = (playlists, track) => {
     
     const html = `
         <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 2000;" id="playlistSelectorModal">
-            <div style="background: white; padding: 20px; border-radius: 10px; max-width: 400px; width: 90%;">
-                <h3 style="margin-bottom: 15px; color: #333;">Виберіть плейліст для додавання</h3>
-                <p style="margin-bottom: 10px; color: #666; font-size: 0.9rem;"><strong>${track.title}</strong> - ${track.artist}</p>
-                <select id="playlistSelect" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; margin-bottom: 15px;">
+            <div class="window-notify-container">
+                <h3 class="main-text-alert">Виберіть плейліст для додавання</h3>
+                <p class="track-info-alert"<strong>${track.title}</strong> - ${track.artist}</p>
+                <select id="playlistSelect">
                     ${options}
                 </select>
                 <div style="display: flex; gap: 10px;">
-                    <button id="cancelBtn" style="flex: 1; padding: 10px; background: #ddd; border: none; border-radius: 5px; cursor: pointer;">Скасувати</button>
-                    <button id="addBtn" style="flex: 1; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">Додати</button>
+                    <button class="cancel-btn" id="cancelBtn">Скасувати</button>
+                    <button class="add-btn" id="addBtn">Додати</button>
                 </div>
             </div>
         </div>

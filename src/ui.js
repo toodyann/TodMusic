@@ -26,7 +26,7 @@ export const renderTracks = tracks => {
         const playingTrackId = getPlayingTrackId();
         const isCurrentTrackPlaying = playingTrackId === track.id && isPlaying();
         const playButton = track.previewUrl 
-            ? `<button class="play-btn ${isCurrentTrackPlaying ? 'playing' : ''}" data-track-id="${track.id}" title="${isCurrentTrackPlaying ? 'Пауза' : 'Грати'}"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            ? `<button class="play-btn ${isCurrentTrackPlaying ? 'playing' : ''}" data-track-id="${track.id}" title="${isCurrentTrackPlaying ? 'Пауза' : 'Грати'}">▶
             ${isCurrentTrackPlaying ? '<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>' : '<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>'}
           </svg></button>`
             : `<span class="play-btn disabled" title="Нема попереднього перегляду">-</span>`;
@@ -34,8 +34,8 @@ export const renderTracks = tracks => {
         const liked = isLiked(track.id);
         const likedClass = liked ? 'is-liked' : '';
         const preferencesButton = track.previewUrl 
-            ? `<button class="add-to-preferences-btn ${liked ? 'liked' : ''}" data-track-id="${track.id}" title="${liked ? 'Видалити з уподобаного' : 'Додати в уподобане'}"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+            ? `<button class="add-to-preferences-btn ${liked ? 'liked' : ''}" data-track-id="${track.id}" title="${liked ? 'Видалити з уподобаного' : 'Додати в уподобане'}"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
           </svg></button>`
             : '';
         
