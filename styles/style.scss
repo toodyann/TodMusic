@@ -499,16 +499,50 @@ h1 {
 
 .add-to-preferences-btn {
   display: flex;
-  color: var(--white-color);
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
   background: none;
   border: none;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
-.add-to-preferences-btn:hover {
-  color: var(--btn-orange-hover);
-  cursor: pointer;
-  transform: scale(1.1);
+.add-to-preferences-btn svg {
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s ease;
+  fill: white;
+  opacity: 0.7;
+}
+
+.add-to-preferences-btn:hover svg {
+  fill: #FFA500;
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.add-to-preferences-btn.liked svg {
+  fill: #FFA500;
+  opacity: 1;
+}
+
+.add-to-preferences-btn.liked:hover svg {
+  fill: #FFD700;
+  transform: scale(1.2);
+}
+
+.play-btn.playing svg {
+  fill: #FFA500;
+  filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.6));
+}
+
+.play-btn.playing:hover svg {
+  fill: #FFD700;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
 }
 
 .player-progress {
@@ -601,5 +635,172 @@ h1 {
   .tabs {
     align-items: center;
     justify-content: center;
+  }
+}
+
+/* Preferences/Likes Styles */
+.likes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.likes-track-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 165, 0, 0.08));
+  border: 2px solid #FFD700;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
+}
+
+.likes-track-item:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.15));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.2);
+}
+
+.likes-track-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  min-width: 0;
+}
+
+.likes-track-num {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.likes-track-thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.likes-track-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.likes-track-title {
+  font-weight: 600;
+  color: var(--white-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.likes-track-artist {
+  font-size: 0.9rem;
+  color: #ccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.likes-track-album {
+  font-size: 0.85rem;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.likes-track-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.likes-track-duration {
+  font-size: 0.9rem;
+  color: #ccc;
+  min-width: 50px;
+  text-align: right;
+}
+
+.play-liked-btn {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.play-liked-btn:hover {
+  background: linear-gradient(135deg, #FFA500, #FF8C00);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.4);
+}
+
+.remove-liked-btn {
+  background: transparent;
+  color: #FF6B6B;
+  border: 2px solid #FF6B6B;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.remove-liked-btn:hover {
+  background: #FF6B6B;
+  color: white;
+  transform: scale(1.1);
+}
+
+.tracks-section-preferences {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  border-radius: 15px;
+  padding: 20px;
+  min-height: 300px;
+}
+
+@media (max-width: 768px) {
+  .likes-track-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .likes-track-actions {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
   }
 }

@@ -1,4 +1,6 @@
 import { formatDuration } from './utils.js';
+import { isLiked } from './likes.js';
+import { getPlayingTrackId, isPlaying } from './player.js';
 
 const tracksList = document.getElementById('tracksList');
 const loadingSpinner = document.getElementById('loadingSpinner');
@@ -21,14 +23,18 @@ export const renderTracks = tracks => {
             ? `<img src="${track.thumbnail}" alt="${track.title}" class="track-thumbnail" onerror="this.src='https://via.placeholder.com/60?text=Track'" />`
             : `<div class="track-thumbnail" style="background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🎵</div>`;
         
+        const playingTrackId = getPlayingTrackId();
+        const isCurrentTrackPlaying = playingTrackId === track.id && isPlaying();
         const playButton = track.previewUrl 
-            ? `<button class="play-btn" data-track-id="${track.id}" title="Грати"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+            ? `<button class="play-btn ${isCurrentTrackPlaying ? 'playing' : ''}" data-track-id="${track.id}" title="${isCurrentTrackPlaying ? 'Пауза' : 'Грати'}"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            ${isCurrentTrackPlaying ? '<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>' : '<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>'}
           </svg></button>`
             : `<span class="play-btn disabled" title="Нема попереднього перегляду">-</span>`;
         
-            const preferencesButton = track.previewUrl 
-            ? `<button class="add-to-preferences-btn" data-track-id="${track.id}" title="Уподобати"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
+        const liked = isLiked(track.id);
+        const likedClass = liked ? 'is-liked' : '';
+        const preferencesButton = track.previewUrl 
+            ? `<button class="add-to-preferences-btn ${liked ? 'liked' : ''}" data-track-id="${track.id}" title="${liked ? 'Видалити з уподобаного' : 'Додати в уподобане'}"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
           </svg></button>`
             : '';
@@ -40,7 +46,7 @@ export const renderTracks = tracks => {
             : '';
         
         return `
-            <div class="track-item" data-track-id="${track.id}" data-track-url="${track.url || ''}" data-preview-url="${track.previewUrl || ''}" data-track-title="${track.title}" data-track-artist="${track.artist}" data-track-album="${track.album}" data-track-duration="${track.duration}" title="${track.title} - ${track.artist}">
+            <div class="track-item ${likedClass}" data-track-id="${track.id}" data-track-url="${track.url || ''}" data-preview-url="${track.previewUrl || ''}" data-track-title="${track.title}" data-track-artist="${track.artist}" data-track-album="${track.album}" data-track-duration="${track.duration}" title="${track.title} - ${track.artist}">
                 <div class="track-header">
                     <span class="track-number">${index + 1}</span>
                     ${thumbnail}
