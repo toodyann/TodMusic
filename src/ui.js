@@ -26,7 +26,9 @@ export const renderTracks = tracks => {
         const playingTrackId = getPlayingTrackId();
         const isCurrentTrackPlaying = playingTrackId === track.id && isPlaying();
         const playButton = track.previewUrl 
-            ? `<button class="play-btn ${isCurrentTrackPlaying ? 'playing' : ''}" data-track-id="${track.id}" title="${isCurrentTrackPlaying ? 'Пауза' : 'Грати'}">▶
+            ? `<button class="play-btn ${isCurrentTrackPlaying ? 'playing' : ''}" data-track-id="${track.id}" title="${isCurrentTrackPlaying ? 'Пауза' : 'Грати'}">  
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>
+
             ${isCurrentTrackPlaying ? '<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>' : '<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>'}
           </svg></button>`
             : `<span class="play-btn disabled" title="Нема попереднього перегляду">-</span>`;
@@ -34,15 +36,17 @@ export const renderTracks = tracks => {
         const liked = isLiked(track.id);
         const likedClass = liked ? 'is-liked' : '';
         const preferencesButton = track.previewUrl 
-            ? `<button class="add-to-preferences-btn ${liked ? 'liked' : ''}" data-track-id="${track.id}" title="${liked ? 'Видалити з уподобаного' : 'Додати в уподобане'}"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-          </svg></button>`
+            ? `<button class="add-to-preferences-btn ${liked ? 'liked' : ''}" data-track-id="${track.id}" title="${liked ? 'Видалити з уподобаного' : 'Додати в уподобане'}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#ffffff" viewBox="0 0 256 256">
+            <path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"></path>
+            </svg>
+            </button>`
             : '';
         
         const addToPlaylistBtn = track.previewUrl
-            ? `<button class="add-to-playlist-btn" data-track-id="${track.id}" title="Додати в плейліст"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-          </svg></button>`
+            ? `<button class="add-to-playlist-btn" data-track-id="${track.id}" title="Додати в плейліст">
+            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="#ffffff" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path></svg>
+            </button>`
             : '';
         
         return `
