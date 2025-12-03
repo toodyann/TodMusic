@@ -139,9 +139,11 @@ const showPlaylistSelector = (playlists, track) => {
                 <select id="playlistSelect">
                     ${options}
                 </select>
-                <div style="display: flex; gap: 10px;">
+                <div class="alert-btns-container">
+
                     <button class="cancel-btn" id="cancelBtn">Скасувати</button>
                     <button class="add-btn" id="addBtn">Додати</button>
+                    
                 </div>
             </div>
         </div>

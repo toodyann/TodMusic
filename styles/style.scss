@@ -596,6 +596,11 @@ h1 {
 
     padding: 10px;
   }
+  .alert-btns-container{
+    flex-direction: column;
+  }
+  .cancel-btn{
+  }
 }
 
 .likes-container {
@@ -724,22 +729,36 @@ h1 {
 }
 
 .window-notify-container {
-  background: linear-gradient(30deg, #121111fa, #ff7300);
-  padding: 190px;
-  border-radius: 40px;
+  font-family: "Montserrat", sans-serif;
+
+  @include mixins.flexSettingsCenter;
+  flex-direction: column;
+
+
+  padding: 200px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(35px) saturate(1.8);
+
+  color: #fff;
 }
 
 .main-text-alert {
-  @include mixins.gradientText;
+  color: var(--white-color);
   font-size: 1.6rem;
-
+  font-weight: 500;
   text-align: center;
   margin-bottom: 30px;
 }
 
 .track-info-alert {
   color: #fdf2e9;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 300;
   margin-bottom: 10px;
 }
 
@@ -756,43 +775,4 @@ h1 {
   margin: 30px 0 35px 0;
 
   outline: none;
-}
-
-.add-btn {
-  background-color: var(--main-orange-color);
-  border: none;
-  border-radius: 10px;
-  box-shadow: inset 0 0 5px #00000080;
-
-  font-weight: 600;
-  color: #732c00;
-
-  padding: 10px;
-
-  flex: 1;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.cancel-btn {
-  background: var(--white-color);
-  border: none;
-  border-radius: 10px;
-  box-shadow: inset 0 0 5px #00000080;
-
-  color: #732c00;
-  font-weight: 600;
-
-  padding: 12px;
-  flex: 1;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.add-btn:hover {
-  background-color: #db7c07bd;
-}
-
-.cancel-btn:hover {
-  background-color: #ffffffb7;
 }

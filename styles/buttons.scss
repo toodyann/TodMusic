@@ -17,8 +17,8 @@
   transition: all 0.17s ease;
 }
 
-.play-track-btn:hover{
-    background: #ffffff61;
+.play-track-btn:hover {
+  background: #ffffff61;
 }
 
 .play-track-btn:active {
@@ -48,10 +48,9 @@
   transition: all 0.3 ease;
 }
 
-.remove-track-btn:hover{
-    color: var(--grey-color);
+.remove-track-btn:hover {
+  color: var(--grey-color);
 }
-
 
 .delete-playlist-btn {
   background: none;
@@ -74,128 +73,127 @@
 // likes btns
 
 .play-liked-btn {
-    background: #ffffff0f;
-    border: 1px solid var(--white-color);
-    border-radius: 50%;
-  
-    font-size: 1rem;
-    color: var(--white-color);
-    cursor: pointer;
-  
-    width: 38px;
-    height: 38px;
-  
-    @include mixins.flexSettingsCenter;
-  
-    transition: all 0.17s ease;
-  }
-  
-  .play-liked-btn:hover{
-      background: #ffffff61;
-  }
-  
-  .play-liked-btn:active {
-    transform: scale(0.9);
-  }
+  background: #ffffff0f;
+  border: 1px solid var(--white-color);
+  border-radius: 50%;
 
-  .remove-liked-btn {
-    background: none;
-    border: none;
-    border-radius: 50%;
-  
-    width: 40px;
-    height: 40px;
-  
-    font-size: 1rem;
-    color: var(--white-color);
-    cursor: pointer;
-  
-    @include mixins.flexSettingsCenter;
-  
-    flex-shrink: 0;
-  }
-  
-  .remove-liked-btn svg:hover {
-    fill: #ffa500;
-  }
+  font-size: 1rem;
+  color: var(--white-color);
+  cursor: pointer;
+
+  width: 38px;
+  height: 38px;
+
+  @include mixins.flexSettingsCenter;
+
+  transition: all 0.17s ease;
+}
+
+.play-liked-btn:hover {
+  background: #ffffff61;
+}
+
+.play-liked-btn:active {
+  transform: scale(0.9);
+}
+
+.remove-liked-btn {
+  background: none;
+  border: none;
+  border-radius: 50%;
+
+  width: 40px;
+  height: 40px;
+
+  font-size: 1rem;
+  color: var(--white-color);
+  cursor: pointer;
+
+  @include mixins.flexSettingsCenter;
+
+  flex-shrink: 0;
+}
+
+.remove-liked-btn svg:hover {
+  fill: #ffa500;
+}
 
 // player btns
 
 .play-btn {
-    background: #ffffff0f;
-    border: 1px solid var(--white-color);
-    border-radius: 50%;
-  
-    font-size: 1rem;
-    color: var(--white-color);
-    cursor: pointer;
-  
-    width: 38px;
-    height: 38px;
-  
-    @include mixins.flexSettingsCenter;
-  
-    transition: all 0.17s ease;
-  }
-  
-  .play-btn:hover{
-      background: #ffffff61;
-  }
-  
-  .play-btn:active {
-    transform: scale(0.9);
-  }
+  background: #ffffff0f;
+  border: 1px solid var(--white-color);
+  border-radius: 50%;
 
-  .play-btn.disabled {
-    background: var(--grey-color);
-    cursor: not-allowed;
-  }
-  
+  font-size: 1rem;
+  color: var(--white-color);
+  cursor: pointer;
 
-  .add-to-preferences-btn {
-    @include mixins.flexSettingsCenter;
-    
-    color: var(--white-color);
-    background: none;
-    border: none;
+  width: 38px;
+  height: 38px;
 
-    transition: all 0.3s ease;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
+  @include mixins.flexSettingsCenter;
 
-  .add-to-preferences-btn svg {
-    transition: all 0.3s ease;
-    fill: var(--white-color);
-    opacity: 0.9;
-  }
-  
-  .add-to-preferences-btn:hover svg {
-    opacity: 1;
-    transform: scale(1.15);
-  }
-  
-  .add-to-preferences-btn.liked svg {
-    fill: #ffa500;
-    opacity: 1;
-  }
-  
-  .add-to-preferences-btn.liked:hover svg {
-    fill: #ffd700;
-    transform: scale(1.2);
-  }
-  
-  .play-btn.playing svg {
-    fill: #ffa500;
-    filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.6));
-  }
-  
-  .play-btn.playing:hover svg {
-    fill: #ffd700;
-    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
-  }
+  transition: all 0.17s ease;
+}
 
-  .add-to-playlist-btn {
+.play-btn:hover {
+  background: #ffffff61;
+}
+
+.play-btn:active {
+  transform: scale(0.9);
+}
+
+.play-btn.disabled {
+  background: var(--grey-color);
+  cursor: not-allowed;
+}
+
+.add-to-preferences-btn {
+  @include mixins.flexSettingsCenter;
+
+  color: var(--white-color);
+  background: none;
+  border: none;
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.add-to-preferences-btn svg {
+  transition: all 0.3s ease;
+  fill: var(--white-color);
+  opacity: 0.9;
+}
+
+.add-to-preferences-btn:hover svg {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.add-to-preferences-btn.liked svg {
+  fill: #ffa500;
+  opacity: 1;
+}
+
+.add-to-preferences-btn.liked:hover svg {
+  fill: #ffd700;
+  transform: scale(1.2);
+}
+
+.play-btn.playing svg {
+  fill: #ffa500;
+  filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.6));
+}
+
+.play-btn.playing:hover svg {
+  fill: #ffd700;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+}
+
+.add-to-playlist-btn {
   background: #ffffff39;
   width: 40px;
   height: 40px;
@@ -218,3 +216,105 @@
   transform: scale(1.1);
 }
 
+.add-btn {
+  padding: 14px 120px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px) saturate(1.6);
+
+  color: #ffffffee;
+
+  transition: transform 0.22s ease, background 0.25s ease, border 0.25s ease;
+}
+
+.add-btn::before {
+  content: "";
+  position: absolute;
+  inset: -70%;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 132, 0, 0.907),
+    rgba(255, 100, 0, 0.35),
+    rgba(255, 80, 0, 0.15),
+    transparent 75%
+  );
+
+  filter: blur(22px);
+  opacity: 0.75;
+
+  animation: addLiquidMove 5.5s infinite ease-in-out;
+}
+
+.add-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.add-btn:active {
+  transform: scale(0.94);
+}
+
+@keyframes addLiquidMove {
+  0%,
+  100% {
+    transform: translate(-15%, -15%) rotate(0deg);
+  }
+  50% {
+    transform: translate(25%, 30%) rotate(20deg);
+  }
+}
+
+.cancel-btn {
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px) saturate(1.6);
+
+  color: #fff;
+  transition: 0.25s;
+}
+
+.cancel-btn::before {
+  content: "";
+  position: absolute;
+  inset: -70%;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 60, 60, 0.55),
+    rgba(255, 30, 30, 0.35),
+    rgba(255, 0, 0, 0.15),
+    transparent 75%
+  );
+
+  filter: blur(22px);
+  opacity: 0.75;
+  animation: cancelLiquidMove 5.5s infinite ease-in-out;
+}
+
+.cancel-btn:active {
+  transform: scale(0.94);
+}
+
+.alert-btns-container{
+    display: flex;
+    gap: 10px;
+}
