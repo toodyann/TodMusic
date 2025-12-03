@@ -79,4 +79,3 @@ export const stopPlayer = () => {
     playerAudio.pause();
     playerAudio.currentTime = 0;
 };
-

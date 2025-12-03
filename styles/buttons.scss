@@ -67,7 +67,7 @@
 }
 .delete-playlist-btn:hover {
   transform: rotate(180deg);
-  color: var(--grey-color);
+  color: var(--red-color);
 }
 
 // likes btns
@@ -157,7 +157,7 @@
   background: none;
   border: none;
 
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -194,7 +194,7 @@
 }
 
 .add-to-playlist-btn {
-  background: var(--grey-color);
+  background: var(--main-orange-color);
   width: 40px;
   height: 40px;
 
@@ -318,3 +318,35 @@
     display: flex;
     gap: 10px;
 }
+
+.player-btn {
+    background: rgba(255, 255, 255, 0.0588235294);
+    border: 1px solid var(--white-color);
+    border-radius: 50%;
+    font-size: 1rem;
+    color: var(--white-color);
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.17s ease;
+  }
+  
+  .player-btn:hover {
+    background: #ffffff61;
+  }
+  
+  .player-btn:active {
+    transform: scale(0.9);
+  }
+  
+  .player-progress {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    accent-color: var(--white-color);
+    outline: none;
+    cursor: pointer;
+  }
