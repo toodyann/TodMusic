@@ -194,7 +194,7 @@
 }
 
 .add-to-playlist-btn {
-  background: #ffffff39;
+  background: var(--grey-color);
   width: 40px;
   height: 40px;
 
@@ -217,7 +217,7 @@
 }
 
 .add-btn {
-  padding: 14px 120px;
+  padding: 14px 110px;
   font-size: 18px;
   font-weight: 600;
   border: none;
@@ -230,7 +230,7 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(20px) saturate(1.6);
 
-  color: #ffffffee;
+  color: var(--white-color);
 
   transition: transform 0.22s ease, background 0.25s ease, border 0.25s ease;
 }
@@ -251,7 +251,7 @@
   filter: blur(22px);
   opacity: 0.75;
 
-  animation: addLiquidMove 5.5s infinite ease-in-out;
+  animation: LiquidMove 5.5s infinite ease-in-out;
 }
 
 .add-btn:hover {
@@ -264,7 +264,7 @@
   transform: scale(0.94);
 }
 
-@keyframes addLiquidMove {
+@keyframes LiquidMove {
   0%,
   100% {
     transform: translate(-15%, -15%) rotate(0deg);
@@ -275,7 +275,7 @@
 }
 
 .cancel-btn {
-  padding: 0 30px;
+  padding: 0 40px;
   font-size: 16px;
   font-weight: 600;
   border: none;
@@ -288,7 +288,7 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(20px) saturate(1.6);
 
-  color: #fff;
+  color: var(--white-color);
   transition: 0.25s;
 }
 
@@ -298,7 +298,7 @@
   inset: -70%;
 
   background: radial-gradient(
-    circle at 30% 30%,
+    circle at 5% 5%,
     rgba(255, 60, 60, 0.55),
     rgba(255, 30, 30, 0.35),
     rgba(255, 0, 0, 0.15),
@@ -307,7 +307,7 @@
 
   filter: blur(22px);
   opacity: 0.75;
-  animation: cancelLiquidMove 5.5s infinite ease-in-out;
+  animation: LiquidMove 5.5s infinite ease-in-out;
 }
 
 .cancel-btn:active {
