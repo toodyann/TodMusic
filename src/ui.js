@@ -9,10 +9,19 @@ const messageDiv = document.getElementById("message");
 
 export const renderTracks = (tracks) => {
   if (!tracks || tracks.length === 0) {
-    tracksList.innerHTML =
-      '<p class="no-results">Немає результатів!</p><img src="404Error.svg">';
+    tracksList.innerHTML = `
+      <div class="no-results">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" stroke="#FF4C4C" stroke-width="4" fill="rgba(255, 76, 76, 0.1)"/>
+          <line x1="20" y1="20" x2="44" y2="44" stroke="#FF4C4C" stroke-width="4" stroke-linecap="round"/>
+          <line x1="44" y1="20" x2="20" y2="44" stroke="#FF4C4C" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <p>Немає результатів!</p>
+      </div>
+    `;
     return;
   }
+
 
   tracksList.innerHTML = tracks
     .map((track, index) => {
@@ -38,7 +47,7 @@ export const renderTracks = (tracks) => {
             ${
               isCurrentTrackPlaying
                 ? '<path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z">'
-                : '<path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z">'
+                : '<path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path>'
             }
           </svg></button>`
         : `<span class="play-btn disabled" title="Нема попереднього перегляду">-</span>`;

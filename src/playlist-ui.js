@@ -34,6 +34,8 @@ export const renderPlaylists = () => {
                 ${playlist.tracks.map((track, idx) => `
                     <div class="playlist-track-item">
                         <span class="playlist-track-num">${idx + 1}</span>
+                        <img src="${track.thumbnail}" alt="${track.title}" class="track-thumbnail" onerror="this.src='https://via.placeholder.com/60?text=Track'" />
+
                         <div class="playlist-track-info">
                             <div class="playlist-track-title">${track.title}</div>
                             <div class="playlist-track-artist">${track.artist}</div>

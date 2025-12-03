@@ -20,7 +20,7 @@ export const renderLikes = () => {
                 <div class="likes-track-item" data-track-id="${track.id}">
                     <div class="likes-track-content">
                         <span class="likes-track-num">${idx + 1}</span>
-                        <div class="likes-track-thumbnail" style="background: linear-gradient(135deg, #FFD700, #FFA500); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; border-radius: 5px;">💛</div>
+                        <img src="${track.thumbnail}" alt="${track.title}" class="track-thumbnail" onerror="this.src='https://via.placeholder.com/60?text=Track'" />
                         <div class="likes-track-info">
                             <div class="likes-track-title">${track.title}</div>
                             <div class="likes-track-artist">${track.artist}</div>
