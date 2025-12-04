@@ -1,7 +1,6 @@
 import { getPlaylists, deletePlaylist, removeTrackFromPlaylist } from './playlist.js';
 import { formatDuration } from './utils.js';
 import { playTrack, pausePlayer, getPlayingTrackId, isPlaying } from './player.js';
-import { renderTracks, clearTracks, showLoading, hideLoading, showError, hideError, showMessage, hideMessage } from './ui.js';
 
 const playlistsList = document.getElementById('playlistsList');
 

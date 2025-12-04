@@ -249,13 +249,10 @@ newPlaylistName.addEventListener('keypress', (e) => {
 
 if ('ontouchstart' in document.documentElement) {
     const style = document.createElement('style');
-    style.innerHTML = `
-        *:hover {
-            all: unset !important;
-        }
-    `;
+    style.innerHTML = '.faq-item:hover { background: none !important; }';
     document.head.appendChild(style);
 }
+
 
 
 window.addEventListener('load', () => {
