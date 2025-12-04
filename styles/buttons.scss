@@ -1,6 +1,55 @@
 @use "mixins.scss";
 
-.play-track-btn {
+.search-btn {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--white-color);
+
+    padding: 12px 40px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.161);
+    border-radius: 10px;
+    backdrop-filter: blur(20px) saturate(1.6);
+    
+    cursor: pointer;
+    transition: transform 0.22s ease, background 0.25s ease, border 0.25s ease;
+  }
+  
+  .search-btn::before {
+    content: "";
+    position: absolute;
+    inset: -80%;
+  
+    background: radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.907),
+      rgba(255, 102, 0, 0.687),
+      rgba(255, 255, 255, 0.15),
+      transparent 75%
+    );
+  
+    filter: blur(22px);
+    opacity: 0.75;
+  
+    animation: LiquidMove 5.5s infinite ease-in-out;
+  }
+  
+  .search-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-2px);
+  }
+  
+  .search-btn:active {
+    transform: scale(0.94);
+  }
+  
+  .play-track-btn {
   background: #ffffff0f;
   border: 1px solid var(--white-color);
   border-radius: 50%;

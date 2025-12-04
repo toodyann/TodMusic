@@ -1,8 +1,7 @@
-// Playlist UI rendering
-
 import { getPlaylists, deletePlaylist, removeTrackFromPlaylist } from './playlist.js';
 import { formatDuration } from './utils.js';
 import { playTrack, pausePlayer, getPlayingTrackId, isPlaying } from './player.js';
+import { renderTracks, clearTracks, showLoading, hideLoading, showError, hideError, showMessage, hideMessage } from './ui.js';
 
 const playlistsList = document.getElementById('playlistsList');
 
@@ -13,6 +12,8 @@ export const renderPlaylists = () => {
         playlistsList.innerHTML = '<p class="placeholder">Немає плейлистів. Створіть перший!</p>';
         return;
     }
+    
+
 
     playlistsList.innerHTML = playlists.map(playlist => `
         <div class="playlist-card">
@@ -104,6 +105,7 @@ const attachPlaylistEventListeners = () => {
             const playingTrackId = getPlayingTrackId();
             
             if (playingTrackId === trackId && isPlaying()) {
+                
                 pausePlayer();
             } else {
                 playTrack(track);
@@ -115,3 +117,7 @@ const attachPlaylistEventListeners = () => {
 export const clearPlaylistUI = () => {
     playlistsList.innerHTML = '';
 };
+
+
+
+

@@ -1,4 +1,5 @@
 @use "mixins.scss";
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +7,6 @@
 }
 
 body {
-  font-family: var(--font-family);
   background: var(--body-background-gradient);
   min-height: 100vh;
 }
@@ -125,7 +125,9 @@ h1 {
 }
 
 .search-input {
+  font-family: "Montserrat", sans-serif;  
   font-size: 1rem;
+  font-weight: 200;
   color: var(--white-color);
 
   background: var(--input-background);
@@ -139,24 +141,6 @@ h1 {
 
 .search-input::placeholder {
   color: var(--grey-color);
-}
-
-.search-btn {
-  background: var(--main-orange-color);
-  border-radius: 10px;
-  border: none;
-
-  font-size: 1rem;
-  color: #732c00;
-  font-weight: 600;
-
-  padding: 15px 40px;
-  transition: 0.5s ease;
-}
-
-.search-btn:hover {
-  background: var(--btn-orange-hover);
-  cursor: pointer;
 }
 
 .loading {
@@ -367,8 +351,11 @@ h1 {
 }
 
 .placeholder {
+  font-family: "Montserrat", sans-serif;
   font-size: 1.1rem;
+  font-weight: 200;
   color: #ffffff61;
+  
   text-align: center;
 
   padding: 40px 20px;
@@ -634,8 +621,7 @@ h1 {
   .alert-btns-container {
     flex-direction: column;
   }
-  .cancel-btn {
-  }
+  
 }
 
 .likes-container {
@@ -778,8 +764,12 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(35px) saturate(1.8);
 
+  
+
   color: #fff;
 }
+
+
 
 .main-text-alert {
   color: var(--white-color);
