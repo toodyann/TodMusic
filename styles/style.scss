@@ -6,13 +6,15 @@
   box-sizing: border-box;
 }
 
-body, html {
+body{
   background: var(--body-background-gradient);
-  min-height:100vh
+  min-height: 100vh;
 }
-.wrapper_page{
-  flex: 1;
+
+html{
+  background: #000000ee;
 }
+
 #page {
   opacity: 0;
   transform: translateY(30px);

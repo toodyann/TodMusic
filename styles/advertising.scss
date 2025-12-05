@@ -1,25 +1,24 @@
 @use "mixins.scss";
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  body {
-    background: var(--body-background-gradient);
+body {
+  background: var(--body-background-gradient);
 
-    font-family: var(--font-family);
-    color: var(--white-color);
-    
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+  font-family: var(--font-family);
+  color: var(--white-color);
 
-  html {
-    background-color: var(--html-background-color);
-  }
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
+html {
+  background-color: var(--html-background-color);
+}
 
 .logo {
   @include mixins.headerLogoStyle;
@@ -34,160 +33,163 @@ header {
 
   @include mixins.flexSettingsBetween;
 }
-header nav a  {
+header nav a {
   color: var(--white-color);
   text-decoration: none;
-  
+
   margin-left: 20px;
 }
 
 header nav a:hover {
   color: var(--main-orange-color);
 }
-  .ad-section {
-    @include mixins.flexSettingsCenter;
-    flex-direction: column;
-    flex: 1;
+.ad-section {
+  @include mixins.flexSettingsCenter;
+  flex-direction: column;
+  flex: 1;
 
-    padding: 60px 20px;
-    text-align: center;
+  padding: 60px 20px;
+  text-align: center;
 
-    animation: fadeIn 0.8s ease forwards;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.ad-section h1 {
+  @include mixins.gradientText;
+  font-size: 2.3rem;
+  color: var(--white-color);
+  margin-bottom: 20px;
+}
+
+.ad-section p {
+  color: var(--grey-color);
+  font-size: 1.1rem;
+  line-height: 1.6;
+
+  max-width: 700px;
+  margin-bottom: 35px;
+}
+
+.ad-card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+
+  margin-bottom: 40px;
+}
+
+.ad-card {
+  background: var(--card-background-color);
+  border: var(--card-border);
+  border-radius: 20px;
+
+  @include mixins.flexSettingsCenter;
+  flex-direction: column;
+
+  padding: 40px 20px;
+  max-width: 280px;
+  transition: all 0.3s ease;
+}
+
+.ad-card:hover {
+  border-color: var(--main-orange-color);
+  box-shadow: 0 0 20px rgba(255, 136, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.ad-card h3 {
+  @include mixins.gradientSubText;
+  font-size: 1.3rem;
+
+  margin-bottom: 10px;
+}
+
+.ad-card p {
+  font-size: 0.95rem;
+  color: var(--grey-color);
+  line-height: 1.5;
+}
+
+.cta-btn {
+  background: var(--white-color);
+  border: none;
+  border-radius: 30px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+
+  font-size: 16px;
+  color: var(--black-color);
+  cursor: pointer;
+
+  padding: 14px 100px;
+  margin-bottom: 130px;
+
+  transition: all 0.2s ease;
+}
+
+.cta-btn:hover {
+  background: var(--btn-orange-hover);
+  color: var(--white-color);
+}
+
+.alert-overlay {
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.alert-box {
+  background: var(--black-color);
+  border: var(--card-border);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.152);
+
+  position: fixed;
+  z-index: 9999;
+  bottom: 27vh;
+
+  text-align: center;
+  padding: 35px 25px;
+  animation: fadeIn 0.3s ease;
+}
+
+#alertTitle {
+  @include mixins.gradientText;
+
+  margin-bottom: 10px;
+}
+
+#closeAlertBtn {
+  background: var(--main-orange-color);
+  border: none;
+  border-radius: 30px;
+
+  color: var(--black-color);
+  font-weight: bold;
+  cursor: pointer;
+
+  padding: 12px 35px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
   }
-
-  .ad-section h1 {
-    @include mixins.gradientText;
-    font-size: 2.3rem;
-    color: var(--white-color);
-    margin-bottom: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .ad-section p {
-    color: var(--grey-color);
-    font-size: 1.1rem;
-    line-height: 1.6;
-
-    max-width: 700px;
-    margin-bottom: 35px;
-  }
-
+@media (max-width: 768px) {
   .ad-card-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-
-    margin-bottom: 40px;
-  }
-
-  .ad-card {
-    background: var(--card-background-color);
-    border: var(--card-border);
-    border-radius: 20px;
-
-   @include mixins.flexSettingsCenter;
     flex-direction: column;
-    
-    padding: 40px 20px;
-    max-width: 280px;
-    transition: all 0.3s ease;
+    align-items: center;
   }
-
-  .ad-card:hover {
-    border-color: var(--main-orange-color);
-    box-shadow: 0 0 20px rgba(255,136,0,0.2);
-    transform: translateY(-5px);
+  .alert-box {
+    width: 95vw;
+    bottom: 40vh;
   }
-
-  .ad-card h3 {
-    @include mixins.gradientSubText;
-    font-size: 1.3rem;
-
-    margin-bottom: 10px;
-  }
-
-  .ad-card p {
-    font-size: 0.95rem;
-    color: var(--grey-color);
-    line-height: 1.5;
-  }
-
-  .cta-btn {
-    background: var(--white-color);
-    border: none;
-    border-radius: 30px;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
-
-    font-size: 16px;
-    color: var(--black-color);
-    cursor: pointer;
-
-    padding: 14px 100px;
-    margin-bottom: 130px;
-
-
-    transition: all 0.2s ease;
-  }
-
-  .cta-btn:hover {
-    background: var(--btn-orange-hover);
-    color: var(--white-color);
-  }
-
-  .alert-overlay{
-    display: none; 
-
-    justify-content: center; 
-    align-items: center
-  }
-
-  .alert-box{
-    background: var(--black-color);
-    border: var(--card-border);
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.152);
-
-    position: fixed;
-    z-index: 9999;
-    bottom: 27vh;
-
-    text-align: center;
-    padding: 35px 25px;
-    animation: fadeIn 0.3s ease;
-  }
-
-  #alertTitle{
-    @include mixins.gradientText;
-
-    margin-bottom: 10px
-  }
- 
-  #closeAlertBtn{
-    background: var(--main-orange-color);
-    border: none;
-    border-radius: 30px;
-
-    color: var(--black-color);
-    font-weight: bold;
-    cursor: pointer;
-
-    padding: 12px 35px;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 768px) {
-    .ad-card-container {
-      flex-direction: column;
-      align-items: center;
-    }
-    .alert-box{
-      width: 95vw;
-      bottom: 40vh;
-    }
-  }
-
-  
+}
