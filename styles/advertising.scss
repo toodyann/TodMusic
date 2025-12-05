@@ -40,6 +40,10 @@ header nav a  {
   
   margin-left: 20px;
 }
+
+header nav a:hover {
+  color: var(--main-orange-color);
+}
   .ad-section {
     @include mixins.flexSettingsCenter;
     flex-direction: column;

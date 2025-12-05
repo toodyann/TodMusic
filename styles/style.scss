@@ -6,11 +6,13 @@
   box-sizing: border-box;
 }
 
-body {
+body, html {
   background: var(--body-background-gradient);
-  min-height: 100vh;
+  min-height:100vh
 }
-
+.wrapper_page{
+  flex: 1;
+}
 #page {
   opacity: 0;
   transform: translateY(30px);
@@ -22,13 +24,10 @@ body {
   transform: translateY(0);
 }
 
-html {
-  background-color: var(--html-background-color);
-}
-
 .container {
   max-width: 900px;
   margin: 0 auto;
+  flex: 1;
 }
 
 .header {
