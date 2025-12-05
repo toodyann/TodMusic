@@ -53,7 +53,7 @@ const handleSearch = async () => {
     const query = searchInput.value.trim();
 
     if (!query) {
-        showError('Будь ласка, введіть запит для пошуку');
+        showError('Будь ласка, введіть запит для пошуку!');
         return;
     }
 

@@ -176,10 +176,32 @@ h1 {
 
   padding: 15px 20px;
   margin-bottom: 20px;
+
+  backdrop-filter: blur(20px) saturate(1.6);
+  position: relative;
+  overflow: hidden;
 }
 
 .error.hidden {
   display: none;
+}
+
+.error::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+
+  background: radial-gradient(
+    circle at 100% 15%,
+    rgba(255, 0, 0, 0.857),
+    rgba(236, 10, 10, 0.379),
+    rgba(255, 0, 0, 0.614),
+    transparent 65%
+  );
+
+  filter: blur(30px);
+  opacity: 1.75;
+  animation: LiquidMove 5.5s infinite ease-in-out;
 }
 
 .message {

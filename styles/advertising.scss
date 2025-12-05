@@ -87,8 +87,7 @@ header nav a:hover {
   @include mixins.flexSettingsCenter;
   flex-direction: column;
 
-  padding: 40px 20px;
-  max-width: 280px;
+  padding: 60px;
   transition: all 0.3s ease;
 }
 
