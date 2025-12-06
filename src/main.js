@@ -218,7 +218,7 @@ const renderPreferences = () => {
 createPlaylistBtn.addEventListener('click', () => {
     const name = newPlaylistName.value.trim();
     if (!name) {
-        showError('Введіть назву плейліста');
+        showError('Введіть назву плейліста', 'playlist');
         return;
     }
 

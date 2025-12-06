@@ -78,7 +78,7 @@ input:focus {
 }
 input:-webkit-autofill {
   box-shadow: 0 0 0 1000px #000000e8 inset !important;
-  -webkit-text-fill-color: #fff !important;
+  -webkit-text-fill-color: var(--white-color) !important;
 }
 
 .main-btn {

@@ -608,12 +608,11 @@ h1 {
   .track-duration {
     font-size: 0.8rem;
   }
-
-  .player-content {
-    flex-direction: column;
-    gap: 10px;
+  .sticky-player{
+    padding: 10px 10px;
   }
 
+ 
   .player-controls {
     max-width: 100%;
   }

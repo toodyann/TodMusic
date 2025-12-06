@@ -33,7 +33,7 @@
           
             <div class="search-section">
 
-                <input 
+              <input 
                 type="text" 
                 id="searchInput" 
                 class="search-input"
@@ -48,10 +48,10 @@
                 <p>Завантаження треків...</p>
             </div>
 
-        <div id="error" class="error hidden"></div>
-        <div id="message" class="message hidden"></div>
+          <div id="error-search-tab" class="error hidden"></div>
+          <div id="message" class="message hidden"></div>
 
-        <div class="tracks-section">
+          <div class="tracks-section">
                 <div id="tracksList" class="tracks-list">
                     <p class="placeholder">Введіть запит та натисність кнопку "Пошук" для появи треків</p>
                 </div>
@@ -69,7 +69,7 @@
                 >
                 <button id="createPlaylistBtn" class="search-btn">+ Створити</button>
             </div>
-
+            <div id="error-playlist-tab" class="error hidden"></div>
             <div id="playlistsList" class="playlists-container">
                 <p class="placeholder">Немає плейлистів. Створіть перший!</p>
             </div>
@@ -88,16 +88,16 @@
 
     <div id="player" class="sticky-player hidden">
         <div class="player-content">
+          <button id="playerPlayBtn" class="player-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>
+          </button>
             <div class="player-info">
                 <div class="player-track-title" id="playerTitle">Не вибрано трек</div>
                 <div class="player-track-artist" id="playerArtist"></div>
             </div>
-            <audio id="playerAudio"></audio>
             <div class="player-controls">
+            <audio id="playerAudio"></audio>
 
-                <button id="playerPlayBtn" class="player-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>
-                </button>
 
                 <input type="range" id="playerProgress" class="player-progress" min="0" max="100" value="0">
                 <span id="playerTime" class="player-time">0:00 / 0:00</span>

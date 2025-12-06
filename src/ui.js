@@ -4,8 +4,10 @@ import { getPlayingTrackId, isPlaying } from "./player.js";
 
 const tracksList = document.getElementById("tracksList");
 const loadingSpinner = document.getElementById("loadingSpinner");
-const errorDiv = document.getElementById("error");
+const errorSearchTabDiv = document.getElementById("error-search-tab");
+const errorPlaylistTabDiv = document.getElementById("error-playlist-tab");
 const messageDiv = document.getElementById("message");
+let errorMessageTimeout;
 
 export const renderTracks = (tracks) => {
   if (!tracks || tracks.length === 0) {
@@ -125,13 +127,36 @@ export const hideLoading = () => {
   loadingSpinner.classList.add("hidden");
 };
 
-export const showError = (message) => {
-  errorDiv.textContent = message;
-  errorDiv.classList.remove("hidden");
+export const showError = (message, tab = 'search') => {
+  errorSearchTabDiv.classList.add("hidden");
+  errorPlaylistTabDiv.classList.add("hidden");
+
+  switch (tab) {
+    case 'search':
+      errorSearchTabDiv.textContent = message;
+      errorSearchTabDiv.classList.remove("hidden");
+
+      errorMessageTimeout = setTimeout(()=>{
+        errorSearchTabDiv.classList.add("hidden");
+      }, 5000);
+
+      break;
+  
+    case 'playlist':
+      errorPlaylistTabDiv.textContent = message;
+      errorPlaylistTabDiv.classList.remove("hidden");
+      errorMessageTimeout = setTimeout(()=>{
+        errorPlaylistTabDiv.classList.add("hidden");
+      }, 5000);
+      break;
+  
+    default:
+      break;
+  }
 };
 
 export const hideError = () => {
-  errorDiv.classList.add("hidden");
+  errorSearchTabDiv.classList.add("hidden");
 };
 
 export const showMessage = (message) => {
@@ -142,3 +167,8 @@ export const showMessage = (message) => {
 export const hideMessage = () => {
   messageDiv.classList.add("hidden");
 };
+
+window.addEventListener('beforeunload', (event) => {
+  console.log(event);
+  clearTimeout(errorMessageTimeout);
+});
