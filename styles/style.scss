@@ -491,13 +491,12 @@ h1 {
 
 .player-track-title {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 200;
 
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  margin-bottom: 4px;
 }
 
 .player-track-artist {
@@ -787,7 +786,7 @@ h1 {
 
   
 
-  color: var(--white-color);
+  color: var(--white);
 }
 
 
