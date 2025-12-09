@@ -9,6 +9,7 @@ import { renderLikes } from './likes-ui.js';
 
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
+const genreSelect = document.getElementById('music-genre');
 const newPlaylistName = document.getElementById('newPlaylistName');
 const createPlaylistBtn = document.getElementById('createPlaylistBtn');
 const tabBtns = document.querySelectorAll('.tab-btn');
@@ -51,6 +52,8 @@ const switchTab = tabName => {
 
 const handleSearch = async () => {
     const query = searchInput.value.trim();
+    const genreId = genreSelect.value;
+    const genreName = genreSelect.options[genreSelect.selectedIndex].text;
 
     if (!query) {
         showError('Будь ласка, введіть запит для пошуку');
@@ -62,13 +65,23 @@ const handleSearch = async () => {
     clearTracks();
 
     try {
-        const tracks = await searchTracks(query);
+        const tracks = await searchTracks(query, genreId, genreName);
         currentSearchTracks = tracks;
         hideLoading();
-        renderTracks(tracks);
-        attachPlayButtons(tracks);
-        attachAddToPlaylistButtons(tracks);
-        attachPreferencesButtons(tracks);
+        
+        if (tracks.length === 0) {
+            const message = genreId 
+                ? `Немає результатів для "${query}" у жанрі "${genreName}". Спробуйте інший жанр або запит.`
+                : `Немає результатів для "${query}". Спробуйте інший запит.`;
+            showError(message);
+            clearTracks();
+        } else {
+            hideError();
+            renderTracks(tracks);
+            attachPlayButtons(tracks);
+            attachAddToPlaylistButtons(tracks);
+            attachPreferencesButtons(tracks);
+        }
     } catch (error) {
         hideLoading();
         showError(`Помилка пошуку: ${error.message}`);
