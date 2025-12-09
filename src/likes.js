@@ -1,5 +1,3 @@
-// Likes management module
-
 const STORAGE_KEY = 'todmusic_likes';
 
 export const getLikes = () => {

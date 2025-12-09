@@ -76,6 +76,10 @@ input:focus {
   outline: 2px solid var(--main-orange-color);
   background-color: #27272775;
 }
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #000000e8 inset !important;
+  -webkit-text-fill-color: var(--white-color) !important;
+}
 
 .main-btn {
   background-color: var(--main-orange-color);

@@ -1,5 +1,4 @@
 /////////////  Text Section /////////////
-/// 
 @mixin gradientText {
     background: linear-gradient(90deg, var(--white-color), var(--main-orange-color));
     -webkit-background-clip: text;

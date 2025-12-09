@@ -1,14 +1,18 @@
 @use "mixins.scss";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: var(--font-family);
+body{
   background: var(--body-background-gradient);
   min-height: 100vh;
+}
+
+html{
+  background: #000000ee;
 }
 
 #page {
@@ -22,13 +26,10 @@ body {
   transform: translateY(0);
 }
 
-html {
-  background-color: var(--html-background-color);
-}
-
 .container {
   max-width: 900px;
   margin: 0 auto;
+  flex: 1;
 }
 
 .header {
@@ -80,7 +81,6 @@ h1 {
 .subtitle {
   color: var(--white-color);
   font-size: 1.1rem;
-  
 }
 
 .tabs {
@@ -126,7 +126,9 @@ h1 {
 }
 
 .search-input {
+  font-family: "Montserrat", sans-serif;  
   font-size: 1rem;
+  font-weight: 200;
   color: var(--white-color);
 
   background: var(--input-background);
@@ -140,24 +142,6 @@ h1 {
 
 .search-input::placeholder {
   color: var(--grey-color);
-}
-
-.search-btn {
-  background: var(--main-orange-color);
-  border-radius: 10px;
-  border: none;
-
-  font-size: 1rem;
-  color: #732c00;
-  font-weight: 600;
-
-  padding: 15px 40px;
-  transition: 0.5s ease;
-}
-
-.search-btn:hover {
-  background: var(--btn-orange-hover);
-  cursor: pointer;
 }
 
 .loading {
@@ -192,10 +176,32 @@ h1 {
 
   padding: 15px 20px;
   margin-bottom: 20px;
+
+  backdrop-filter: blur(20px) saturate(1.6);
+  position: relative;
+  overflow: hidden;
 }
 
 .error.hidden {
   display: none;
+}
+
+.error::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+
+  background: radial-gradient(
+    circle at 100% 15%,
+    rgba(255, 0, 0, 0.857),
+    rgba(236, 10, 10, 0.379),
+    rgba(255, 0, 0, 0.614),
+    transparent 65%
+  );
+
+  filter: blur(30px);
+  opacity: 1.75;
+  animation: LiquidMove 5.5s infinite ease-in-out;
 }
 
 .message {
@@ -232,6 +238,7 @@ h1 {
 
 .track-item {
   background: var(--item-background-color);
+  border: var(--card-border);
 
   border-left: 5px solid #c4733179;
   border-radius: 8px;
@@ -260,25 +267,25 @@ h1 {
 }
 
 .play-btn {
-  background: var(--main-orange-color);
+  background: var(--gradient-color-btn);
+  border: none;
+  border-radius: 50%;
 
   font-size: 1rem;
   color: var(--white-color);
   cursor: pointer;
 
-  border: none;
-  border-radius: 50%;
-
   width: 40px;
   height: 40px;
 
   @include mixins.flexSettingsCenter;
+
+  transition: all 0.3s ease;
   flex-shrink: 0;
-  transition: all 0.2s ease;
 }
 
 .play-btn:hover {
-  background: var(--white-color);
+  background: linear-gradient(to right, #ea3407, #feb47b);
   color: var(--black-color);
 }
 
@@ -367,8 +374,11 @@ h1 {
 }
 
 .placeholder {
+  font-family: "Montserrat", sans-serif;
   font-size: 1.1rem;
+  font-weight: 200;
   color: #ffffff61;
+  
   text-align: center;
 
   padding: 40px 20px;
@@ -408,25 +418,60 @@ h1 {
 }
 
 .sticky-player {
-  background: linear-gradient(144deg, #c57a42 0%, #000000fa 100%);
-  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
-  border-radius: 35px;
-
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1300px;
+  border-radius: 20px;
+  padding: 12px 24px;
 
-  margin: 0 5px 10px 5px;
-  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 
-  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px) saturate(1.6);
+
+  color: var(--white-color);
+  font-family: "Inter", sans-serif;
+  z-index: 999;
+
+  overflow: hidden;
 }
 
 .sticky-player.hidden {
-  transform: translateY(120%);
+  transform: translateY(130%);
   pointer-events: none;
+}
+.sticky-player::before {
+  content: "";
+  position: absolute;
+  inset: -90%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(211, 113, 8, 0.523),
+    rgba(255, 102, 0, 0.517),
+    transparent 70%
+  );
+  filter: blur(30px);
+  opacity: 0.55;
+  animation: liquidFlow 6s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes liquidFlow {
+  0%,
+  100% {
+    transform: translate(-10%, -10%) rotate(0deg);
+  }
+  50% {
+    transform: translate(15%, 20%) rotate(18deg);
+  }
 }
 
 .player-content {
@@ -446,13 +491,12 @@ h1 {
 
 .player-track-title {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 200;
 
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  margin-bottom: 4px;
 }
 
 .player-track-artist {
@@ -473,87 +517,6 @@ h1 {
   max-width: 400px;
 }
 
-.player-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  border-radius: 50%;
-
-  font-size: 1rem;
-  color: var(--white-color);
-  cursor: pointer;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-
-  width: 40px;
-  height: 40px;
-
-  transition: all 0.2s ease;
-}
-
-.player-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.add-to-preferences-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  background: none;
-  border: none;
-  transition: all 0.3s ease;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.add-to-preferences-btn svg {
-  width: 30px;
-  height: 30px;
-  transition: all 0.3s ease;
-  fill: white;
-  opacity: 0.7;
-}
-
-.add-to-preferences-btn:hover svg {
-  fill: #FFA500;
-  opacity: 1;
-  transform: scale(1.15);
-}
-
-.add-to-preferences-btn.liked svg {
-  fill: #FFA500;
-  opacity: 1;
-}
-
-.add-to-preferences-btn.liked:hover svg {
-  fill: #FFD700;
-  transform: scale(1.2);
-}
-
-.play-btn.playing svg {
-  fill: #FFA500;
-  filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.6));
-}
-
-.play-btn.playing:hover svg {
-  fill: #FFD700;
-  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
-}
-
-.player-progress {
-  flex: 1;
-  height: 4px;
-  border-radius: 2px;
-  accent-color: var(--white-color);
-  outline: none;
-  cursor: pointer;
-}
-
 .player-time {
   font-size: 0.85rem;
   text-align: right;
@@ -563,11 +526,44 @@ h1 {
   opacity: 0.9;
 }
 
-.no-results{
-  @include mixins.flexSettingsCenter;
-  margin-top: 30px;
-  font-size: 1.7rem;
-  color: #18262b;
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  color: #FF4C4C;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  
+  padding: 20px;
+}
+
+.no-results svg {
+  width: 64px;
+  height: 64px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.no-results p {
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  animation: fadeScale 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes fadeScale {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
 }
 
 @media (max-width: 600px) {
@@ -611,12 +607,10 @@ h1 {
   .track-duration {
     font-size: 0.8rem;
   }
-
-  .player-content {
-    flex-direction: column;
-    gap: 10px;
+  .sticky-player{
+    padding: 10px 10px;
+    border-radius: 50px;
   }
-
   .player-controls {
     max-width: 100%;
   }
@@ -636,9 +630,19 @@ h1 {
     align-items: center;
     justify-content: center;
   }
+  .window-notify-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 10px;
+  }
+  .alert-btns-container {
+    flex-direction: column;
+  }
 }
 
-/* Preferences/Likes Styles */
 .likes-container {
   display: flex;
   flex-direction: column;
@@ -646,21 +650,21 @@ h1 {
 }
 
 .likes-track-item {
+  background: var(--item-background-color);
+  border: var(--card-border);
+  border-radius: 10px;
+  border-left: 5px solid #c4733179;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 15px 20px;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 165, 0, 0.08));
-  border: 2px solid #FFD700;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
+  transition: all 0.1s ease;
 }
 
 .likes-track-item:hover {
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.15));
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.2);
+  background: var(--items-hover-background-color);
 }
 
 .likes-track-content {
@@ -673,15 +677,18 @@ h1 {
 
 .likes-track-num {
   display: inline-block;
-  width: 35px;
-  height: 35px;
-  background: linear-gradient(135deg, #FFD700, #FFA500);
-  color: white;
+
+  background: rgba(255, 255, 255, 0.1215686275);
   border-radius: 50%;
+
+  width: 30px;
+  height: 30px;
+
+  font-size: 0.8rem;
+  color: var(--white-color);
   text-align: center;
-  line-height: 35px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  line-height: 30px;
+
   flex-shrink: 0;
 }
 
@@ -702,30 +709,23 @@ h1 {
 }
 
 .likes-track-title {
-  font-weight: 600;
-  color: var(--white-color);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 4px;
   font-size: 1rem;
+  color: #fdf2e9;
+  font-weight: 600;
+
+  margin-bottom: 4px;
 }
 
 .likes-track-artist {
   font-size: 0.9rem;
-  color: #ccc;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: var(--grey-color);
+
   margin-bottom: 4px;
 }
 
 .likes-track-album {
   font-size: 0.85rem;
   color: #999;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .likes-track-actions {
@@ -736,60 +736,20 @@ h1 {
 
 .likes-track-duration {
   font-size: 0.9rem;
-  color: #ccc;
+  color: var(--grey-color);
   min-width: 50px;
   text-align: right;
 }
 
-.play-liked-btn {
-  background: linear-gradient(135deg, #FFD700, #FFA500);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.play-liked-btn:hover {
-  background: linear-gradient(135deg, #FFA500, #FF8C00);
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.4);
-}
-
-.remove-liked-btn {
-  background: transparent;
-  color: #FF6B6B;
-  border: 2px solid #FF6B6B;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.remove-liked-btn:hover {
-  background: #FF6B6B;
-  color: white;
-  transform: scale(1.1);
-}
-
 .tracks-section-preferences {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  background: var(--card-background-color);
+  border: var(--card-border);
   border-radius: 15px;
-  padding: 20px;
+
   min-height: 300px;
+
+  padding: 15px;
+  margin-bottom: 200px;
 }
 
 @media (max-width: 768px) {
@@ -803,4 +763,73 @@ h1 {
     justify-content: flex-end;
     margin-top: 10px;
   }
+  .tracks-section-preferences {
+    padding: 5px;
+  }
+}
+
+.window-notify-container {
+  font-family: "Montserrat", sans-serif;
+
+  @include mixins.flexSettingsCenter;
+  flex-direction: column;
+
+  padding: 200px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(35px) saturate(1.8);
+
+  
+
+  color: var(--white);
+}
+
+
+
+.main-text-alert {
+  color: var(--white-color);
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.track-info-alert {
+  color: #fdf2e9;
+  font-size: 1.05rem;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+#playlistSelect {
+  background: var(--input-background);
+  border: none;
+  border-radius: 15px;
+
+  font-size: 1rem;
+  color: var(--white-color);
+  width: 100%;
+
+  padding: 10px;
+  margin: 30px 0 35px 0;
+
+  outline: none;
+}
+
+#music-genre {
+  background: var(--input-background);
+  border: none;
+  border-radius: 15px;
+  width: 100%;
+
+  font-size: 1rem;
+  color: var(--white-color);
+
+  padding: 10px;
+  margin-bottom: 15px;
+  outline: none;
 }

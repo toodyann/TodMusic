@@ -1,4 +1,5 @@
 @use "mixins.scss";
+
 body {
   background: var(--body-background-gradient);
   font-family: var(--font-family);
@@ -39,6 +40,11 @@ header nav a {
   margin-left: 20px;
   font-size: 15px;
 }
+
+header nav a:hover {
+  color: var(--main-orange-color);
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -81,8 +87,6 @@ main {
 .content a:hover {
   text-decoration-color: var(--main-orange-color);
 }
-
-
 
 @media (max-width: 768px) {
   .content {

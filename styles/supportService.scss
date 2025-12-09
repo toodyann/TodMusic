@@ -38,6 +38,9 @@ header nav a {
   margin-left: 20px;
   font-size: 15px;
 }
+header nav a:hover {
+  color: var(--main-orange-color);
+}
 
 main {
   @include mixins.flexSettingsCenter;
@@ -59,7 +62,7 @@ main {
   border-radius: 10px;
 
   padding: 120px 5px;
-  margin-bottom: 140px;
+  margin: 140px 0;
 
   width: 90%;
 }

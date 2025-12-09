@@ -1,11 +1,12 @@
 :root{
-    --font-family: 'Helvetica Neue', Helvetica, Arial,"Segoe UI","Inter",sans-serif;
-    --logo-font-family: 'Momo Signature', cursive;
-
+ 
     --main-orange-color: #ff8800;
     --grey-color: #ccc;
     --white-color:#fff;
     --black-color: #000;
+    --red-color: #ff0000;
+
+    --gradient-color-btn: linear-gradient(135deg, #ff4400, #FFA500);
 
     --body-background-gradient: linear-gradient(120deg, #151515 0%, #a5602b 50%);
     --html-background-color: #151515;
