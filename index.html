@@ -27,7 +27,24 @@
             <button class="tab-btn active" data-tab="search">Пошук</button>
             <button class="tab-btn" data-tab="playlists">Плейлисти</button>
             <button class="tab-btn" data-tab="preferences">Уподобане</button>
-            
+      
+        </div>
+
+        <div id="search-tab" class="tab-content active">
+          
+            <div class="search-section">
+
+              <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input"
+                placeholder= "Введіть назву треку або виконавця..."
+                autocomplete="off"
+                >
+
+                <button id="searchBtn" class="search-btn">Пошук</button>
+            </div>
+                  
             <select name="music-genre" id="music-genre">
               <option value="14">Pop</option>
               <option value="21">Rock</option>
@@ -46,22 +63,6 @@
               <option value="10">Singer/Songwriter</option>
               <option value="19">World</option>
             </select>
-        </div>
-
-        <div id="search-tab" class="tab-content active">
-          
-            <div class="search-section">
-
-              <input 
-                type="text" 
-                id="searchInput" 
-                class="search-input"
-                placeholder= "Введіть назву треку або виконавця..."
-                autocomplete="off"
-                >
-
-                <button id="searchBtn" class="search-btn">Пошук</button>
-            </div>
 
 
             <div id="loadingSpinner" class="loading hidden">
