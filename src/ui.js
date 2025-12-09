@@ -52,9 +52,21 @@ export const renderTracks = tracks => {
                     ${thumbnail}
                     <div class="track-info">
                         <div class="track-details">
-                            <div id="song-title" class="track-title">${truncateText(track.title)}</div>
-                            <div class="track-artist">${truncateText(track.artist, 18)}</div>
-                            <div class="track-album" style="font-size: 0.85rem; color: #999; margin-top: 3px;">${truncateText(track.album, 18)}</div>
+                            <div id="song-title" class="track-title">${truncateText(
+                              track.title
+                            )}</div>
+                            <div class="track-artist">${truncateText(
+                              track.artist,
+                              18
+                            )}</div>
+                            <div class="track-album" style="font-size: 0.85rem; color: #999; margin-top: 3px;">${truncateText(
+                              track.album,
+                              18
+                            )}</div>
+                            <div class="track-genre" style="font-size: 0.8rem; color: #FFA500; margin-top: 4px; font-weight: 500;">${truncateText(
+                              track.genre,
+                              15
+                            )}</div>
                         </div>
                     </div>
                     <span class="track-duration">${formatDuration(track.duration)}</span>
