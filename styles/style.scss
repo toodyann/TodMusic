@@ -641,7 +641,6 @@ h1 {
   .alert-btns-container {
     flex-direction: column;
   }
-  
 }
 
 .likes-container {
@@ -818,5 +817,18 @@ h1 {
   padding: 10px;
   margin: 30px 0 35px 0;
 
+  outline: none;
+}
+
+#music-genre {
+  background: var(--input-background);
+  border: none;
+  border-radius: 15px;
+  width: 70%;
+
+  font-size: 1rem;
+  color: var(--white-color);
+
+  padding: 10px;
   outline: none;
 }
