@@ -100,6 +100,10 @@ export const renderTracks = (tracks) => {
                               track.album,
                               18
                             )}</div>
+                            <div class="track-genre" style="font-size: 0.8rem; color: #FFA500; margin-top: 4px; font-weight: 500;">${truncateText(
+                              track.genre,
+                              15
+                            )}</div>
                         </div>
                     </div>
                     <span class="track-duration">${formatDuration(
