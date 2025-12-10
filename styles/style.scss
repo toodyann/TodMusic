@@ -122,7 +122,7 @@ h1 {
 .search-section {
   display: flex;
   gap: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .search-input {
@@ -641,6 +641,14 @@ h1 {
   .alert-btns-container {
     flex-direction: column;
   }
+  .select-wrapper{
+    padding: 0 5px;
+    margin: 0;
+
+  }
+  .player-content {
+    gap:  25px;
+  }
 }
 
 .likes-container {
@@ -765,6 +773,7 @@ h1 {
   }
   .tracks-section-preferences {
     padding: 5px;
+    margin: 25px 5px 100px 5px ;
   }
 }
 

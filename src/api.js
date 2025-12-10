@@ -38,7 +38,6 @@ export const searchTracks = async (query, genreId = null, genreName = null) => {
             releaseDate: track.releaseDate || null
         }));
 
-        // Filter by genre name if specified
         if (genreName) {
             results = results.filter(track => 
                 track.genre.toLowerCase() === genreName.toLowerCase()

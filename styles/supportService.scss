@@ -141,9 +141,10 @@ button:hover {
 
 @media screen and (max-width: 600px) {
   .support-box {
-    padding: 20px 15px;
+    padding: 15px 30px;
     flex-direction: column;
     gap: 10px;
+    margin: 40px 0;
   }
   input,
   textarea {
