@@ -1,5 +1,3 @@
-// Likes UI rendering
-
 import { getLikes, removeLike } from './likes.js';
 import { formatDuration } from './utils.js';
 import { playTrack, pausePlayer, getPlayingTrackId, isPlaying } from './player.js';
