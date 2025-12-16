@@ -6,12 +6,12 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   background: var(--body-background-gradient);
   min-height: 100vh;
 }
 
-html{
+html {
   background: #000000ee;
 }
 
@@ -126,7 +126,7 @@ h1 {
 }
 
 .search-input {
-  font-family: "Montserrat", sans-serif;  
+  font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   font-weight: 200;
   color: var(--white-color);
@@ -378,7 +378,7 @@ h1 {
   font-size: 1.1rem;
   font-weight: 200;
   color: #ffffff61;
-  
+
   text-align: center;
 
   padding: 40px 20px;
@@ -419,7 +419,7 @@ h1 {
 
 .sticky-player {
   position: fixed;
-  bottom: 20px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -496,7 +496,6 @@ h1 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
 }
 
 .player-track-artist {
@@ -533,12 +532,12 @@ h1 {
   justify-content: center;
   gap: 12px;
 
-  color: #FF4C4C;
+  color: #ff4c4c;
   font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
-  font-family: 'Inter', sans-serif;
-  
+  font-family: "Inter", sans-serif;
+
   padding: 20px;
 }
 
@@ -550,20 +549,38 @@ h1 {
 
 .no-results p {
   margin: 0;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   animation: fadeScale 1.5s infinite alternate ease-in-out;
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.8; }
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
 }
 
 @keyframes fadeScale {
-  0% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.8; }
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
 }
 
 @media (max-width: 600px) {
@@ -607,8 +624,9 @@ h1 {
   .track-duration {
     font-size: 0.8rem;
   }
-  .sticky-player{
+  .sticky-player {
     padding: 10px 10px;
+    width: 90%;
     border-radius: 50px;
   }
   .player-controls {
@@ -641,13 +659,12 @@ h1 {
   .alert-btns-container {
     flex-direction: column;
   }
-  .select-wrapper{
+  .select-wrapper {
     padding: 0 5px;
     margin: 0;
-
   }
   .player-content {
-    gap:  25px;
+    gap: 23px;
   }
 }
 
@@ -773,7 +790,7 @@ h1 {
   }
   .tracks-section-preferences {
     padding: 5px;
-    margin: 25px 5px 100px 5px ;
+    margin: 25px 5px 100px 5px;
   }
 }
 
@@ -792,12 +809,8 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(35px) saturate(1.8);
 
-  
-
   color: var(--white);
 }
-
-
 
 .main-text-alert {
   color: var(--white-color);
