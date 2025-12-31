@@ -1,43 +1,47 @@
 /////////////  Text Section /////////////
 @mixin gradientText {
-    background: linear-gradient(90deg, var(--white-color), var(--main-orange-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  };
+  background: linear-gradient(
+    90deg,
+    var(--white-color),
+    var(--main-orange-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  @mixin gradientSubText{
-    background: linear-gradient(90deg, #e9e7de, #ff4400);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+@mixin gradientSubText {
+  background: linear-gradient(90deg, #e9e7de, #ff4400);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 ///////////// Flex Settings /////////////
 
-  @mixin flexSettingsCenter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+@mixin flexSettingsCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  @mixin flexSettingsBetween{
-    display: flex;
-    justify-content: space-between;
-  }
+@mixin flexSettingsBetween {
+  display: flex;
+  justify-content: space-between;
+}
 
 /////////////// Logo Settings /////////////
 
- @mixin headerLogoStyle{
-    font-family: var(--logo-font-family);
-    font-size: 1.4rem;
-    color: var(--white-color);
-    font-style: normal;
-    text-decoration: none;
-  }
+@mixin headerLogoStyle {
+  font-family: var(--logo-font-family);
+  font-size: 1.4rem;
+  color: var(--white-color);
+  font-style: normal;
+  text-decoration: none;
+}
 
-  @mixin logoStyle{
-    font-family: var(--logo-font-family);
-    font-size: 3.8rem;
-    color: var(--white-color);
-    font-style: normal;
-    text-decoration: none;
-  }
+@mixin logoStyle {
+  font-family: var(--logo-font-family);
+  font-size: 4.8rem;
+  color: var(--white-color);
+  font-style: normal;
+  text-decoration: none;
+}
