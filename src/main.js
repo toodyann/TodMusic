@@ -221,8 +221,9 @@ const showPlaylistSelector = (playlists, track) => {
         if (playlist) {
             try {
                 addTrackToPlaylist(playlistId, track);
-                showMessage(`✓ Трек додано в "${playlist.name}"!`);
-                setTimeout(() => hideMessage(), 2000);
+                // show success message in the Playlists tab
+                showMessage(`✓ Трек додано в "${playlist.name}"!`, 'playlists');
+                setTimeout(() => hideMessage('playlists'), 2000);
                 closeModal();
                 renderPlaylists();
             } catch (err) {
@@ -277,8 +278,9 @@ createPlaylistBtn.addEventListener('click', () => {
         createPlaylist(name);
         newPlaylistName.value = '';
         renderPlaylists();
-        showMessage('✓ Плейліст створено!');
-        setTimeout(() => hideMessage(), 2000);
+        // show success message inside the Playlists tab
+        showMessage('✓ Плейліст створено!', 'playlists');
+        setTimeout(() => hideMessage('playlists'), 2000);
     } catch (error) {
         showError(error.message);
     }

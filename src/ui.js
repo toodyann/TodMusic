@@ -163,12 +163,48 @@ export const hideError = () => {
   errorSearchTabDiv.classList.add("hidden");
 };
 
-export const showMessage = (message) => {
+export const showMessage = (message, tab = 'global') => {
+  if (tab === 'playlists') {
+    const playlistsTab = document.getElementById('playlists-tab');
+    if (!playlistsTab) return;
+
+    // hide any playlist error that might be visible
+    if (errorPlaylistTabDiv) {
+      errorPlaylistTabDiv.classList.add('hidden');
+    }
+    if (errorMessageTimeout) {
+      clearTimeout(errorMessageTimeout);
+      errorMessageTimeout = null;
+    }
+
+    let pm = document.getElementById('playlistMessage');
+    if (!pm) {
+      pm = document.createElement('div');
+      pm.id = 'playlistMessage';
+      pm.className = 'message';
+      // place message directly under the create playlist header (so it's below the button)
+      const header = playlistsTab.querySelector('.playlist-header');
+      if (header && header.parentNode) {
+        header.parentNode.insertBefore(pm, header.nextSibling);
+      } else {
+        playlistsTab.insertBefore(pm, playlistsTab.firstChild);
+      }
+    }
+    pm.textContent = message;
+    pm.classList.remove('hidden');
+    return;
+  }
+
   messageDiv.textContent = message;
   messageDiv.classList.remove("hidden");
 };
 
-export const hideMessage = () => {
+export const hideMessage = (tab = 'global') => {
+  if (tab === 'playlists') {
+    const pm = document.getElementById('playlistMessage');
+    if (pm) pm.classList.add('hidden');
+    return;
+  }
   messageDiv.classList.add("hidden");
 };
 
