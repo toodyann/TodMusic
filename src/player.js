@@ -290,7 +290,8 @@ const onTouchMove = (e) => {
   if (deltaY > 0) {
     e.preventDefault();
     currentY = deltaY;
-    player.style.transform = `translateY(${currentY}px)`;
+    // include translateX(0) to ensure no accidental horizontal offset while dragging
+    player.style.transform = `translateX(0) translateY(${currentY}px)`;
     player.classList.add('dragging');
   }
 };
