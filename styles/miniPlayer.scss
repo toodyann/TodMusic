@@ -6,6 +6,7 @@
   width: 100%;
   max-width: 1300px;
   border-radius: 20px;
+  padding: 0;
 
   display: flex;
   justify-content: space-between;
@@ -412,8 +413,6 @@
   }
 
   .playback-controls .play-center {
-    width: 56px;
-    height: 56px;
     font-size: 20px;
   }
 
