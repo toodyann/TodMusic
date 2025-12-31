@@ -1,11 +1,26 @@
 .sticky-player {
   position: fixed;
-  bottom: 0;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  background: #111;
-  z-index: 1000;
-  transition: transform 0.3s ease;
-  will-change: transform;
+  max-width: 1300px;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px) saturate(1.6);
+
+  color: var(--white-color);
+  font-family: "Inter", sans-serif;
+  z-index: 999;
+
+  overflow: hidden;
   touch-action: pan-y;
 }
 
