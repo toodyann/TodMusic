@@ -258,6 +258,19 @@
     display: block;
   }
 
+  /* Ensure inline SVGs inherit button color and have sensible default sizing */
+  .player-btn svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    fill: currentColor;
+  }
+
+  .sticky-player.fullscreen .playback-controls .player-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
   .sticky-player.fullscreen .player-btn {
     font-size: 48px;
   }

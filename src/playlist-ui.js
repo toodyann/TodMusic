@@ -112,6 +112,11 @@ const attachPlaylistEventListeners = () => {
                 pausePlayer();
             } else {
                 playTrack(track);
+                // inform main app that the active list is this playlist so prev/next navigate within it
+                const playerEl = document.getElementById('player');
+                if (playerEl) {
+                    playerEl.dispatchEvent(new CustomEvent('player:setList', { detail: { list: playlist.tracks, currentId: trackId } }));
+                }
             }
         });
     });
