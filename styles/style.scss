@@ -53,6 +53,7 @@ h1 {
 
   background: linear-gradient(90deg, #ed6701, var(--white-color), #e06d01);
   background-size: 200%;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: colorShift 4s linear infinite;
@@ -493,6 +494,7 @@ h1 {
 .player-info {
   flex: 1;
   min-width: 0;
+  margin-bottom: 0; /* ensure no bottom gap */
 }
 
 .player-track-title {
@@ -809,16 +811,23 @@ h1 {
   @include mixins.flexSettingsCenter;
   flex-direction: column;
 
-  padding: 200px;
+  padding: 32px; /* reduced from 200px to prevent excessive height */
   border-radius: 10px;
   position: relative;
-  overflow: hidden;
+  max-height: 80vh;
+  overflow: auto; /* allow scrolling if content is tall */
 
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(35px) saturate(1.8);
 
   color: var(--white);
+}
+
+@media (max-width: 480px) {
+  .window-notify-container {
+    padding: 20px; /* more compact on small screens */
+  }
 }
 
 .main-text-alert {
