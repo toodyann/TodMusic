@@ -1,215 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TodMusic - your best music app</title>
 
-    <link rel="stylesheet" href="styles/style.scss">
-    <link rel="stylesheet" href="styles/footer.scss">
-    <link rel="stylesheet" href="styles/playlists.scss">
-    <link rel="stylesheet" href="styles/variables.scss">
-    <link rel="stylesheet" href="styles/buttons.scss">
-    <link rel="stylesheet" href="styles/fonts.scss">
+    <link rel="stylesheet" href="styles/style.scss" />
+    <link rel="stylesheet" href="styles/footer.scss" />
+    <link rel="stylesheet" href="styles/playlists.scss" />
+    <link rel="stylesheet" href="styles/variables.scss" />
+    <link rel="stylesheet" href="styles/buttons.scss" />
+    <link rel="stylesheet" href="styles/fonts.scss" />
+    <link rel="stylesheet" href="styles/miniPlayer.scss" />
 
-
-    <link rel="icon" href="faviconTM.png" type="image/x-icon">
-
-</head>
-<body>
+    <link rel="icon" href="faviconTM.png" type="image/x-icon" />
+  </head>
+  <body>
     <div id="page" class="container">
       <header class="header">
         <a href="index.html"><h1 class="main_logo">TodMusic</h1></a>
         <p class="subtitle">Голос пісень</p>
       </header>
 
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="search">Пошук</button>
-            <button class="tab-btn" data-tab="playlists">Плейлисти</button>
-            <button class="tab-btn" data-tab="preferences">Уподобане</button>
-      
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="search">Пошук</button>
+        <button class="tab-btn" data-tab="playlists">Плейлисти</button>
+        <button class="tab-btn" data-tab="preferences">Уподобане</button>
+      </div>
+
+      <div id="search-tab" class="tab-content active">
+        <div class="search-section">
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Введіть назву треку або виконавця..."
+            autocomplete="off"
+          />
+
+          <button id="searchBtn" class="search-btn">Пошук</button>
         </div>
 
-        <div id="search-tab" class="tab-content active">
-          
-            <div class="search-section">
-
-              <input 
-                type="text" 
-                id="searchInput" 
-                class="search-input"
-                placeholder= "Введіть назву треку або виконавця..."
-                autocomplete="off"
-                >
-
-                <button id="searchBtn" class="search-btn">Пошук</button>
-              </div>
-
-              <div class="select-wrapper">
-              <select name="music-genre" id="music-genre">
-                <option value="14">Pop</option>
-                <option value="21">Rock</option>
-                <option value="18">Hip-Hop/Rap</option>
-                <option value="15">R&B/Soul</option>
-                <option value="7">Electronic</option>
-                <option value="17">Dance</option>
-                <option value="20">Alternative</option>
-                <option value="6">Country</option>
-                <option value="12">Latin</option>
-                <option value="24">Reggae</option>
-                <option value="11">Jazz</option>
-                <option value="2">Blues</option>
-                <option value="5">Classical</option>
-                <option value="16">Soundtrack</option>
-                <option value="10">Singer/Songwriter</option>
-                <option value="19">World</option>
-              </select>
-              </div>
-                  
-
-
-            <div id="loadingSpinner" class="loading hidden">
-                <p>Завантаження треків...</p>
-            </div>
-
-          <div id="error-search-tab" class="error hidden"></div>
-          <div id="message" class="message hidden"></div>
-
-          <div class="tracks-section">
-                <div id="tracksList" class="tracks-list">
-                    <p class="placeholder">Введіть запит та натисність кнопку "Пошук" для появи треків</p>
-                </div>
-            </div>
+        <div class="select-wrapper">
+          <select name="music-genre" id="music-genre">
+            <option value="14">Pop</option>
+            <option value="21">Rock</option>
+            <option value="18">Hip-Hop/Rap</option>
+            <option value="15">R&B/Soul</option>
+            <option value="7">Electronic</option>
+            <option value="17">Dance</option>
+            <option value="20">Alternative</option>
+            <option value="6">Country</option>
+            <option value="12">Latin</option>
+            <option value="24">Reggae</option>
+            <option value="11">Jazz</option>
+            <option value="2">Blues</option>
+            <option value="5">Classical</option>
+            <option value="16">Soundtrack</option>
+            <option value="10">Singer/Songwriter</option>
+            <option value="19">World</option>
+          </select>
         </div>
 
-        <div id="playlists-tab" class="tab-content">
-            <div class="playlist-header">
-                <input 
-                    type="text" 
-                    id="newPlaylistName" 
-                    class="search-input" 
-                    placeholder="Назва нового плейліста..."
-                    autocomplete="off"
-                >
-                <button id="createPlaylistBtn" class="search-btn">+ Створити</button>
-            </div>
-            <div id="error-playlist-tab" class="error hidden"></div>
-            <div id="playlistsList" class="playlists-container">
-                <p class="placeholder">Немає плейлистів. Створіть перший!</p>
-            </div>
+        <div id="loadingSpinner" class="loading hidden">
+          <p>Завантаження треків...</p>
         </div>
 
-        <div id="preferences-tab" class="tab-content">
-            <div class="tracks-section-preferences">
-              <div id="tracksListPreferences" class="tracks-list-preferences">
-                  <p class="placeholder">Немає уподобаних пісень. Додайте перший! 💛</p>
-              </div>
+        <div id="error-search-tab" class="error hidden"></div>
+        <div id="message" class="message hidden"></div>
+
+        <div class="tracks-section">
+          <div id="tracksList" class="tracks-list">
+            <p class="placeholder">
+              Введіть запит та натисність кнопку "Пошук" для появи треків
+            </p>
           </div>
         </div>
-    </div>
+      </div>
 
-
-
-    <div id="player" class="sticky-player hidden">
-        <div class="player-content">
-          <button id="playerPlayBtn" class="player-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>
-          </button>
-            <div class="player-info">
-                <div class="player-track-title" id="playerTitle">Не вибрано трек</div>
-                <div class="player-track-artist" id="playerArtist"></div>
-            </div>
-            <div class="player-controls">
-            <audio id="playerAudio"></audio>
-
-
-                <input type="range" id="playerProgress" class="player-progress" min="0" max="100" value="0">
-                <span id="playerTime" class="player-time">0:00 / 0:00</span>
-            </div>
+      <div id="playlists-tab" class="tab-content">
+        <div class="playlist-header">
+          <input
+            type="text"
+            id="newPlaylistName"
+            class="search-input"
+            placeholder="Назва нового плейліста..."
+            autocomplete="off"
+          />
+          <button id="createPlaylistBtn" class="search-btn">+ Створити</button>
         </div>
+        <div id="error-playlist-tab" class="error hidden"></div>
+        <div id="playlistsList" class="playlists-container">
+          <p class="placeholder">Немає плейлистів. Створіть перший!</p>
+        </div>
+      </div>
+
+      <div id="preferences-tab" class="tab-content">
+        <div class="tracks-section-preferences">
+          <div id="tracksListPreferences" class="tracks-list-preferences">
+            <p class="placeholder">
+              Немає уподобаних пісень. Додайте перший! 💛
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <div
+      id="player"
+      class="sticky-player hidden"
+      role="region"
+      aria-label="Player"
+    >
+      <div class="player-content">
+        <button id="playerPlayBtn" class="player-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="#ffffff"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"
+            ></path>
+          </svg>
+        </button>
 
-  </div>
+        <div class="player-artwork" id="playerArtwork" aria-hidden="true">
+          <img id="playerArtworkImg" src="" alt="" />
+        </div>
+
+        <div class="player-info" id="playerHandle" title="Відкрити плеєр">
+          <div class="player-track-title" id="playerTitle">Не вибрано трек</div>
+          <div class="player-track-artist" id="playerArtist"></div>
+        </div>
+
+        <!-- Fullscreen playback controls (prev / play / next) -->
+        <div class="playback-controls" aria-hidden="true">
+          <button
+            id="playerPrevBtn"
+            class="player-btn prev"
+            aria-label="Попередній трек"
+          >
+            ⏮
+          </button>
+          <button
+            id="playerPlayBtnCenter"
+            class="player-btn play-center"
+            aria-label="Грати/Пауза"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="#ffffff"
+              viewBox="0 0 256 256"
+            >
+              <path
+                d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"
+              />
+            </svg>
+          </button>
+          <button
+            id="playerNextBtn"
+            class="player-btn next"
+            aria-label="Наступний трек"
+          >
+            ⏭
+          </button>
+        </div>
+
+        <div class="player-controls">
+          <audio id="playerAudio"></audio>
+
+          <input
+            type="range"
+            id="playerProgress"
+            class="player-progress"
+            min="0"
+            max="100"
+            value="0"
+          />
+          <span id="playerTime" class="player-time">0:00 / 0:00</span>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer">
-        <div class="footer-container">
-          <div class="footer-column">
-            <div><a class="footer_logo" href="index.html"><p style="font-family: var(--logo-font-family);">TodMusic</p></a></div>
+      <div class="footer-container">
+        <div class="footer-column">
+          <div>
+            <a class="footer_logo" href="index.html"
+              ><p style="font-family: var(--logo-font-family)">TodMusic</p></a
+            >
           </div>
-      
-          <div class="footer-column">
-            <h4>Компанія</h4>
-            <ul>
-              <li><a href="html/aboutUs.html">Про нас</a></li>
-              <li><a href="html/acct.html">Увійти</a></li>
-              <li><a href="html/information.html">Довідка</a></li>
-            </ul>
-          </div>
-      
-          <div class="footer-column">
-            <h4>Спільноти</h4>
-            <ul>
-              <li><a href="html/advertising.html">Для виконавців</a></li>
-              <li><a href="html/advertising.html">Для рекламодавців</a></li>
-              <li><a href="html/advertising.html">Для інвесторів</a></li>
-            </ul>
-          </div>
-      
-          <div class="footer-column">
-            <h4>Корисні посилання</h4>
-            <ul>
-              <li><a href="html/supportService.html">Підтримка</a></li>
-              <li><a href="index.html">Вебпрогравач</a></li>
-            </ul>
-          </div>
-      
-          <div class="footer-column">
-            <h4>Підписки TodMusic</h4>
-            <ul>
-              <li><a href="html/subscription.html">TodMusic Free</a></li>
-            </ul>
-          </div>
-      
-          <div class="footer-column">
-            <h4>Соціальні мережі</h4>
-            <div class="footer-social">
+        </div>
 
-              <div class="social-telegram">
-                <a href="https://t.me/TodMusicOffficial">
-                <svg xmlns="http://www.w3.org/2000/svg"  width="30" height="30" class="telegram-icon" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09"/>
+        <div class="footer-column">
+          <h4>Компанія</h4>
+          <ul>
+            <li><a href="html/aboutUs.html">Про нас</a></li>
+            <li><a href="html/acct.html">Увійти</a></li>
+            <li><a href="html/information.html">Довідка</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Спільноти</h4>
+          <ul>
+            <li><a href="html/advertising.html">Для виконавців</a></li>
+            <li><a href="html/advertising.html">Для рекламодавців</a></li>
+            <li><a href="html/advertising.html">Для інвесторів</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Корисні посилання</h4>
+          <ul>
+            <li><a href="html/supportService.html">Підтримка</a></li>
+            <li><a href="index.html">Вебпрогравач</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Підписки TodMusic</h4>
+          <ul>
+            <li><a href="html/subscription.html">TodMusic Free</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Соціальні мережі</h4>
+          <div class="footer-social">
+            <div class="social-telegram">
+              <a href="https://t.me/TodMusicOffficial">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  class="telegram-icon"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="23"
+                height="23"
+                fill="currentColor"
+                class="bi bi-twitter-x"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+                />
               </svg>
-            </a>
             </div>
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
-                  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-                </svg>
-              </div>
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
-                </svg>
-              </div>
-
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                fill="currentColor"
+                class="bi bi-facebook"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                />
+              </svg>
             </div>
           </div>
         </div>
-      
-        <div class="footer-bottom">
-          <span>Юридична інформація</span>
-          <span>Центр безпеки й конфіденційності</span>
-          <span>Політика конфіденційності</span>
-          <span>Політика щодо файлів cookie</span>
-          <span>Про рекламу</span>
-          <span>Доступність</span>
-          <span>Україна (українська)</span>
-          <span>© 2025 TodMusic AB</span>
-        </div>
-      </footer>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Юридична інформація</span>
+        <span>Центр безпеки й конфіденційності</span>
+        <span>Політика конфіденційності</span>
+        <span>Політика щодо файлів cookie</span>
+        <span>Про рекламу</span>
+        <span>Доступність</span>
+        <span>Україна (українська)</span>
+        <span>© 2025 TodMusic AB</span>
+      </div>
+    </footer>
     <script type="module" src="/src/main.js"></script>
-
-</body>
+  </body>
 </html>
-

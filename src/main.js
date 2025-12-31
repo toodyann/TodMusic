@@ -1,6 +1,6 @@
 import { searchTracks } from './api.js';
 import { renderTracks, clearTracks, showLoading, hideLoading, showError, hideError, showMessage, hideMessage } from './ui.js';
-import { initPlayer, playTrack, pausePlayer, onPlaybackStateChange, getPlayingTrackId, isPlaying } from './player.js';
+import { initPlayer, playTrack, pausePlayer, onPlaybackStateChange, getPlayingTrackId, getCurrentTrack, isPlaying } from './player.js';
 import { createPlaylist, addTrackToPlaylist } from './playlist.js';
 import { renderPlaylists } from './playlist-ui.js';
 import { getPlaylists } from './playlist.js';
@@ -24,13 +24,51 @@ document.addEventListener('DOMContentLoaded', () => {
     setupTabs();
     
     onPlaybackStateChange(() => {
+        // refresh search results controls
         if (currentSearchTracks.length > 0) {
             renderTracks(currentSearchTracks);
             attachPlayButtons(currentSearchTracks);
             attachAddToPlaylistButtons(currentSearchTracks);
             attachPreferencesButtons(currentSearchTracks);
         }
+        // refresh playlists and likes UI so their play buttons reflect current state
+        renderPlaylists();
+        renderPreferences();
     });
+
+    // Listen for prev/next requests from the player UI (fullscreen controls)
+    const playerEl = document.getElementById('player');
+    if (playerEl) {
+      playerEl.addEventListener('player:next', () => {
+        if (!currentSearchTracks || currentSearchTracks.length === 0) return;
+        // prefer current playing id, fallback to last selected track even if paused
+        const playingId = getPlayingTrackId() || getCurrentTrack()?.id;
+        let idx = currentSearchTracks.findIndex(t => t.id === playingId);
+        // if not found, start from -1 so nextIdx becomes 0
+        if (idx === -1) idx = -1;
+        const nextIdx = (idx >= 0 && idx < currentSearchTracks.length - 1) ? idx + 1 : 0;
+        const nextTrack = currentSearchTracks[nextIdx];
+        if (nextTrack) playTrack(nextTrack);
+      });
+
+      playerEl.addEventListener('player:prev', () => {
+        if (!currentSearchTracks || currentSearchTracks.length === 0) return;
+        const playingId = getPlayingTrackId() || getCurrentTrack()?.id;
+        let idx = currentSearchTracks.findIndex(t => t.id === playingId);
+        if (idx === -1) idx = 0; // if not found, go to last
+        const prevIdx = (idx > 0) ? idx - 1 : currentSearchTracks.length - 1;
+        const prevTrack = currentSearchTracks[prevIdx];
+        if (prevTrack) playTrack(prevTrack);
+      });
+
+      // Allow other UI pieces to set the active list (e.g., likes list)
+      playerEl.addEventListener('player:setList', (e) => {
+        const { list } = e.detail || {};
+        if (Array.isArray(list)) {
+          currentSearchTracks = list.slice();
+        }
+      });
+    }
 });
 
 const setupTabs = () => {

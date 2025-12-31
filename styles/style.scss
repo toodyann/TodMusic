@@ -418,15 +418,15 @@ h1 {
 .sticky-player {
   position: fixed;
   bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   width: 100%;
-  max-width: 1300px;
   border-radius: 20px;
   padding: 12px 24px;
 
+  /* Outer full-width container to avoid horizontal jumps when layout changes */
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* center inner content */
   align-items: center;
   gap: 16px;
 
@@ -439,6 +439,13 @@ h1 {
   z-index: 999;
 
   overflow: hidden;
+}
+
+/* Ensure inner content stays centered and has a max width */
+.player-content {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .sticky-player.hidden {
@@ -623,7 +630,7 @@ h1 {
     font-size: 0.8rem;
   }
   .sticky-player {
-    padding: 10px 10px;
+    padding: 2px 10px;
     width: 90%;
     border-radius: 50px;
   }

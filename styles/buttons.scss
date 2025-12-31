@@ -1,55 +1,55 @@
 @use "mixins.scss";
 
 .search-btn {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    color: var(--white-color);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--white-color);
 
-    padding: 12px 40px;
-    border: none;
-    position: relative;
-    overflow: hidden;
-    
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.161);
-    border-radius: 10px;
-    backdrop-filter: blur(20px) saturate(1.6);
-    
-    cursor: pointer;
-    transition: transform 0.22s ease, background 0.25s ease, border 0.25s ease;
-  }
-  
-  .search-btn::before {
-    content: "";
-    position: absolute;
-    inset: -80%;
-  
-    background: radial-gradient(
-      circle at 30% 30%,
-      rgba(255, 255, 255, 0.907),
-      rgba(255, 102, 0, 0.687),
-      rgba(255, 255, 255, 0.15),
-      transparent 75%
-    );
-  
-    filter: blur(22px);
-    opacity: 0.75;
-  
-    animation: LiquidMove 5.5s infinite ease-in-out;
-  }
-  
-  .search-btn:hover {
-    background: rgba(255, 255, 255, 0.16);
-    border-color: rgba(255, 255, 255, 0.35);
-    transform: translateY(-2px);
-  }
-  
-  .search-btn:active {
-    transform: scale(0.94);
-  }
-  
-  .play-track-btn {
+  padding: 12px 40px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.161);
+  border-radius: 10px;
+  backdrop-filter: blur(20px) saturate(1.6);
+
+  cursor: pointer;
+  transition: transform 0.22s ease, background 0.25s ease, border 0.25s ease;
+}
+
+.search-btn::before {
+  content: "";
+  position: absolute;
+  inset: -80%;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.907),
+    rgba(255, 102, 0, 0.687),
+    rgba(255, 255, 255, 0.15),
+    transparent 75%
+  );
+
+  filter: blur(22px);
+  opacity: 0.75;
+
+  animation: LiquidMove 5.5s infinite ease-in-out;
+}
+
+.search-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.search-btn:active {
+  transform: scale(0.94);
+}
+
+.play-track-btn {
   background: #ffffff0f;
   border: 1px solid var(--white-color);
   border-radius: 50%;
@@ -242,6 +242,19 @@
   filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
 }
 
+/* Show playing state for likes and playlist buttons */
+.play-liked-btn.playing svg,
+.play-track-btn.playing svg {
+  fill: #ffa500;
+  filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.6));
+}
+
+.play-liked-btn.playing:hover svg,
+.play-track-btn.playing:hover svg {
+  fill: #ffd700;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+}
+
 .add-to-playlist-btn {
   background: #e4e4e438;
   width: 40px;
@@ -363,39 +376,31 @@
   transform: scale(0.94);
 }
 
-.alert-btns-container{
-    display: flex;
-    gap: 10px;
+.alert-btns-container {
+  display: flex;
+  gap: 10px;
 }
 
 .player-btn {
-    background: rgba(255, 255, 255, 0.0588235294);
-    border: 1px solid var(--white-color);
-    border-radius: 50%;
-    font-size: 1rem;
-    color: var(--white-color);
-    cursor: pointer;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.17s ease;
-  }
-  
-  .player-btn:hover {
-    background: #ffffff61;
-  }
+  background: rgba(255, 255, 255, 0.0588235294);
+  border: 1px solid var(--white-color);
+  border-radius: 50%;
+  font-size: 1rem;
+  color: var(--white-color);
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.17s ease;
+}
 
-  .player-btn:active {
-    transform: scale(0.9);
-  }
-  
-  .player-progress {
-    flex: 1;
-    height: 4px;
-    border-radius: 2px;
-    accent-color: var(--white-color);
-    outline: none;
-    cursor: pointer;
-  }
+.player-progress {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  accent-color: var(--white-color);
+  outline: none;
+  cursor: pointer;
+}

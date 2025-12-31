@@ -1,0 +1,410 @@
+.sticky-player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #111;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  will-change: transform;
+  touch-action: pan-y;
+}
+
+/* Compact layout */
+.player-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0px 14px;
+  margin: 10px;
+}
+
+.player-artwork {
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 6px;
+  display: none;
+}
+
+.player-artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.player-info[title] {
+  cursor: pointer;
+}
+
+.sticky-player.dragging {
+  transition: none;
+}
+
+@media (max-width: 768px) {
+  .player-artwork {
+    display: block;
+  }
+
+  .sticky-player.fullscreen {
+    position: fixed;
+    inset: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    height: 100dvh;
+    bottom: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #0d0d0d 0%, #111 100%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+    transform-origin: bottom center;
+    /* allow smooth transform transitions for enter/exit */
+    transition: transform 320ms cubic-bezier(0.22, 0.9, 0.27, 1);
+  }
+
+  /* Restore animated gradient intensity for fullscreen, but keep content above it */
+  .sticky-player.fullscreen::before {
+    /* restored more visible animated gradient (matches desktop look) */
+    content: "";
+    position: absolute;
+    inset: -90%;
+    background: radial-gradient(
+      circle at 30% 30%,
+      rgba(211, 113, 8, 0.523),
+      rgba(255, 102, 0, 0.517),
+      transparent 70%
+    );
+    filter: blur(30px);
+    opacity: 0.55;
+    animation: liquidFlow 6s infinite ease-in-out;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Ensure player content (artwork/title/controls) is above the gradient */
+  .sticky-player.fullscreen .player-content {
+    position: relative;
+    z-index: 3;
+  }
+
+  /* Add a subtle animated glow behind artwork so it stands out */
+  .sticky-player.fullscreen .player-artwork {
+    position: relative;
+    z-index: 4;
+    overflow: visible;
+  }
+
+  .sticky-player.fullscreen .player-artwork::before {
+    content: "";
+    position: absolute;
+    inset: -12%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 140, 60, 0.36),
+      rgba(255, 140, 60, 0.06)
+    );
+    filter: blur(22px);
+    transform-origin: center;
+    z-index: 2;
+    opacity: 0.95;
+    animation: artworkGlow 4.5s infinite ease-in-out;
+    pointer-events: none;
+  }
+
+  .sticky-player.fullscreen .player-artwork img {
+    position: relative;
+    z-index: 3;
+    display: block;
+    border-radius: 12px;
+  }
+
+  @keyframes artworkGlow {
+    0% {
+      transform: scale(0.96);
+      opacity: 0.85;
+    }
+    50% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.96);
+      opacity: 0.85;
+    }
+  }
+
+  .sticky-player.fullscreen .player-content {
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    flex-direction: column;
+    /* center everything both vertically and horizontally */
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+
+  /* Enlarge and center artwork in fullscreen */
+  .sticky-player.fullscreen .player-artwork {
+    display: block;
+    width: min(72vw, 420px);
+    height: min(72vw, 420px);
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    overflow: visible;
+    flex-shrink: 0;
+    order: 1;
+  }
+
+  .sticky-player.fullscreen .player-artwork img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin-top: 15px;
+  }
+
+  /* Ensure title/artist are stacked and centered under artwork */
+  .sticky-player.fullscreen .player-info {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    gap: 4px;
+  }
+
+  .sticky-player.fullscreen .player-track-title {
+    font-size: 22px;
+    font-weight: 600;
+    max-width: 90%;
+    line-height: 1.1;
+  }
+
+  .sticky-player.fullscreen .player-track-artist {
+    font-size: 15px;
+    opacity: 0.9;
+  }
+
+  /* Playback buttons directly under title/artist */
+  .playback-controls {
+    order: 3;
+    margin-top: 10px;
+    gap: 14px;
+  }
+
+  .sticky-player.fullscreen .player-controls {
+    order: 4;
+    width: 100%;
+    max-width: 720px;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Playback controls row shown only in fullscreen */
+  .playback-controls {
+    display: none;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .sticky-player.fullscreen .playback-controls {
+    display: flex;
+  }
+
+  /* Hide compact top-left play button in fullscreen to avoid duplication */
+  .sticky-player.fullscreen #playerPlayBtn {
+    display: none;
+  }
+
+  .sticky-player.fullscreen .playback-controls .player-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .sticky-player.fullscreen .playback-controls .play-center {
+    width: 78px;
+    height: 78px;
+    font-size: 0; /* use explicit SVG sizing */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .sticky-player.fullscreen .playback-controls .play-center svg {
+    width: 40px;
+    height: 40px;
+    display: block;
+  }
+
+  .sticky-player.fullscreen .player-btn {
+    font-size: 48px;
+  }
+
+  .sticky-player.fullscreen .player-track-title {
+    font-size: 22px;
+  }
+
+  .sticky-player.fullscreen .player-track-artist {
+    font-size: 16px;
+    opacity: 0.9;
+  }
+
+  .sticky-player.fullscreen .player-progress {
+    width: 100%;
+    /* larger, touch-friendly height */
+    height: 10px;
+    margin-top: 12px;
+    border-radius: 999px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.22) 0%
+    );
+    position: relative;
+    overflow: hidden;
+    touch-action: pan-x;
+  }
+
+  /* Webkit track */
+  .sticky-player.fullscreen .player-progress::-webkit-slider-runnable-track {
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  .sticky-player.fullscreen .player-progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    margin-top: -4px; /* center thumb */
+  }
+
+  /* Firefox */
+  .sticky-player.fullscreen .player-progress::-moz-range-track {
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  .sticky-player.fullscreen .player-progress::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Provide a visible filled part using background-size updated via JS (progress percent) */
+  .sticky-player.fullscreen .player-progress[data-progress] {
+    /* Filled part then remaining part using CSS variable --progress (e.g. '45%') */
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.95) var(--progress, 0%),
+      rgba(255, 255, 255, 0.22) var(--progress, 0%),
+      rgba(255, 255, 255, 0.22) 100%
+    );
+    z-index: 10;
+  }
+
+  /* Drag feedback when swiping down */
+  .sticky-player.dragging {
+    will-change: transform;
+  }
+
+  /* Prevent body scroll when fullscreen open */
+  body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Show playback-controls as a single horizontal row on larger screens */
+  .playback-controls {
+    display: flex !important;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hide the small compact left play button so only the row remains */
+  #playerPlayBtn {
+    display: none !important;
+  }
+
+  /* Desktop layout: place artwork, info and controls in a single row */
+  .player-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .player-artwork {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .playback-controls .player-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .playback-controls .play-center {
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+  }
+
+  .player-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 420px;
+  }
+
+  .player-progress {
+    height: 6px;
+  }
+
+  /* Ensure fullscreen covers whole viewport on desktop */
+  .sticky-player.fullscreen {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}
