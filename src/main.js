@@ -90,8 +90,8 @@ const switchTab = tabName => {
 
 const handleSearch = async () => {
     const query = searchInput.value.trim();
-    const genreId = genreSelect.value;
-    const genreName = genreSelect.options[genreSelect.selectedIndex].text;
+    const genreId = genreSelect ? genreSelect.value : '';
+    const genreName = genreSelect && genreSelect.options && genreSelect.selectedIndex >= 0 ? genreSelect.options[genreSelect.selectedIndex].text : '';
 
     if (!query) {
         showError('Будь ласка, введіть запит для пошуку!');
