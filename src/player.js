@@ -33,7 +33,6 @@ export const initPlayer = () => {
         }
       });
 
-    // Fullscreen open on handle click (only on mobile)
     const handle = document.getElementById('playerHandle');
     if (handle) {
       handle.addEventListener('click', (e) => {
