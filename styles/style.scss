@@ -42,8 +42,8 @@ html {
 h1 {
   font-family: var(--logo-font-family);
   color: var(--white-color);
-  font-size: 5.5rem;
-  font-weight: 800;
+  font-size: 5rem;
+  font-weight: 200;
   font-style: normal;
 
   text-decoration: none;
@@ -593,7 +593,7 @@ h1 {
 
 @media (max-width: 600px) {
   .header h1 {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   .search-section {
