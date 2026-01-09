@@ -206,13 +206,13 @@
   }
 
   .playback-controls {
-    order: 3;
+    order: 4;
     margin-top: 10px;
     gap: 14px;
   }
 
   .sticky-player.fullscreen .player-controls {
-    order: 4;
+    order: 3;
     width: 100%;
     max-width: 720px;
     padding: 0 16px;
@@ -349,6 +349,12 @@
       rgba(255, 255, 255, 0.22) 100%
     );
     z-index: 10;
+  }
+
+  .sticky-player.fullscreen .player-time {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 8px;
   }
 
   .sticky-player.dragging {

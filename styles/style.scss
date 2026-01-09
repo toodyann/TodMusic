@@ -243,7 +243,7 @@ h1 {
   border-left: 5px solid #c4733179;
   border-radius: 8px;
 
-  padding: 15px 20px;
+  padding: 5px 20px;
 
   display: flex;
   flex-direction: column;
@@ -607,7 +607,7 @@ h1 {
   }
 
   .tracks-section {
-    padding: 20px;
+    padding: 5px;
     padding-bottom: 80px;
     margin-left: 5px;
     margin-right: 5px;
@@ -623,10 +623,7 @@ h1 {
   }
 
   .track-number {
-    width: 28px;
-    height: 28px;
-    line-height: 28px;
-    font-size: 0.85rem;
+    display: none;
   }
 
   .track-duration {
@@ -644,6 +641,13 @@ h1 {
   .player-time {
     min-width: auto;
   }
+
+  // Show player time in fullscreen mode
+  .sticky-player.fullscreen .player-time {
+    display: block !important;
+    min-width: 80px;
+  }
+
   .subtitle {
     padding-top: 10px;
     font-size: 1rem;
@@ -676,6 +680,29 @@ h1 {
   }
   .player-progress {
     display: none;
+  }
+
+  // Show player progress in fullscreen mode
+  .sticky-player.fullscreen .player-progress {
+    display: block !important;
+  }
+
+  // Hide buttons on mobile devices
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  // Make track items clickable on mobile
+  .track-item {
+    cursor: pointer;
+  }
+
+  .playlist-track-item {
+    cursor: pointer;
+  }
+
+  .likes-track-item {
+    cursor: pointer;
   }
 }
 

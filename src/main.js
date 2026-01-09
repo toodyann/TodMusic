@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attachPlayButtons(currentSearchTracks);
             attachAddToPlaylistButtons(currentSearchTracks);
             attachPreferencesButtons(currentSearchTracks);
+            attachTrackClickHandlers(currentSearchTracks);
         }
         // refresh playlists and likes UI so their play buttons reflect current state
         renderPlaylists();
@@ -119,6 +120,7 @@ const handleSearch = async () => {
             attachPlayButtons(tracks);
             attachAddToPlaylistButtons(tracks);
             attachPreferencesButtons(tracks);
+            attachTrackClickHandlers(tracks);
         }
     } catch (error) {
         hideLoading();
@@ -259,6 +261,36 @@ const attachPreferencesButtons = tracks => {
             }
             
             renderPreferences();
+        });
+    });
+};
+
+const attachTrackClickHandlers = tracks => {
+    const trackMap = {};
+    tracks.forEach(track => {
+        trackMap[track.id] = track;
+    });
+
+    document.querySelectorAll('.track-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            // Only work on mobile devices (width <= 600px)
+            if (window.innerWidth > 600) return;
+            
+            // Ignore clicks on buttons
+            if (e.target.closest('button')) return;
+            
+            const trackId = parseInt(item.dataset.trackId);
+            const track = trackMap[trackId];
+            
+            if (!track || !track.previewUrl) return;
+            
+            const playingTrackId = getPlayingTrackId();
+            
+            if (playingTrackId === trackId && isPlaying()) {
+                pausePlayer();
+            } else {
+                playTrack(track);
+            }
         });
     });
 };

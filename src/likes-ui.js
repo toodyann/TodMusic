@@ -29,7 +29,7 @@ export const renderLikes = () => {
 
                         <span class="likes-track-duration">${formatDuration(track.duration)}</span>
 
-                        <button class="play-liked-btn ${getPlayingTrackId() === track.id && isPlaying() ? 'playing' : ''}" data-track-id="${track.id}" title="Запустити">
+                        <button class="play-liked-btn hide-on-mobile ${getPlayingTrackId() === track.id && isPlaying() ? 'playing' : ''}" data-track-id="${track.id}" title="Запустити">
 
                         ${getPlayingTrackId() === track.id && isPlaying() ? `
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>
@@ -90,6 +90,34 @@ const attachLikesEventListeners = (likes) => {
             const trackId = parseInt(btn.dataset.trackId);
             removeLike(trackId);
             renderLikes();
+        });
+    });
+
+    // Track click handlers for mobile
+    document.querySelectorAll('.likes-track-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            // Only work on mobile devices (width <= 600px)
+            if (window.innerWidth > 600) return;
+            
+            // Ignore clicks on buttons
+            if (e.target.closest('button')) return;
+            
+            const trackId = parseInt(item.dataset.trackId);
+            const track = likes.find(t => t.id === trackId);
+            
+            if (!track) return;
+            
+            const playingTrackId = getPlayingTrackId();
+            
+            if (playingTrackId === trackId && isPlaying()) {
+                pausePlayer();
+            } else {
+                playTrack(track);
+                const playerEl = document.getElementById('player');
+                if (playerEl) {
+                    playerEl.dispatchEvent(new CustomEvent('player:setList', { detail: { list: likes, currentId: trackId } }));
+                }
+            }
         });
     });
 };
