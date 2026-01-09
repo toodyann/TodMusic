@@ -9,7 +9,6 @@
   padding: 0;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 16px;
 
@@ -91,6 +90,10 @@
 
 .player-info[title] {
   cursor: pointer;
+}
+
+.playback-wrapper {
+  display: none;
 }
 
 .sticky-player.dragging {
@@ -251,9 +254,12 @@
   }
 
   .playback-controls {
+    display: none;
     order: 4;
     margin-top: 10px;
     gap: 14px;
+    align-items: center;
+    justify-content: center;
   }
 
   .sticky-player.fullscreen .player-controls {
@@ -267,16 +273,27 @@
     gap: 12px;
   }
 
-  .playback-controls {
+  .sticky-player.fullscreen .playback-wrapper {
+    order: 4;
+    width: 100%;
+    max-width: 720px;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sticky-player.fullscreen .playback-wrapper .player-current-time,
+  .sticky-player.fullscreen .playback-wrapper .player-duration {
     display: none;
-    gap: 18px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 8px;
+  }
+
+  .sticky-player.fullscreen .playback-wrapper .player-time {
+    display: block;
   }
 
   .sticky-player.fullscreen .playback-controls {
     display: flex;
+    flex-direction: row;
   }
 
   .sticky-player.fullscreen #playerPlayBtn {
@@ -412,54 +429,126 @@
 }
 
 @media (min-width: 769px) {
-  /* Show playback-controls as a single horizontal row on larger screens */
-  .playback-controls {
-    display: flex !important;
-    flex-direction: row;
-    gap: 12px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Hide the small compact left play button so only the row remains */
+  /* Hide the small compact left play button */
   #playerPlayBtn {
     display: none !important;
   }
 
-  /* Desktop layout: place artwork, info and controls in a single row */
+  /* Desktop layout: horizontal 3-column layout */
   .player-content {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    justify-content: center;
+    gap: 40px;
+    padding: 12px 20px;
+  }
+
+  /* Left: Song info + artwork */
+  .player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    order: 1;
+    flex: 0 1 280px;
+    min-width: 200px;
   }
 
   .player-artwork {
-    width: 64px;
-    height: 64px;
-    border-radius: 8px;
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
     display: block;
+    order: 0;
+    flex-shrink: 0;
+  }
+
+  /* Center: Playback wrapper with controls + progress */
+  .playback-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px;
+    align-items: stretch;
+    justify-content: center;
+    order: 2;
+    flex: 1 1 auto;
+    max-width: none;
+  }
+
+  .playback-controls {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
   }
 
   .playback-controls .player-btn {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     font-size: 18px;
   }
 
   .playback-controls .play-center {
+    width: 48px;
+    height: 48px;
     font-size: 20px;
   }
 
-  .player-controls {
+  /* Progress bar under controls */
+  .playback-wrapper .player-controls {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 12px;
-    max-width: 420px;
+    width: 100%;
+    max-width: 100%;
   }
 
-  .player-progress {
+  .playback-wrapper .player-progress {
     height: 6px;
+    flex: 1;
+  }
+
+  .playback-wrapper .player-current-time,
+  .playback-wrapper .player-duration {
+    display: block;
+    font-size: 0.8rem;
+    min-width: 45px;
+    text-align: center;
+    opacity: 0.9;
+  }
+
+  .playback-wrapper .player-current-time {
+    text-align: right;
+  }
+
+  .playback-wrapper .player-duration {
+    text-align: left;
+  }
+
+  .playback-wrapper .player-time {
+    display: none;
+  }
+
+  /* Right: Volume control */
+  .volume-control {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    order: 3;
+    margin-left: 0;
+    flex: 0 1 280px;
+    min-width: 150px;
+  }
+
+  .volume-slider {
+    width: 100px;
   }
 
   /* Ensure fullscreen covers whole viewport on desktop */

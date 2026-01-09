@@ -414,4 +414,10 @@
   accent-color: var(--white-color);
   outline: none;
   cursor: pointer;
+  transition: accent-color 0.1s ease;
+
+  &:hover {
+    accent-color: #ff8c00;
+    border: none;
+  }
 }
