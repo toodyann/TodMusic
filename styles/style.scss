@@ -687,6 +687,16 @@ h1 {
   .tabs {
     align-items: center;
     justify-content: center;
+    width: 100%;
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .tab-btn {
+    flex: 0 1 auto;
+    white-space: nowrap;
+    padding: 10px 15px;
+    font-size: 0.95rem;
   }
   .window-notify-container {
     height: 100%;
