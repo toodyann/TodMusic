@@ -1,3 +1,5 @@
+import { isLiked } from './likes.js';
+
 const player = document.getElementById('player');
 const playerAudio = document.getElementById('playerAudio');
 const playerTitle = document.getElementById('playerTitle');
@@ -6,6 +8,8 @@ const playerPlayBtn = document.getElementById('playerPlayBtn');
 const playerProgress = document.getElementById('playerProgress');
 const playerTime = document.getElementById('playerTime');
 const playerArtworkImg = document.getElementById('playerArtworkImg');
+const playerLikeBtn = document.getElementById('playerLikeBtn');
+const playerAddToPlaylistBtn = document.getElementById('playerAddToPlaylistBtn');
 
 let currentTrack = null;
 let touchStartY = 0;
@@ -80,6 +84,21 @@ export const initPlayer = () => {
       });
     }
 
+    // Mobile action buttons
+    if (playerLikeBtn) {
+      playerLikeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        player.dispatchEvent(new CustomEvent('player:toggleLike'));
+      });
+    }
+
+    if (playerAddToPlaylistBtn) {
+      playerAddToPlaylistBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        player.dispatchEvent(new CustomEvent('player:addToPlaylist'));
+      });
+    }
+
     const SVG_PLAY = `\n          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>\n        `;
     const SVG_PAUSE = `\n          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>\n        `;
 
@@ -146,6 +165,10 @@ export const playTrack = (track) => {
       playerArtworkImg.src = track.thumbnail || '';
       playerArtworkImg.alt = `${track.title} - ${track.artist}`;
     }
+    
+    // Update like button state
+    updatePlayerLikeButton(isLiked(track.id));
+    
     player.classList.remove('hidden');
     playerAudio.play().catch(err => console.log('Play error:', err));
 };
@@ -284,5 +307,15 @@ const onTouchEnd = () => {
     setTimeout(() => {
       player.style.transition = '';
     }, 250);
+  }
+};
+
+export const updatePlayerLikeButton = (isLiked) => {
+  if (playerLikeBtn) {
+    if (isLiked) {
+      playerLikeBtn.classList.add('liked');
+    } else {
+      playerLikeBtn.classList.remove('liked');
+    }
   }
 };

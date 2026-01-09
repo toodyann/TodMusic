@@ -32,7 +32,7 @@ export const renderPlaylists = () => {
             <div class="playlist-tracks" id="playlist-${playlist.id}">
                 ${playlist.tracks.length === 0 ? '<p class="placeholder-small">Плейліст порожний</p>' : ''}
                 ${playlist.tracks.map((track, idx) => `
-                    <div class="playlist-track-item">
+                    <div class="playlist-track-item ${getPlayingTrackId() === track.id && isPlaying() ? 'playing' : ''}">
                         <span class="playlist-track-num">${idx + 1}</span>
                         <img src="${track.thumbnail}" alt="${track.title}" class="track-thumbnail" onerror="this.src='https://via.placeholder.com/60?text=Track'" />
 

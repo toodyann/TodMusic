@@ -15,7 +15,7 @@ export const renderLikes = () => {
     likesList.innerHTML = `
         <div class="likes-container">
             ${likes.map((track, idx) => `
-                <div class="likes-track-item" data-track-id="${track.id}">
+                <div class="likes-track-item ${getPlayingTrackId() === track.id && isPlaying() ? 'playing' : ''}" data-track-id="${track.id}">
                     <div class="likes-track-content">
                         <span class="likes-track-num">${idx + 1}</span>
                         <img src="${track.thumbnail}" alt="${track.title}" class="track-thumbnail" onerror="this.src='https://via.placeholder.com/60?text=Track'" />

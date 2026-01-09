@@ -383,7 +383,9 @@
 
 .player-btn {
   background: rgba(255, 255, 255, 0.0588235294);
-  border: 1px solid var(--white-color);
+  // border: 1px solid var(--white-color);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
   border-radius: 50%;
   font-size: 1rem;
   color: var(--white-color);
@@ -394,6 +396,15 @@
   align-items: center;
   justify-content: center;
   transition: all 0.17s ease;
+}
+
+@media (max-width: 600px) {
+  #playerPlayBtn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    flex-shrink: 0;
+  }
 }
 
 .player-progress {

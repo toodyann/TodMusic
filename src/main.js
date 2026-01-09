@@ -1,6 +1,6 @@
 import { searchTracks } from './api.js';
 import { renderTracks, clearTracks, showLoading, hideLoading, showError, hideError, showMessage, hideMessage } from './ui.js';
-import { initPlayer, playTrack, pausePlayer, onPlaybackStateChange, getPlayingTrackId, getCurrentTrack, isPlaying } from './player.js';
+import { initPlayer, playTrack, pausePlayer, onPlaybackStateChange, getPlayingTrackId, getCurrentTrack, isPlaying, updatePlayerLikeButton } from './player.js';
 import { createPlaylist, addTrackToPlaylist } from './playlist.js';
 import { renderPlaylists } from './playlist-ui.js';
 import { getPlaylists } from './playlist.js';
@@ -68,6 +68,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (Array.isArray(list)) {
           currentSearchTracks = list.slice();
         }
+      });
+
+      // Mobile action buttons
+      playerEl.addEventListener('player:toggleLike', () => {
+        const track = getCurrentTrack();
+        if (!track) return;
+        toggleLike(track);
+        const liked = isLiked(track.id);
+        updatePlayerLikeButton(liked);
+        renderPreferences();
+      });
+
+      playerEl.addEventListener('player:addToPlaylist', () => {
+        const track = getCurrentTrack();
+        if (!track) return;
+        const playlists = getPlaylists();
+        showPlaylistSelector(playlists, track);
       });
     }
 });
